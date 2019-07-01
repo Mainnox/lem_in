@@ -6,7 +6,7 @@
 #    By: akremer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 17:38:05 by akremer           #+#    #+#              #
-#    Updated: 2019/05/19 17:49:33 by akremer          ###   ########.fr        #
+#    Updated: 2019/07/01 16:43:09 by akremer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,10 @@ INCLUDES = includes/
 SRC =	ft_atoi.c				\
 		ft_memset.c				\
 		ft_bzero.c				\
+		ft_split_whitespace.c	\
 		ft_strlen.c				\
 		ft_tablen.c				\
+		ft_nbrlen_clas.c		\
 		ft_memccpy.c			\
 		ft_strcount.c			\
 		ft_strdup.c				\

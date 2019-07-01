@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   ft_split_whitespace.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/10 15:15:11 by akremer           #+#    #+#             */
-/*   Updated: 2019/07/01 15:30:37 by akremer          ###   ########.fr       */
+/*   Created: 2019/07/01 16:37:18 by akremer           #+#    #+#             */
+/*   Updated: 2019/07/01 17:06:11 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-static int		compte_mot(char *str, char c)
+static int		compte_mot(char *str)
 {
 	int i;
 	int word;
@@ -21,32 +21,32 @@ static int		compte_mot(char *str, char c)
 	word = 0;
 	while (str[i])
 	{
-		while (str[i] == c)
+		while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t')
 			i++;
-		if (str[i] != c)
+		if (str[i] != ' ' || str[i] != '\n' || str[i] != '\t')
 			word++;
-		while (str[i] && (str[i] != c))
+		while (str[i] && (str[i] != ' ' && str[i] != '\n' && str[i] != '\t'))
 			i++;
 	}
 	return (word);
 }
 
-static int		ft_s(char *str, char c)
+static int		ft_s(char *str)
 {
 	int i;
 
 	i = 0;
-	while (str[i] && (str[i] != c))
+	while (str[i] && (str[i] != ' ' && str[i] != '\n' && str[i] != '\t'))
 		i++;
 	return (i);
 }
 
-static int		ft_strcpyy(char *tab, char *str, int i, char c)
+static int		ft_strcpyy(char *tab, char *str, int i)
 {
 	int j;
 
 	j = 0;
-	while (str[i] && (str[i] != c))
+	while (str[i] && (str[i] != ' ' && str[i] != '\n' && str[i] != '\t'))
 	{
 		tab[j] = str[i];
 		i++;
@@ -56,35 +56,33 @@ static int		ft_strcpyy(char *tab, char *str, int i, char c)
 	return (i);
 }
 
-static int		ft_skipc(int i, char c, char *str)
+static int		ft_skipc(int i, char *str)
 {
-	while (str[i] == c)
+	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t')
 		i++;
 	return (i);
 }
 
-char			**ft_strsplit(const char *s, char c)
+char			**ft_split_whitespace(char *str)
 {
 	char		**tab;
 	int			j;
 	int			i;
-	char		*str;
 
-	str = (char*)s;
 	i = 0;
 	j = 0;
-	if (!s)
+	if (!str)
 		return (NULL);
-	if (!(tab = (char**)malloc(sizeof(char*) * compte_mot(str, c) + 1)))
+	if (!(tab = (char**)malloc(sizeof(char*) * compte_mot(str) + 1)))
 		return (NULL);
 	while (str[i])
 	{
-		i = ft_skipc(i, c, str);
+		i = ft_skipc(i, str);
 		if (str[i])
 		{
-			if (!(tab[j] = (char*)malloc(sizeof(char) * ft_s(&str[i], c) + 1)))
+			if (!(tab[j] = (char*)malloc(sizeof(char) * ft_s(&str[i]) + 1)))
 				return (NULL);
-			i = ft_strcpyy(tab[j], str, i, c);
+			i = ft_strcpyy(tab[j], str, i);
 			j++;
 		}
 	}

@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   store_room.c                                       :+:      :+:    :+:   */
+/*   ft_nbrlen_clas.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/20 16:06:04 by akremer           #+#    #+#             */
-/*   Updated: 2019/07/01 11:11:28 by akremer          ###   ########.fr       */
+/*   Created: 2019/07/01 12:55:21 by akremer           #+#    #+#             */
+/*   Updated: 2019/07/01 13:01:11 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "includes/ft_printf.h"
 
-void		store_room(t_room *rooms)
+int			ft_nbrlen_clas(int nb)
 {
-	
+	int ret;
+
+	ret = 1;
+	if (nb < 0)
+	{
+		ret++;
+		nb = -nb;
+	}
+	while (nb >= 10)
+	{
+		nb /= 10;
+		ret++;
+	}
+	return (ret);
 }
