@@ -6,7 +6,7 @@
 #    By: akremer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/20 15:44:50 by akremer           #+#    #+#              #
-#    Updated: 2019/07/01 17:16:05 by akremer          ###   ########.fr        #
+#    Updated: 2019/07/21 09:36:29 by akremer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ fclean: clean
 re: fclean all
 
 save: fclean
+	@rm -rf *.swp
 	@git add *
 	@git commit -m "Auto-save"
 	@git push
