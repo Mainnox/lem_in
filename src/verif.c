@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 14:00:49 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/22 09:08:44 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/22 11:36:45 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int			verif_room(t_info handle, t_room *room)
 		if (ft_strcmp(tmp->name, room->name) == 0)
 			return (1);
 		if (tmp->x == room->x && tmp->y == room->y)
+			return (1);
+		if (tmp->index == room->index)
 			return (1);
 		tmp = tmp->next;
 	}

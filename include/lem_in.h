@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 15:18:20 by akremer           #+#    #+#             */
-/*   Updated: 2019/07/21 13:15:26 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/22 11:20:06 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,6 @@ int						verif_room(t_info handle, t_room *room);
  *						hashtag_functions
 \*/
 
-int						hashtag_parsing(char *str, t_info *handle);
+int						hashtag_parsing(char **str, t_info *handle);
 
 #endif

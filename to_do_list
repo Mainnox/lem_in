@@ -4,10 +4,6 @@ gestion du gnl global :
 --> gestion des commandes
 --> gestion du parsing gnl pour le switch en rooms et pipes
 gestion d'erreur dans le parsing gnl :
---> whitespace entre les parametres
---> name
---> x
---> y
 --> verification de l'existances de start et end
 --> verification de l'existance de plusieurs start ou end
 parsing liaison:
