@@ -1,46 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   verif.c                                            :+:      :+:    :+:   */
+/*   hashtag_parsing.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/01 14:00:49 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/22 09:08:44 by akremer          ###   ########.fr       */
+/*   Created: 2019/07/21 13:02:17 by akremer           #+#    #+#             */
+/*   Updated: 2019/07/21 13:19:31 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/lem_in.h"
 
-int			verif_coor(char *str)
+int			hashtag_parsing(char *str, t_info *handle)
 {
-	int i;
-
-	i = 0;
-	while (str[i])
+	if (ft_strcmp("##start", str) == 0)
 	{
-		if (!ft_isdigit(str[i]) && i == 0)
-			if (str[i] == '-' || str[i] == '+')
-				i++;
-		if (!ft_isdigit(str[i]))
+		if (handle->start != 0)
 			return (1);
-		i++;
+		handle->start = 1;
 	}
-	return (i);
-}
-
-int			verif_room(t_info handle, t_room *room)
-{
-	t_room		*tmp;
-
-	tmp = handle.room;
-	while (tmp)
+	if (ft_strcmp("##end", str) == 0)
 	{
-		if (ft_strcmp(tmp->name, room->name) == 0)
+		if (handle->end != 0)
 			return (1);
-		if (tmp->x == room->x && tmp->y == room->y)
-			return (1);
-		tmp = tmp->next;
+		handle->end = 1;
 	}
 	return (0);
 }

@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   store_room.c                                       :+:      :+:    :+:   */
+/*   ft_freesplit.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/20 16:06:04 by akremer           #+#    #+#             */
-/*   Updated: 2019/07/21 12:11:47 by akremer          ###   ########.fr       */
+/*   Created: 2019/08/22 09:27:27 by akremer           #+#    #+#             */
+/*   Updated: 2019/08/22 09:28:25 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "includes/libft.h"
 
-void		store_room(t_room *rooms)
+void			ft_freesplit(char **split)
 {
-	
+	int			i;
+
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
 }

@@ -6,24 +6,41 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 11:11:46 by akremer           #+#    #+#             */
-/*   Updated: 2019/07/01 17:16:19 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/22 09:30:02 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/lem_in.h"
 
-int			new_struct(t_info *handle, char *str)
+int			new_struct(t_info *handle, char *str, int index)
 {
-	int i;
+	char	**white;
 	t_room *tmp;
 	t_room *room;
 
-	i = ft_strclen(str, ' ');
+//	if (handle->start == 1)
+//	{
+//		room->index = 0;
+//		handle->start = 2;
+//	}
+//	else if (handle->end == 1)
+//	{
+//		room->index = -1;
+//		handle->end = 2;
+//	}
+//	else
+	white = ft_split_whitespace(str);
+	if (ft_splitlen(white) != 3)
+	{
+		ft_freesplit(white);
+		return (1);
+	}
 	if (!(room = (t_room*)malloc(sizeof(t_room))))
 		return (1);
-	room->name = ft_strndup(str, i);
-	room->x = ft_atoi(str + i + 1);
-	room->y = ft_atoi(str + i + ft_nbrlen_clas(room->x) + 2);
+	room->index = index;
+	room->name = ft_strdup(white[0]);
+	room->x = ft_atoi(white[1]);
+	room->y = ft_atoi(white[2]);
 	room->next = NULL;
 	if (verif_room(*handle, room))
 	{

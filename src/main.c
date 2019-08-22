@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 13:48:04 by akremer           #+#    #+#             */
-/*   Updated: 2019/07/01 13:59:47 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/22 09:19:43 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int			main(void)
 	i = 0;
 	if (!(gnl = (char **)malloc(sizeof(char*) * 1)))
 		return (0);
+	handle.start = 0;
+	handle.end = 0;
 	handle.room = NULL;
 	while (get_next_line(0, gnl) > 0)
 	{
@@ -38,7 +40,7 @@ int			main(void)
 			}
 		}
 		else
-			error = new_struct(&handle, gnl[0]);
+			error = new_struct(&handle, gnl[0], i);
 		free(gnl[0]);
 		if (error)
 			break ;

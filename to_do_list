@@ -16,3 +16,4 @@ parsing liaison:
 gestion d'erreur sur le parsing de liason:
 --> existance des rooms pour les liasons
 --> pas de repetions des liasons ???
+--> pas liasons a lui meme 

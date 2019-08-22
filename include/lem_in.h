@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 15:18:20 by akremer           #+#    #+#             */
-/*   Updated: 2019/07/01 16:58:59 by akremer          ###   ########.fr       */
+/*   Updated: 2019/07/21 13:15:26 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,26 +27,34 @@ typedef struct			s_room
 typedef struct			s_info
 {
 	int					nb_ants;
+	int					start;
+	int					end;
 	t_room				*room;
 }						t_info;
 
 /*\
- *						lst_function
+ *						lst_functions
 \*/
 
-int						new_struct(t_info *handle, char *str);
+int						new_struct(t_info *handle, char *str, int i);
 
 /*\
- *						test_function
+ *						test_functions
 \*/
 
 void					test_print_room(t_info handle);
 
 /*\
- *						verif_function
+ *						verif_functions
 \*/
 
 int						verif_coor(char *str);
 int						verif_room(t_info handle, t_room *room);
+
+/*\
+ *						hashtag_functions
+\*/
+
+int						hashtag_parsing(char *str, t_info *handle);
 
 #endif

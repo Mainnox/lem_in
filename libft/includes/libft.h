@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 10:32:32 by akremer           #+#    #+#             */
-/*   Updated: 2019/07/01 16:43:18 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/22 09:29:01 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ typedef struct		s_list
 }					t_list;
 
 char				**ft_split_whitespace(char *str);
+void				ft_freesplit(char **split);
+int					ft_splitlen(char **white);
 int					ft_strcount(char *str, char c);
 int					ft_nbrlen_clas(int nb);
 int					ft_tablen(int *tab, int stop);
