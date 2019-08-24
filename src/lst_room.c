@@ -6,13 +6,13 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 11:11:46 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/24 17:09:20 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/24 18:00:01 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/lem_in.h"
 
-int			new_struct(t_info *handle, char *str, int index)
+int			new_struct(t_info *handle, char *str)
 {
 	char	**white;
 	t_room *tmp;

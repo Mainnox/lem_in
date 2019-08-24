@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 15:18:20 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/24 16:41:54 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/24 17:59:53 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct			s_info
  *						lst_functions
 \*/
 
-int						new_struct(t_info *handle, char *str, int i);
+int						new_struct(t_info *handle, char *str);
 
 /*\
  *						test_functions
@@ -57,5 +57,11 @@ int						verif_room(t_info handle, t_room *room);
 \*/
 
 int						hashtag_parsing(char **str, t_info *handle);
+
+/*\
+ *						gnl_functions
+\*/
+
+void					store_room(t_info *handle, char **gnl);
 
 #endif

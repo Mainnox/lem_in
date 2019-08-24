@@ -6,7 +6,7 @@
 #    By: akremer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/20 15:44:50 by akremer           #+#    #+#              #
-#    Updated: 2019/08/23 09:14:16 by akremer          ###   ########.fr        #
+#    Updated: 2019/08/24 17:59:51 by akremer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ LIB = libft/libftprintf.a
 
 SRC = src/main.c					\
 	  src/hashtag_parsing.c			\
+	  src/using_gnl.c				\
 	  src/lst_room.c				\
 	  src/verif.c					\
 	  src/test.c

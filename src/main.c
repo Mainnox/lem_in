@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 13:48:04 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/24 17:09:53 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/24 17:59:49 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char		**setup_main(t_info *handle)
 		return (NULL);
 	handle->start = 0;
 	handle->end = 0;
-	handle->nb_room = 2;
+	handle->nb_room = 1;
 	handle->room = NULL;
 	return (gnl);	
 }
@@ -50,7 +50,7 @@ int			main(void)
 	gnl = setup_main(&handle);
 	if (!gnl)
 		return (0);
-	while (get_next_line(0, gnl) > 0)
+/*	while (get_next_line(0, gnl) > 0)
 	{
 		if (i == 1)
 		{
@@ -70,6 +70,8 @@ int			main(void)
 			break ;
 		i++;
 	}
+	*/
+	store_room(&handle, gnl);
 	test_print_room(handle);
 	free_handle(&handle);
 	return (0);
