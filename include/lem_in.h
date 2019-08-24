@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 15:18:20 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/22 11:20:06 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/24 16:41:54 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct			s_room
 typedef struct			s_info
 {
 	int					nb_ants;
+	int					nb_room;
 	int					start;
 	int					end;
 	t_room				*room;
