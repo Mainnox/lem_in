@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 11:11:46 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/27 11:54:07 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/27 13:51:37 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int		new_edge(t_info *handle, char *str)
 	mid = ft_strclen(str, '-');
 	first = ft_strndup(str, mid);
 	second = ft_strdup(str + mid + 1);
-	if (add_edge(handle->graph, lycos(handle, first), lycos(handle, second)))
-		return (1);
+	if (add_edge(handle->graph, lycos(handle, ft_strtrim(first)), lycos(handle, ft_strtrim(second))))
+			return (1);
 	return (0);
 }
