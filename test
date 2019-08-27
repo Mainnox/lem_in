@@ -1,11 +1,13 @@
-3
-start 1     0       
-##start
-1     5    0         
-2     9   0        
-end    13   0               
-##end
-test   2   3        
-10   2  4      
-12trucs   90 89    
-        12trucs-end
+		3
+		start 1     0       
+				##start						
+			1     5    0         
+		2     9   0        
+		end    13   0               
+					##end			
+		test   2   3        
+	10   2  4      
+		12trucs   90 89    
+					12trucs							-				 end					
+					1-2
+					test-10

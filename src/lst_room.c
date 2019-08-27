@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 11:11:46 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/27 13:51:37 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/27 15:55:11 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ int		lycos(t_info *handle, char *str)
 	tmp = handle->room;
 	while (tmp)
 	{
-//		ft_printf("tmp->name = %s\nstr = %s\n", tmp->name, str);
 		if (ft_strcmp(tmp->name, str) == 0)
 			return (tmp->index);
 		tmp = tmp->next;
@@ -82,16 +81,40 @@ int		lycos(t_info *handle, char *str)
 	return (-1);
 }
 
-int		new_edge(t_info *handle, char *str)
+static void		clean_split(char **split)
 {
-	char	*first;
-	char	*second;
-	int		mid;
+	char	*tmp;
+	int		i;
 
-	mid = ft_strclen(str, '-');
-	first = ft_strndup(str, mid);
-	second = ft_strdup(str + mid + 1);
-	if (add_edge(handle->graph, lycos(handle, ft_strtrim(first)), lycos(handle, ft_strtrim(second))))
-			return (1);
+	i = 0;
+	while (split[i])
+	{
+		tmp = ft_strtrim(split[i]);
+		free(split[i]);
+		split[i] = tmp;
+		i++;
+	}
+}
+
+int				new_edge(t_info *handle, char *s)
+{
+	int		mid;
+	char	**split;
+	int		i;
+
+	i = 0;
+	split = ft_strsplit(s, '-');
+	clean_split(split);
+	if (ft_splitlen(split) != 2)
+	{
+		ft_freesplit(split);
+		return (1);
+	}
+	if (add_edge(handle->graph, lycos(handle, split[0]), lycos(handle, split[1])))
+	{
+		ft_freesplit(split);
+		return (1);
+	}
+		ft_freesplit(split);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 09:32:07 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/27 11:54:17 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/27 15:55:18 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_graph			*new_graph(int vertices)
 	if (!(graph = (t_graph*)malloc(sizeof(t_graph))))
 		return (NULL);
 	graph->nb_vertices = vertices;
-	if (!(graph->tab_neigh = (t_neigh*)malloc(sizeof(t_neigh))))
+	if (!(graph->tab_neigh = (t_neigh*)malloc(sizeof(t_neigh) * vertices)))
 		return (NULL);
 	while (i < graph->nb_vertices)
 	{
