@@ -13,4 +13,4 @@ gestion d'erreur dans le parsing gnl :
 --> verification qu'il n'y a pas de lettres parasites dans les nombres (ex: x = 12ert, nb_ants = 90wer, ...)
 
 gestion probleme
--->malloc apres un free etrange
+-->modification apres un free sans free. Hmmm etrange

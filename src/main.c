@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 13:48:04 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/27 10:13:31 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/27 11:54:09 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static char		**setup_main(t_info *handle)
 		return (NULL);
 	handle->start = 0;
 	handle->end = 0;
+	handle->graph = NULL;
 	handle->nb_room = 1;
 	handle->room = NULL;
 	return (gnl);	
@@ -52,7 +53,8 @@ int			main(void)
 		return (0);
 	store_room(&handle, gnl);
 	test_print_room(handle);
-	test_graph();
+	print_graph(handle.graph);
+//	test_graph();
 	free_handle(&handle);
 	return (0);
 }

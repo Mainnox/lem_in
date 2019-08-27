@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 11:11:46 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/24 18:00:01 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/27 11:54:07 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,34 @@ int			new_struct(t_info *handle, char *str)
 			tmp = tmp->next;
 		tmp->next = room;
 	}
+	return (0);
+}
+
+int		lycos(t_info *handle, char *str)
+{
+	t_room	*tmp;
+
+	tmp = handle->room;
+	while (tmp)
+	{
+//		ft_printf("tmp->name = %s\nstr = %s\n", tmp->name, str);
+		if (ft_strcmp(tmp->name, str) == 0)
+			return (tmp->index);
+		tmp = tmp->next;
+	}
+	return (-1);
+}
+
+int		new_edge(t_info *handle, char *str)
+{
+	char	*first;
+	char	*second;
+	int		mid;
+
+	mid = ft_strclen(str, '-');
+	first = ft_strndup(str, mid);
+	second = ft_strdup(str + mid + 1);
+	if (add_edge(handle->graph, lycos(handle, first), lycos(handle, second)))
+		return (1);
 	return (0);
 }

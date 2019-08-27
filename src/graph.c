@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 09:32:07 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/27 10:28:41 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/27 11:54:17 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,16 +62,19 @@ t_node			*add_node(int value)
 	return (n);
 }
 
-void			add_edge(t_graph *g, int src, int dest)
+int				add_edge(t_graph *g, int src, int dest)
 {
 	t_node *n;
 	
+	if ((src == -1) || (dest == -1))
+		return (1);
 	n = add_node(dest);
 	n->next = g->tab_neigh[src].begin;
 	g->tab_neigh[src].begin = n;
 	n = add_node(src);
 	n->next = g->tab_neigh[dest].begin;
 	g->tab_neigh[dest].begin = n;
+	return (0);
 }
 
 void			free_graph(t_graph *g)
