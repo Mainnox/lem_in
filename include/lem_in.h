@@ -6,13 +6,30 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 15:18:20 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/24 17:59:53 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/27 10:28:35 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LEM_IN_H
 # define LEM_IN_H
 # include "../libft/includes/libft.h"
+
+typedef struct			s_node
+{
+	int					value;
+	struct s_node		*next;
+}						t_node;
+
+typedef struct			s_neigh
+{
+	t_node				*begin;
+}						t_neigh;
+
+typedef struct			s_graph
+{
+	int					nb_vertices;
+	t_neigh				*tab_neigh;
+}						t_graph;
 
 typedef struct			s_room
 {
@@ -44,6 +61,7 @@ int						new_struct(t_info *handle, char *str);
 \*/
 
 void					test_print_room(t_info handle);
+void					test_graph(void);
 
 /*\
  *						verif_functions
@@ -63,5 +81,15 @@ int						hashtag_parsing(char **str, t_info *handle);
 \*/
 
 void					store_room(t_info *handle, char **gnl);
+
+/*\
+ *						graph_functions
+\*/
+
+t_graph					*new_graph(int vertices);
+t_node					*add_node(int value);
+void					add_edge(t_graph *g, int src, int dest);
+void					free_graph(t_graph *g);
+void					print_graph(t_graph *g);
 
 #endif

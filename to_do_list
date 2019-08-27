@@ -1,12 +1,16 @@
 gestion du gnl global :
 --> gestion du parsing gnl pour le switch en rooms et pipes
 parsing liaison:
---> ce decider sur l'utilisation d'un char * ou int *
 --> faire le parsing
+
 gestion d'erreur sur le parsing de liason:
 --> existance des rooms pour les liasons
 --> pas de repetions des liasons ???
 --> pas liasons a lui meme 
+
 gestion d'erreur dans le parsing gnl :
 --> verification de l'existances de start et end
 --> verification qu'il n'y a pas de lettres parasites dans les nombres (ex: x = 12ert, nb_ants = 90wer, ...)
+
+gestion probleme
+-->malloc apres un free etrange

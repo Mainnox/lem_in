@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 12:42:17 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/24 15:22:52 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/27 10:28:38 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,28 @@ void		test_print_room(t_info handle)
 		tmp = tmp->next;
 		i++;
 	}
-	ft_printf("EEEEEEEEEEEEEEEEEEEEEEEEET LE NOMBRE DE SALLES EST :\n");
-	sleep(1);
-	ft_printf("ROULEMENT DE TAMBOURS\n");
-	sleep(1);
+//	ft_printf("EEEEEEEEEEEEEEEEEEEEEEEEET LE NOMBRE DE SALLES EST :\n");
+//	sleep(1);
+//	ft_printf("ROULEMENT DE TAMBOURS\n");
+//	sleep(1);
 	ft_printf("%d\n", handle.nb_room);
+}
+
+void		test_graph(void)
+{
+	t_graph		*g;
+
+	g = new_graph(5);
+
+	add_edge(g, 1, 2);
+	ft_printf("casca\n");
+	add_edge(g, 1, 4);
+	add_edge(g, 0, 2);
+	add_edge(g, 0, 4);
+	add_edge(g, 4, 0);
+	add_edge(g, 4, 3);
+	add_edge(g, 0, 3);
+	add_edge(g, 2, 3);
+	print_graph(g);
+	free_graph(g);
 }

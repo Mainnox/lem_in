@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 13:48:04 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/24 17:59:49 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/27 10:13:31 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,29 +50,9 @@ int			main(void)
 	gnl = setup_main(&handle);
 	if (!gnl)
 		return (0);
-/*	while (get_next_line(0, gnl) > 0)
-	{
-		if (i == 1)
-		{
-			handle.nb_ants = ft_atoi(gnl[0]);
-			if (handle.nb_ants <= 0)
-			{
-				ft_printf("Number of ants sucks\n");
-				free(gnl[0]);
-					free(gnl);
-				exit(0);
-			}
-		}
-		else
-			error = new_struct(&handle, gnl[0], i);
-		free(gnl[0]);
-		if (error)
-			break ;
-		i++;
-	}
-	*/
 	store_room(&handle, gnl);
 	test_print_room(handle);
+	test_graph();
 	free_handle(&handle);
 	return (0);
 }
