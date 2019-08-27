@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 11:11:46 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/27 15:55:11 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/27 16:05:16 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,14 @@ int				new_edge(t_info *handle, char *s)
 	int		i;
 
 	i = 0;
+
 	split = ft_strsplit(s, '-');
 	clean_split(split);
+	if (split[0][0] == '#')
+	{
+		ft_freesplit(split);
+		return (0);
+	}
 	if (ft_splitlen(split) != 2)
 	{
 		ft_freesplit(split);
