@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/24 17:41:16 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/27 15:55:13 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/28 10:27:44 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void				store_room(t_info *handle, char **gnl)
 		{
 			handle->nb_room++;
 			handle->nb_ants = ft_atoi(gnl[0]);
-			if (handle->nb_ants <= 0)
+			if (handle->nb_ants <= 0 || verif_nb_ants(handle->nb_ants, gnl[0]))
 			{
 				free(gnl[0]);
 				free(gnl);
@@ -41,7 +41,10 @@ void				store_room(t_info *handle, char **gnl)
 			change++;
 			error = 0;
 			handle->graph = new_graph(handle->nb_room);
-			error = new_edge(handle, gnl[0]);
+			if (!verif_start_end_exist(handle))
+				error = new_edge(handle, gnl[0]);
+			else
+				error = 1;
 		}
 		free(gnl[0]);
 		if (error)

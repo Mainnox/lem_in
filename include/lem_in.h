@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 15:18:20 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/27 16:37:53 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/28 10:28:00 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,11 @@ void					test_graph(void);
 \*/
 
 int						verif_coor(char *str);
-int						verif_room(t_info handle, t_room *room);
+int						verif_room(t_info *handle, t_room *room);
+int						verif_split(int x, int y, char **split);
+int						edge_exit(t_graph *g, int src, int dest);
+int						verif_nb_ants(int nb_ants, char *gnl);
+int						verif_start_end_exist(t_info *handle);
 
 /*\
  *						hashtag_functions

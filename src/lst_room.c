@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 11:11:46 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/27 16:37:48 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/28 10:25:03 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int			new_struct(t_info *handle, char *str)
 	room->x = ft_atoi(white[1]);
 	room->y = ft_atoi(white[2]);
 	room->next = NULL;
-	if (verif_room(*handle, room))
+	if (verif_room(handle, room) || verif_split(room->x, room->y, white))
 	{
 		free(room->name);
 		handle->nb_room--;
