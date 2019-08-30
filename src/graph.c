@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 09:32:07 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/30 13:32:00 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/30 15:05:24 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void			print_graph(t_graph *g)
 {
 	int		i;
 	t_node	*n;
+	t_path	*path;
 
 	i = 0;
 	while (i < g->nb_vertices)
@@ -27,8 +28,15 @@ void			print_graph(t_graph *g)
 			ft_printf("%d, ", n->value);
 			n = n->next;
 		}
+		path = g->tab_neigh[i].path;
+		ft_printf("\npath(%d) :", i);
+		while (path)
+		{
+			ft_printf(" %s, ", path->path);
+			path = path->next;
+		}
 		i++;
-		ft_printf("NULL\n");
+		ft_printf("\n");
 	}
 }
 
@@ -82,8 +90,10 @@ int				add_edge(t_graph *g, int src, int dest)
 void			free_graph(t_graph *g)
 {
 	int		i;
-	t_node *n;
-	t_node *tmp;
+	t_node	*n;
+	t_node	*tmp;
+	t_path	*tmp_p;
+	t_path	*p;
 
 	i = 0;
 	if (g->tab_neigh)
@@ -91,11 +101,19 @@ void			free_graph(t_graph *g)
 		while (i < g->nb_vertices)
 		{
 			n = g->tab_neigh[i].begin;
+			p = g->tab_neigh[i].path;
 			while (n)
 			{
 				tmp = n;
 				n = n->next;
 				free(tmp);
+			}
+			while (p)
+			{
+				tmp_p = p;
+				free(p->path);
+				p = p->next;
+				free(tmp_p);
 			}
 			i++;
 		}

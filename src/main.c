@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 13:48:04 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/30 13:39:26 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/30 15:05:26 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static void	free_handle(t_info *handle)
 {
 	t_room *tmp;
 
+	free_graph(handle->graph);
 	while (handle->room)
 	{
 		tmp = handle->room;
@@ -53,8 +54,8 @@ int			main(void)
 		return (0);
 	store_room(&handle, gnl);
 	test_print_room(handle);
-	print_graph(handle.graph);
 	resolve_lem_in(&handle, 1);
+	print_graph(handle.graph);
 	test_affiche_path(handle.graph);
 	free_handle(&handle);
 	return (0);
