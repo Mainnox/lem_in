@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 15:18:20 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/30 15:05:23 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/31 10:52:42 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct			s_node
 
 typedef	struct			s_path
 {
-	char				*path;
+	int					*path;
 	struct s_path		*next;
 }						t_path;
 
@@ -74,6 +74,7 @@ int						lycos(t_info *handle, char *str);
 void					test_print_room(t_info handle);
 void					test_graph(void);
 void					test_affiche_path(t_graph *g);
+void					test_done(t_graph *g);
 
 /*\
  *						verif_functions

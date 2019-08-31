@@ -1,0 +1,25 @@
+number of ants = 7
+handle.room->name   0 =          0
+handle.room->x      0 =         12
+handle.room->y      0 =         21
+handle.room->name   1 =          1
+handle.room->x      1 =         42
+handle.room->y      1 =         64
+handle.room->name   2 =          2
+handle.room->x      2 =         51
+handle.room->y      2 =         23
+handle.room->name   3 =          3
+handle.room->x      3 =        123
+handle.room->y      3 =        423
+4
+(0) : 2, 1, 
+path(0) : 0, 
+(1) : 0, 
+path(1) : 01, 
+(2) : 0, 
+path(2) : 02, 
+(3) : 
+path(3) :
+Chemin 0 = 0
+Chemin 1 = 01
+Chemin 2 = 02
