@@ -6,46 +6,48 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 10:21:59 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/31 10:52:46 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/31 12:09:37 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/lem_in.h"
 
-static t_path		*create_path(size_t size, char *str, char c)
+static t_path		*create_path(size_t size, int *str, int c)
 {
 	t_path	*n;
+	int		i;
 
+	i = 0;
 	if (!(n = (t_path*)malloc(sizeof(t_path))))
 		return (NULL);
-	if (!(n->path = (char*)malloc(sizeof(char) * size + 2)))
+	if (!(n->path = (int*)malloc(sizeof(int) * size + 2)))
 		return (NULL);
-	ft_strcpy(n->path, str);
+	ft_tabcpy(str, n->path, -1);
 	n->path[size] = c;
-	n->path[size + 1] = '\0';
+	n->path[size + 1] = -1;
 	n->next = NULL;
 	return (n);
 }
 
-static int			already_here(t_info *handle, char *rififi, int value)
+static int			already_here(t_info *handle, int *rififi, int value)
 {
 	t_path		*src;
 
 	src = handle->graph->tab_neigh[value].path;
 	while (src)
 	{
-		if (ft_strcmp(src->path, rififi) == 0)
+		if (ft_tabcmp(src->path, rififi, -1) == 0)
 			return (1);
 		src = src->next;
 	}
 	return (0);
 }
 
-static void			add_path(t_info *handle, char *path_src, int value)
+static void			add_path(t_info *handle, int *path_src, int value)
 {
 	t_path	*n;
 
-	n = create_path(ft_strlen(path_src), path_src, value + 48);
+	n = create_path(ft_tablen(path_src, -1), path_src, value);
 	if (already_here(handle, n->path, value))
 	{
 		free(n->path);
@@ -73,7 +75,7 @@ static void			add_walkthrough(t_info *handle, int i)
 		adjacent = handle->graph->tab_neigh[i].begin;
 		while (adjacent)
 		{
-			if (ft_strchr(path_src->path, adjacent->value + 48) == NULL)
+			if (ft_tabchr(path_src->path, adjacent->value, -1) == -1)
 				add_path(handle, path_src->path, adjacent->value);
 			adjacent = adjacent->next;
 		}
@@ -106,10 +108,10 @@ int					resolve_lem_in(t_info *handle, char first)
 		handle->graph->tab_neigh[0].done = 1;
 		if (!(handle->graph->tab_neigh[0].path = (t_path*)malloc(sizeof(t_path))))
 			return (0);
-		if (!(handle->graph->tab_neigh[0].path->path = (char*)malloc(sizeof(char) * 2)))
+		if (!(handle->graph->tab_neigh[0].path->path = (int*)malloc(sizeof(int) * 2)))
 			return (0);
-		handle->graph->tab_neigh[0].path->path[0] = '0';
-		handle->graph->tab_neigh[0].path->path[1] = '\0';
+		handle->graph->tab_neigh[0].path->path[0] = 0;
+		handle->graph->tab_neigh[0].path->path[1] = -1;
 		handle->graph->tab_neigh[0].path->next = NULL;
 	}
 	while (i < handle->graph->nb_vertices)
@@ -118,7 +120,7 @@ int					resolve_lem_in(t_info *handle, char first)
 			add_walkthrough(handle, i);
 		i++;
 	}
-	if (isnt_finish(handle->graph) && first < 3)
-		resolve_lem_in(handle, first + 1);
+//	if (isnt_finish(handle->graph) && first < 3)
+//		resolve_lem_in(handle, first + 1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 12:42:17 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/31 10:04:25 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/31 12:09:41 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,23 @@ void		test_affiche_path(t_graph *g)
 {
 	t_graph *tmp;
 	int		i;
+	int		j;
 
+	j = 0;
 	i = 0;
 	tmp = g;
 	while (i < tmp->nb_vertices)
 	{
 		while (tmp->tab_neigh[i].path)
 		{
-			ft_printf("Chemin %d = %s\n", i , tmp->tab_neigh[i].path->path);
+			ft_printf("Chemin %d = ", i);
+			j = 0;
+			while (g->tab_neigh[i].path->path[j + 1] != -1)
+			{
+				ft_printf("%d-", g->tab_neigh[i].path->path[j]);
+				j++;
+			}
+			ft_printf("%d\n", g->tab_neigh[i].path->path[j]);
 			tmp->tab_neigh[i].path = tmp->tab_neigh[i].path->next;
 		}
 		i++;

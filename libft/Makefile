@@ -6,7 +6,7 @@
 #    By: akremer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 17:38:05 by akremer           #+#    #+#              #
-#    Updated: 2019/08/22 09:28:37 by akremer          ###   ########.fr        #
+#    Updated: 2019/08/31 11:38:46 by akremer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,11 @@ INCLUDES = includes/
 
 SRC =	ft_atoi.c				\
 		ft_memset.c				\
+		ft_tabcmp.c				\
 		ft_bzero.c				\
+		ft_tabcpy.c				\
 		ft_split_whitespace.c	\
+		ft_tabchr.c				\
 		ft_splitlen.c			\
 		ft_freesplit.c			\
 		ft_strlen.c				\
