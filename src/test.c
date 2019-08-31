@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 12:42:17 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/31 12:54:51 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/31 18:04:28 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,49 @@
 
 void		test_affiche_path(t_graph *g)
 {
-	t_graph *tmp;
+	t_path *tmp;
 	int		i;
 	int		j;
 
 	j = 0;
 	i = 0;
-	tmp = g;
-	while (i < tmp->nb_vertices)
+	while (i < g->nb_vertices)
 	{
-		while (tmp->tab_neigh[i].path)
+		tmp = g->tab_neigh[i].path;
+		while (tmp)
 		{
-			ft_printf("Chemin %d = ", i);
+			ft_printf("Sommet %d = ", i);
 			j = 0;
-			while (g->tab_neigh[i].path->path[j + 1] != -1)
+			while (tmp->path[j + 1] != -1)
 			{
-				ft_printf("%d-", g->tab_neigh[i].path->path[j]);
+				ft_printf("%d-", tmp->path[j]);
 				j++;
 			}
-			ft_printf("%d\n", g->tab_neigh[i].path->path[j]);
-			tmp->tab_neigh[i].path = tmp->tab_neigh[i].path->next;
+			ft_printf("%d\n", tmp->path[j]);
+			tmp = tmp->next;
 		}
 		i++;
+	}
+}
+
+void		test_size_path(t_graph *g)
+{
+	int		i;
+	t_path	*tmp;
+
+	i = 0;
+	tmp = g->tab_neigh[1].path;
+	while (tmp)
+	{
+		i = 0;
+		ft_printf("Path = ");
+		while (tmp->path[i + 1] != -1)
+		{
+			ft_printf("%d-", tmp->path[i]);
+			i++;
+		}
+		ft_printf("%d\nSize = %d\n", tmp->path[i], tmp->size);
+		tmp = tmp->next;
 	}
 }
 

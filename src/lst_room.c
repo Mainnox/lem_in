@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 11:11:46 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/28 10:25:03 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/31 16:40:02 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,6 @@ int				new_edge(t_info *handle, char *s)
 		ft_freesplit(split);
 		return (1);
 	}
-		ft_freesplit(split);
+	ft_freesplit(split);
 	return (0);
 }

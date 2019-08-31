@@ -6,7 +6,7 @@
 #    By: akremer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/20 15:44:50 by akremer           #+#    #+#              #
-#    Updated: 2019/08/31 11:38:29 by akremer          ###   ########.fr        #
+#    Updated: 2019/08/31 15:43:13 by akremer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRC = src/main.c					\
 	  src/hashtag_parsing.c			\
 	  src/graph.c					\
 	  src/using_gnl.c				\
+	  src/combo.c					\
 	  src/algo.c					\
 	  src/lst_room.c				\
 	  src/verif.c					\

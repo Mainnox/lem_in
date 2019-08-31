@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 10:21:59 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/31 12:47:25 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/31 17:55:55 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static t_path		*create_path(size_t size, int *str, int c)
 	if (!(n->path = (int*)malloc(sizeof(int) * size + 1)))
 		return (NULL);
 	ft_tabcpy(str, n->path, -1);
+	n->size = 0;
 	n->path[size - 1] = c;
 	n->path[size] = -1;
 	n->next = NULL;
@@ -65,9 +66,7 @@ static void			add_walkthrough(t_info *handle, int i)
 	t_node		*adjacent;
 	t_path		*path_src;
 	t_path		*path_dest;
-	int			find_it;
 
-	find_it = 0;
 	handle->graph->tab_neigh[i].done = 0;
 	path_src = handle->graph->tab_neigh[i].path;
 	while (path_src)
@@ -120,7 +119,7 @@ int					resolve_lem_in(t_info *handle, char first)
 			add_walkthrough(handle, i);
 		i++;
 	}
-//	if (isnt_finish(handle->graph) && first < 3)
-//		resolve_lem_in(handle, first + 1);
+	if (isnt_finish(handle->graph))
+		resolve_lem_in(handle, first + 1);
 	return (0);
 }

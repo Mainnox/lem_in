@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 13:48:04 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/31 12:58:11 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/31 18:04:26 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ int			main(void)
 	store_room(&handle, gnl);
 	test_print_room(handle);
 	resolve_lem_in(&handle, 1);
-	print_graph(handle.graph);
 	test_affiche_path(handle.graph);
+	ft_printf("%d\n", seek_combo(handle.graph));
 	free_handle(&handle);
 	return (0);
 }
