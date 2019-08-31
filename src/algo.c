@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 10:21:59 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/31 12:09:37 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/31 12:47:25 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ static t_path		*create_path(size_t size, int *str, int c)
 	i = 0;
 	if (!(n = (t_path*)malloc(sizeof(t_path))))
 		return (NULL);
-	if (!(n->path = (int*)malloc(sizeof(int) * size + 2)))
+	if (!(n->path = (int*)malloc(sizeof(int) * size + 1)))
 		return (NULL);
 	ft_tabcpy(str, n->path, -1);
-	n->path[size] = c;
-	n->path[size + 1] = -1;
+	n->path[size - 1] = c;
+	n->path[size] = -1;
 	n->next = NULL;
 	return (n);
 }

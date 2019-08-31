@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 09:32:07 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/30 15:05:24 by akremer          ###   ########.fr       */
+/*   Updated: 2019/08/31 12:57:58 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ void			print_graph(t_graph *g)
 	int		i;
 	t_node	*n;
 	t_path	*path;
+	int		j;
 
+	j = 0;
 	i = 0;
 	while (i < g->nb_vertices)
 	{
@@ -29,10 +31,16 @@ void			print_graph(t_graph *g)
 			n = n->next;
 		}
 		path = g->tab_neigh[i].path;
-		ft_printf("\npath(%d) :", i);
+		ft_printf("\npath(%d) : \n", i);
 		while (path)
 		{
-			ft_printf(" %s, ", path->path);
+			j = 0;
+			while (path->path[j + 1] != -1)
+			{
+				ft_printf("%d, ", path->path[j]);
+				j++;
+			}
+			ft_printf("%d\n", path->path[j]);
 			path = path->next;
 		}
 		i++;
