@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 12:42:17 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/31 18:04:28 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/02 11:16:45 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,33 @@ void		test_size_path(t_graph *g)
 	while (tmp)
 	{
 		i = 0;
-		ft_printf("Path = ");
+		ft_printf("Index = %d\nSize = %d\nPath = ", tmp->index, tmp->size);
 		while (tmp->path[i + 1] != -1)
 		{
 			ft_printf("%d-", tmp->path[i]);
 			i++;
 		}
-		ft_printf("%d\nSize = %d\n", tmp->path[i], tmp->size);
+		ft_printf("%d\n", tmp->path[i], tmp->size);
 		tmp = tmp->next;
+	}
+}
+
+void		test_combo(t_graph *g)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (i < g->tab_neigh[1].nb_path - 1)
+	{
+		ft_printf("Combo pour l'index [%d]\n", i);
+		j = 0;
+		while (g->combo[i][j] != -1)
+		{
+			ft_printf("[%d] = %d\n", j, g->combo[i][j]);
+			j++;
+		}
+		i++;
 	}
 }
 

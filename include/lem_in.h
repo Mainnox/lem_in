@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 15:18:20 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/31 18:04:25 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/02 11:16:43 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,24 @@ typedef struct			s_node
 
 typedef	struct			s_path
 {
-	int					*path;
+	int					index;
 	int					size;
+	int					*path;
 	struct s_path		*next;
 }						t_path;
 
 typedef struct			s_neigh
 {
 	char				done;
-	t_path				*path;
+	int					nb_path;
 	t_node				*begin;
+	t_path				*path;
 }						t_neigh;
 
 typedef struct			s_graph
 {
 	int					nb_vertices;
+	int					**combo;
 	t_neigh				*tab_neigh;
 }						t_graph;
 
@@ -54,10 +57,10 @@ typedef struct			s_info
 {
 	int					nb_ants;
 	int					nb_room;
-	t_graph				*graph;
 	int					start;
 	int					end;
 	t_room				*room;
+	t_graph				*graph;
 }						t_info;
 
 /*\
@@ -77,6 +80,7 @@ void					test_graph(void);
 void					test_affiche_path(t_graph *g);
 void					test_done(t_graph *g);
 void					test_size_path(t_graph *g);
+void					test_combo(t_graph *g);
 
 /*\
  *						verif_functions
