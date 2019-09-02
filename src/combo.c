@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 14:26:23 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/02 11:16:41 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/02 11:49:32 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static int		combo_match(int *act, int *next)
 	i = 1;
 	while (act[i] != 1)
 	{
-		j = i;
+		j = 1;
 		while (next[j] != 1)
 		{
 			if (act[i] == next[j])
@@ -89,6 +89,9 @@ static void		fill_combo(t_graph *g)
 				g->combo[tmp_next->index][g->combo[tmp_next->index][1]] = -1;
 				g->combo[tmp_act->index][g->combo[tmp_act->index][1]] = -1;
 			}
+//			test_size_path(g);
+//			test_combo(g);
+//			sleep(5);
 			tmp_next = tmp_next->next;
 		}
 		tmp_act = tmp_act->next;

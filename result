@@ -1,5 +1,5 @@
 number of ants = 15
-handle.room->name   0 =          1
+handle.room->name   0 =          0
 handle.room->x      0 =         23
 handle.room->y      0 =          3
 handle.room->name   2 =          2
@@ -20,7 +20,7 @@ handle.room->y      6 =          5
 handle.room->name   7 =          7
 handle.room->x      7 =          4
 handle.room->y      7 =          8
-handle.room->name   1 =          0
+handle.room->name   1 =          1
 handle.room->x      1 =          9
 handle.room->y      1 =          5
 8
@@ -186,108 +186,69 @@ Combo pour l'index [2]
 [1] = 2
 Combo pour l'index [3]
 [0] = 7
-[1] = 4
-[2] = 4
-[3] = 11
+[1] = 2
 Combo pour l'index [4]
 [0] = 7
-[1] = 6
-[2] = 3
-[3] = 6
-[4] = 13
-[5] = 14
+[1] = 2
 Combo pour l'index [5]
 [0] = 8
 [1] = 2
 Combo pour l'index [6]
 [0] = 7
-[1] = 5
-[2] = 4
-[3] = 13
-[4] = 14
+[1] = 2
 Combo pour l'index [7]
 [0] = 6
-[1] = 3
-[2] = 8
+[1] = 2
 Combo pour l'index [8]
 [0] = 6
-[1] = 3
-[2] = 7
+[1] = 2
 Combo pour l'index [9]
 [0] = 5
-[1] = 7
-[2] = 15
-[3] = 18
-[4] = 19
-[5] = 20
-[6] = 22
+[1] = 3
+[2] = 22
 Combo pour l'index [10]
 [0] = 7
 [1] = 2
 Combo pour l'index [11]
 [0] = 7
-[1] = 3
-[2] = 3
+[1] = 2
 Combo pour l'index [12]
 [0] = 8
 [1] = 2
 Combo pour l'index [13]
 [0] = 7
-[1] = 5
-[2] = 4
-[3] = 6
-[4] = 14
+[1] = 2
 Combo pour l'index [14]
 [0] = 7
-[1] = 5
-[2] = 4
-[3] = 6
-[4] = 13
+[1] = 2
 Combo pour l'index [15]
 [0] = 5
-[1] = 6
-[2] = 9
-[3] = 19
-[4] = 20
-[5] = 21
+[1] = 3
+[2] = 19
 Combo pour l'index [16]
 [0] = 8
 [1] = 2
 Combo pour l'index [17]
 [0] = 6
-[1] = 3
-[2] = 20
+[1] = 2
 Combo pour l'index [18]
 [0] = 6
+[1] = 2
+Combo pour l'index [19]
+[0] = 5
+[1] = 4
+[2] = 15
+[3] = 21
+Combo pour l'index [20]
+[0] = 5
+[1] = 3
+[2] = 22
+Combo pour l'index [21]
+[0] = 4
+[1] = 3
+[2] = 19
+Combo pour l'index [22]
+[0] = 4
 [1] = 4
 [2] = 9
 [3] = 20
-Combo pour l'index [19]
-[0] = 5
-[1] = 6
-[2] = 9
-[3] = 15
-[4] = 20
-[5] = 22
-Combo pour l'index [20]
-[0] = 5
-[1] = 8
-[2] = 9
-[3] = 15
-[4] = 17
-[5] = 18
-[6] = 19
-[7] = 22
-Combo pour l'index [21]
-[0] = 4
-[1] = 4
-[2] = 15
-[3] = 22
-Combo pour l'index [22]
-[0] = 4
-[1] = 6
-[2] = 9
-[3] = 19
-[4] = 20
-[5] = 21
-0
