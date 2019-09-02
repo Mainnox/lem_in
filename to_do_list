@@ -1,3 +1,9 @@
 algo_lem_in :
--->find_combo
 -->find_best_combo
+affichage lem_in:
+-->A faire en entier
+gestion des erreurs:
+-->afficher Error en cas d'erreur.
+free:
+-->combo
+-->Check toute les sortis
