@@ -1,4 +1,6 @@
 algo_lem_in :
+-->implementation de stop de recherche.
+---->probleme ralentisement de algo a voir avec le laous
 -->find_best_combo
 affichage lem_in:
 -->A faire en entier
@@ -7,3 +9,5 @@ gestion des erreurs:
 free:
 -->combo
 -->Check toute les sortis
+parsing:
+-->probleme avec la map big
