@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 12:42:17 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/02 11:16:45 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/03 12:02:46 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void		test_combo(t_graph *g)
 		}
 		i++;
 	}
+	ft_printf("Max_flow = %d\n", g->max_flow);
 }
 
 void		test_done(t_graph *g)

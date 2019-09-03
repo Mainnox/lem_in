@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 15:18:20 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/02 11:16:43 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/03 12:02:42 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct			s_neigh
 typedef struct			s_graph
 {
 	int					nb_vertices;
+	int					max_flow;
 	int					**combo;
 	t_neigh				*tab_neigh;
 }						t_graph;
