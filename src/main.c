@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 13:48:04 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/03 12:02:44 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/03 17:01:32 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int			main(void)
 	resolve_lem_in(&handle, 1);
 	test_affiche_path(handle.graph);
 	seek_combo(handle.graph);
+	best_combo_ever(handle.graph);
 	free_handle(&handle);
 	return (0);
 }

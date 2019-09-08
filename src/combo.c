@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 14:26:23 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/03 11:47:32 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/03 16:17:52 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,9 +94,6 @@ static void		fill_combo(t_graph *g)
 				if (g->combo[tmp_next->index][1] > g->max_flow)
 					g->max_flow = g->combo[tmp_next->index][1];
 			}
-//			test_size_path(g);
-//			test_combo(g);
-//			sleep(5);
 			tmp_next = tmp_next->next;
 		}
 		tmp_act = tmp_act->next;
