@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 15:18:20 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/03 16:58:08 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/11 14:35:37 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ typedef struct			s_graph
 {
 	int					nb_vertices;
 	int					max_flow;
-	int					*best;
 	int					**combo;
 	t_neigh				*tab_neigh;
 }						t_graph;
@@ -51,9 +50,18 @@ typedef struct			s_room
 	int					x;
 	int					y;
 	char				*name;
-	int					*connect;
 	struct s_room		*next;
 }						t_room;
+
+typedef struct			s_best
+{
+	int					size_best;
+	int					size_banlist;
+	int					size_tmp_best;
+	int					*best;
+	int					*tmp_best;
+	int					*banlist;	
+}						t_best;
 
 typedef struct			s_info
 {
@@ -61,6 +69,7 @@ typedef struct			s_info
 	int					nb_room;
 	int					start;
 	int					end;
+	t_best				*best;
 	t_room				*room;
 	t_graph				*graph;
 }						t_info;
@@ -128,11 +137,13 @@ int						resolve_lem_in(t_info *handle, char first);
 \*/
 
 int						seek_combo(t_graph *handle);
+void					sort_combo(t_graph *g);
+int						combo_match(int *act, int *next);
 
 /*\
  *						best_function
 \*/
 
-void					best_combo_ever(t_graph *g);
+int						best_combo(t_info *handle);
 
 #endif

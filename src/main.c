@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 13:48:04 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/03 17:01:32 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/11 14:38:57 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static char		**setup_main(t_info *handle)
 	handle->graph = NULL;
 	handle->nb_room = 1;
 	handle->room = NULL;
+//	handle->best = NULL;
 	return (gnl);	
 }
 
@@ -54,10 +55,11 @@ int			main(void)
 		return (0);
 	store_room(&handle, gnl);
 	test_print_room(handle);
+	print_graph(handle.graph);
 	resolve_lem_in(&handle, 1);
 	test_affiche_path(handle.graph);
 	seek_combo(handle.graph);
-	best_combo_ever(handle.graph);
-	free_handle(&handle);
+//	best_combo(&handle);
+	//free_handle(&handle);
 	return (0);
 }

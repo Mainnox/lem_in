@@ -5,85 +5,58 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/03 15:43:41 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/08 11:24:46 by akremer          ###   ########.fr       */
+/*   Created: 2019/09/11 10:38:32 by akremer           #+#    #+#             */
+/*   Updated: 2019/09/11 12:24:21 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/lem_in.h"
 
-static int			check_ban(int *ban, int ban_man)
+static int		setup_best(t_info *handle)
 {
-	int i;
-
-	i = 1;
-	while (i <= ban[0])
-	{
-		if (ban[i] == ban_man)
-			return (0);
-		i++;
-	}
-	return (1);
+	if (!(handle->best = (t_best*)malloc(sizeof(t_best))))
+		return (1);
+	if (!(handle->best->banlist = (int*)malloc(sizeof(int) * handle->graph->nb_vertices - 1)))
+		return (1);
+	if (!(handle->best->best = (int*)malloc(sizeof(int) * handle->graph->tab_neigh[1].nb_path)))
+		return (1);
+	if (!(handle->best->tmp_best = (int*)malloc(sizeof(int) * handle->graph->tab_neigh[1].nb_path)))
+		return (1);
+	handle->best->size_best = 0;
+	handle->best->banlist[0] = 1;
+	handle->best->size_banlist = 1;
+	handle->best->size_tmp_best = 0;
+	return (0);
 }
 
-static int			who_is_the_vip(t_graph *g, int *ban, int best)
+static void		add_to_best(t_info handle, int *to_add)
 {
 	int		i;
-	int		vip;
-	int		size_vip;
+	int		j;
 
-	size_vip = -1;
-	vip = -1;
-	i = 0;
-	while (i < g->tab_neigh[1].nb_path - 1)
+	i = handle->
+}
+
+static void		omoshiroi_puroguramu(t_info *handle, int i)
+{
+	while (i < handle->graph->tab_neigh[1].nb_path - 1)
 	{
-		if (size_vip <= g->combo[i][1] && check_ban(ban, i) && g->combo[i][1] > best)
+		if (combo_match(handle->graph->combo[i], handle->best->banlist))
 		{
-			size_vip = g->combo[i][1];
-			vip = i;
+			add_to_best(handle, );
+			omoshiroi_puroguramu(handle, ++i);
+			tmp_is_better(handle);
+			besuto_shinu(handle, handle->graph->combo[i]);
 		}
 		i++;
-	}
-	ban[0]++;
-	ban[ban[0]] = vip;
-	return (vip);
+	}	
 }
 
-static void			u_are_the_one(t_graph *g, int index)
+int				best_combo(t_info *handle)
 {
-	int		vip;
-	int		i;
-	int		*ban;
-
-	if (!(ban = (int*)malloc(sizeof(int) * g->tab_neigh[1].nb_path)))
-		return ;
-	ban[0] = 1;
-	ban[ban[0]] = index;
-	i = 0;
-	g->best[0]++;
-	g->best[g->best[0]] = index;
-	while (42)
-	{
-		vip = who_is_the_vip(g, ban, g->best[0]);
-		ft_printf("vip = %d\n", vip);
-		if (vip == -1)
-			break ;
-	}
-	ft_printf("index = %d\n", index);
-}
-
-void				best_combo_ever(t_graph *g)
-{
-	int		i;
-
-	i = 0;
-	if (!(g->best = (int*)malloc(sizeof(int) * g->tab_neigh[1].nb_path + 1)))
-		return ;
-	g->best[0] = 0;
-	while (i < g->tab_neigh[1].nb_path)
-	{
-		if (i == g->max_flow)
-			u_are_the_one(g, i);
-		i++;
-	}
+	if (setup_best(handle))
+		return (1);
+	omoshiroi_puroguramu(handle, 0);
+	ft_printf("Puroguramu ni kaeru !\n");
+	return (0);
 }

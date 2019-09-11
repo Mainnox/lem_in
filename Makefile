@@ -6,7 +6,7 @@
 #    By: akremer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/20 15:44:50 by akremer           #+#    #+#              #
-#    Updated: 2019/09/03 16:57:33 by akremer          ###   ########.fr        #
+#    Updated: 2019/09/11 14:35:34 by akremer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,10 @@ LIB = libft/libftprintf.a
 
 SRC = src/main.c					\
 	  src/hashtag_parsing.c			\
-	  src/best.c					\
 	  src/graph.c					\
 	  src/using_gnl.c				\
 	  src/combo.c					\
+	  src/combo2.c					\
 	  src/algo.c					\
 	  src/lst_room.c				\
 	  src/verif.c					\

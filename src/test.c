@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 12:42:17 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/03 12:02:46 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/11 16:10:16 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,14 +70,13 @@ void		test_combo(t_graph *g)
 	{
 		ft_printf("Combo pour l'index [%d]\n", i);
 		j = 0;
-		while (g->combo[i][j] != -1)
+		while (j < g->combo[i][1] + 3)
 		{
 			ft_printf("[%d] = %d\n", j, g->combo[i][j]);
 			j++;
 		}
 		i++;
 	}
-	ft_printf("Max_flow = %d\n", g->max_flow);
 }
 
 void		test_done(t_graph *g)
@@ -105,7 +104,7 @@ void		test_print_room(t_info handle)
 
 		ft_printf("handle.room->name %3d = %10s\n", tmp->index, tmp->name);
 		ft_printf("handle.room->x    %3d = %10d\n", tmp->index, tmp->x);
-		ft_printf("handle.room->y    %3d = %10d\n", tmp->index, tmp->y);
+		ft_printf("handle.room->y    %3d = %10d\n\n", tmp->index, tmp->y);
 		tmp = tmp->next;
 		i++;
 	}
