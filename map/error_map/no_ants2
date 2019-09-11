@@ -1,0 +1,16 @@
+0
+##start
+zero 0 0
+#com
+one 1 1
+two 2 2
+##end
+#com
+three 3 3
+#com
+#com
+zero-one
+zero-two
+one-three
+two-three
+#com

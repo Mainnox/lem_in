@@ -6,11 +6,11 @@
 #    By: akremer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/20 15:44:50 by akremer           #+#    #+#              #
-#    Updated: 2019/09/11 14:35:34 by akremer          ###   ########.fr        #
+#    Updated: 2019/09/11 18:13:57 by lyhamrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = lem_in
+NAME = lem-in
 
 LIB = libft/libftprintf.a
 

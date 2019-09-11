@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 14:26:23 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/11 16:11:02 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/11 18:35:43 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ static int		set_combo(t_graph *g)
 	while (tmp)
 	{
 		j = 0;
-		if (!(g->combo[i] = (int*)ft_memalloc(sizeof(int) * tmp->size + 2)))
+		if (!(g->combo[i] = (int*)ft_memalloc(sizeof(int) * (tmp->size + 3))))
 			return (1);
 		g->combo[i][0] = tmp->index;
 		g->combo[i][1] = tmp->size;
