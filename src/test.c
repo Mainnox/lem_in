@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 12:42:17 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/11 16:10:16 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/12 11:35:02 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void		test_combo(t_graph *g)
 	{
 		ft_printf("Combo pour l'index [%d]\n", i);
 		j = 0;
-		while (j < g->combo[i][1] + 3)
+		while (g->combo[i][j] != -1)
 		{
 			ft_printf("[%d] = %d\n", j, g->combo[i][j]);
 			j++;

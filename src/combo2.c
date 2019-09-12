@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 10:32:26 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/11 10:38:27 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/12 11:12:43 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void			sort_combo(t_graph *g)
 		j = i + 1;
 		while (j < g->tab_neigh[1].nb_path - 1)
 		{
-			if (g->combo[i][0] > g->combo[j][0])
+			if (g->combo[i][1] > g->combo[j][1])
 			{
 				tmp = g->combo[i];
 				g->combo[i] = g->combo[j];

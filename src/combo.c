@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 14:26:23 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/11 18:35:43 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/09/12 11:18:55 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,87 +30,6 @@ static void		set_path(t_graph *g)
 	g->tab_neigh[1].nb_path = i + 1;
 	g->max_flow = 0;
 }
-
-/*static int		set_combo(t_graph *g)
-{
-	t_path	*tmp;
-	int		i;
-	int		j;
-
-	tmp = g->tab_neigh[1].path;
-	if (!(g->combo = (int**)malloc(sizeof(int*) * g->tab_neigh[1].nb_path)))
-		return (1);
-	while (tmp)
-	{
-		i = 2;
-		j = 0;
-//		while ();
-		if (!(g->combo[tmp->index] = (int*)malloc(sizeof(int) * tmp->size + 2)))
-			return (1);
-		g->combo[tmp->index][0] = tmp->size;
-		g->combo[tmp->index][1] = tmp->index;
-		while (i < tmp->size + 2)
-		{
-			g->combo[tmp->index][i] = tmp->path[i - 2];
-			i++;
-		}
-		g->combo[tmp->index][i] = -1;
-			ft_printf("index = %d\ntmp->path[i - 2] = %d\ng->combo[tmp->index][i] = %d\n", g->combo[tmp->index][1], tmp->path[i - 2], g->combo[tmp->index][i]);
-		tmp = tmp->next;
-	}
-	test_combo(g);
-	return (0);
-}
-*/
-/*static int		combo_match(int *act, int *next)
-{
-	int		i;
-	int		j;
-
-	i = 1;
-	while (act[i] != 1)
-	{
-		j = 1;
-		while (next[j] != 1)
-		{
-			if (act[i] == next[j])
-				return (0);
-			j++;
-		}
-		i++;
-	}
-	return (1);
-}
-
-static void		fill_combo(t_graph *g)
-{
-	t_path		*tmp_act;
-	t_path		*tmp_next;
-
-	tmp_act = g->tab_neigh[1].path;
-	while (tmp_act->next)
-	{
-		tmp_next = tmp_act->next;
-		while (tmp_next)
-		{
-			if (combo_match(tmp_act->path, tmp_next->path))
-			{
-				g->combo[tmp_next->index][g->combo[tmp_next->index][1]] = tmp_act->index;
-				g->combo[tmp_act->index][g->combo[tmp_act->index][1]] = tmp_next->index;
-				g->combo[tmp_act->index][1] = g->combo[tmp_act->index][1] + 1;
-				g->combo[tmp_next->index][1] = g->combo[tmp_next->index][1] + 1;
-				g->combo[tmp_next->index][g->combo[tmp_next->index][1]] = -1;
-				g->combo[tmp_act->index][g->combo[tmp_act->index][1]] = -1;
-				if (g->combo[tmp_act->index][1] > g->max_flow)
-					g->max_flow = g->combo[tmp_act->index][1];
-				if (g->combo[tmp_next->index][1] > g->max_flow)
-					g->max_flow = g->combo[tmp_next->index][1];
-			}
-			tmp_next = tmp_next->next;
-		}
-		tmp_act = tmp_act->next;
-	}
-}*/
 
 static int		set_combo(t_graph *g)
 {
@@ -143,6 +62,26 @@ static int		set_combo(t_graph *g)
 	return (0);
 }
 
+int				combo_match(int *act, int *next)
+{
+	int		i;
+	int		j;
+
+	i = 1;
+	while (act[i] != 1)
+	{
+		j = 1;
+		while (next[j] != 1)
+		{
+			if (act[i] == next[j])
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
 int				seek_combo(t_graph *g)
 {
 	int		i;
@@ -155,8 +94,7 @@ int				seek_combo(t_graph *g)
 	set_path(g);
 	test_size_path(g);
 	set_combo(g);
-//	fill_combo(g);
-//	sort_combo(g);
+	sort_combo(g);
 	test_combo(g);
 	return (0);
 }
