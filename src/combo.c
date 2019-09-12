@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 14:26:23 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/12 12:46:39 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/12 15:53:53 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,10 @@ int				combo_match(int *act, int *next)
 	int		i;
 	int		j;
 
-	i = 1;
+	i = 3;
 	while (act[i] != 1)
 	{
-		j = 1;
+		j = 0;
 		while (next[j] != 1)
 		{
 			if (act[i] == next[j])
