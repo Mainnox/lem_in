@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 15:18:20 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/12 11:34:59 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/12 12:24:27 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ typedef struct			s_best
 	int					size_tmp_best;
 	int					*best;
 	int					*tmp_best;
-	int					*banlist;	
+	int					*banlist;
 }						t_best;
 
 typedef struct			s_info
