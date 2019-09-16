@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 10:21:59 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/11 12:58:12 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/16 11:24:02 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ static void			add_walkthrough(t_info *handle, int i)
 {
 	t_node		*adjacent;
 	t_path		*path_src;
-	t_path		*path_dest;
 
 	handle->graph->tab_neigh[i].done = 0;
 	path_src = handle->graph->tab_neigh[i].path;
@@ -99,7 +98,6 @@ static int			isnt_finish(t_graph *g)
 int					resolve_lem_in(t_info *handle, char first)
 {
 	int			i;
-	t_neigh		*tmp;
 
 	i = 0;
 	if (first)

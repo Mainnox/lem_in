@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 11:11:46 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/11 11:04:29 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/16 11:24:15 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,6 @@ static void		clean_split(char **split)
 
 int				new_edge(t_info *handle, char *s)
 {
-	int		mid;
 	char	**split;
 	int		i;
 

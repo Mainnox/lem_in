@@ -1,109 +1,608 @@
-number of ants = 7
+number of ants = 15
 handle.room->name   0 =          0
-handle.room->x      0 =         12
-handle.room->y      0 =         21
-
-handle.room->name   1 =          1
-handle.room->x      1 =         42
-handle.room->y      1 =         64
+handle.room->x      0 =         23
+handle.room->y      0 =          3
 
 handle.room->name   2 =          2
-handle.room->x      2 =         51
-handle.room->y      2 =         23
+handle.room->x      2 =         16
+handle.room->y      2 =          7
 
 handle.room->name   3 =          3
-handle.room->x      3 =        123
-handle.room->y      3 =        423
+handle.room->x      3 =         16
+handle.room->y      3 =          3
 
-4
-(0) : 3, 2, 1, 
+handle.room->name   4 =          4
+handle.room->x      4 =         16
+handle.room->y      4 =          5
+
+handle.room->name   5 =          5
+handle.room->x      5 =          9
+handle.room->y      5 =          3
+
+handle.room->name   6 =          6
+handle.room->x      6 =          1
+handle.room->y      6 =          5
+
+handle.room->name   7 =          7
+handle.room->x      7 =          4
+handle.room->y      7 =          8
+
+handle.room->name   1 =          1
+handle.room->x      1 =          9
+handle.room->y      1 =          5
+
+8
+(0) : 2, 3, 
 path(0) : 
 
-(1) : 3, 2, 0, 
+(1) : 6, 4, 
 path(1) : 
 
-(2) : 3, 1, 0, 
+(2) : 7, 0, 4, 5, 
 path(2) : 
 
-(3) : 2, 1, 0, 
+(3) : 5, 4, 0, 
 path(3) : 
 
+(4) : 7, 2, 3, 1, 
+path(4) : 
+
+(5) : 6, 3, 2, 
+path(5) : 
+
+(6) : 5, 7, 1, 
+path(6) : 
+
+(7) : 4, 2, 6, 
+path(7) : 
+
 Sommet 0 = 0
-Sommet 1 = 0-3-2-1
-Sommet 1 = 0-3-1
-Sommet 1 = 0-2-3-1
-Sommet 1 = 0-2-1
-Sommet 1 = 0-1
-Sommet 2 = 0-3-2
+Sommet 1 = 0-2-7-6-5-3-4-1
+Sommet 1 = 0-3-5-2-4-7-6-1
+Sommet 1 = 0-2-5-3-4-7-6-1
+Sommet 1 = 0-3-4-2-7-6-1
+Sommet 1 = 0-3-5-2-7-6-1
+Sommet 1 = 0-2-7-4-3-5-6-1
+Sommet 1 = 0-3-5-2-7-4-1
+Sommet 1 = 0-2-4-7-6-1
+Sommet 1 = 0-3-4-7-6-1
+Sommet 1 = 0-2-7-6-1
+Sommet 1 = 0-2-4-3-5-6-1
+Sommet 1 = 0-3-4-2-5-6-1
+Sommet 1 = 0-3-4-7-2-5-6-1
+Sommet 1 = 0-3-5-6-7-4-1
+Sommet 1 = 0-2-5-6-7-4-1
+Sommet 1 = 0-2-7-4-1
+Sommet 1 = 0-3-5-6-7-2-4-1
+Sommet 1 = 0-3-5-2-4-1
+Sommet 1 = 0-2-5-3-4-1
+Sommet 1 = 0-3-5-6-1
+Sommet 1 = 0-2-5-6-1
+Sommet 1 = 0-2-4-1
+Sommet 1 = 0-3-4-1
+Sommet 2 = 0-3-4-7-6-5-2
+Sommet 2 = 0-3-5-6-7-4-2
+Sommet 2 = 0-3-4-7-2
+Sommet 2 = 0-3-5-6-7-2
+Sommet 2 = 0-3-5-2
+Sommet 2 = 0-3-4-2
 Sommet 2 = 0-2
-Sommet 3 = 0-2-3
+Sommet 3 = 0-2-7-6-5-3
+Sommet 3 = 0-2-4-7-6-5-3
+Sommet 3 = 0-2-5-6-7-4-3
+Sommet 3 = 0-2-7-4-3
+Sommet 3 = 0-2-5-3
+Sommet 3 = 0-2-4-3
 Sommet 3 = 0-3
+Sommet 4 = 0-2-7-6-5-3-4
+Sommet 4 = 0-3-5-2-7-4
+Sommet 4 = 0-2-5-3-4
+Sommet 4 = 0-3-5-2-4
+Sommet 4 = 0-3-5-6-7-2-4
+Sommet 4 = 0-2-7-4
+Sommet 4 = 0-2-5-6-7-4
+Sommet 4 = 0-3-5-6-7-4
+Sommet 4 = 0-3-4
+Sommet 4 = 0-2-4
+Sommet 5 = 0-3-4-2-7-6-5
+Sommet 5 = 0-2-7-4-3-5
+Sommet 5 = 0-2-4-7-6-5
+Sommet 5 = 0-3-4-7-6-5
+Sommet 5 = 0-2-7-6-5
+Sommet 5 = 0-2-4-3-5
+Sommet 5 = 0-3-4-2-5
+Sommet 5 = 0-3-4-7-2-5
+Sommet 5 = 0-3-5
+Sommet 5 = 0-2-5
+Sommet 6 = 0-2-7-4-3-5-6
+Sommet 6 = 0-3-5-2-7-6
+Sommet 6 = 0-3-4-2-7-6
+Sommet 6 = 0-2-5-3-4-7-6
+Sommet 6 = 0-3-5-2-4-7-6
+Sommet 6 = 0-3-4-7-2-5-6
+Sommet 6 = 0-3-4-2-5-6
+Sommet 6 = 0-2-4-3-5-6
+Sommet 6 = 0-2-7-6
+Sommet 6 = 0-3-4-7-6
+Sommet 6 = 0-2-4-7-6
+Sommet 6 = 0-2-5-6
+Sommet 6 = 0-3-5-6
+Sommet 7 = 0-2-4-3-5-6-7
+Sommet 7 = 0-3-4-2-5-6-7
+Sommet 7 = 0-3-5-2-4-7
+Sommet 7 = 0-2-5-3-4-7
+Sommet 7 = 0-3-4-2-7
+Sommet 7 = 0-3-5-2-7
+Sommet 7 = 0-3-5-6-7
+Sommet 7 = 0-2-5-6-7
+Sommet 7 = 0-2-4-7
+Sommet 7 = 0-3-4-7
+Sommet 7 = 0-2-7
 Index = 0
-Size = 4
-Path = 0-3-2-1
+Size = 8
+Path = 0-2-7-6-5-3-4-1
 Index = 1
-Size = 3
-Path = 0-3-1
+Size = 8
+Path = 0-3-5-2-4-7-6-1
 Index = 2
-Size = 4
-Path = 0-2-3-1
+Size = 8
+Path = 0-2-5-3-4-7-6-1
 Index = 3
-Size = 3
-Path = 0-2-1
+Size = 7
+Path = 0-3-4-2-7-6-1
 Index = 4
-Size = 2
-Path = 0-1
-Size is = 4
-Size is = 3
-Size is = 4
-Size is = 3
-Size is = 2
+Size = 7
+Path = 0-3-5-2-7-6-1
+Index = 5
+Size = 8
+Path = 0-2-7-4-3-5-6-1
+Index = 6
+Size = 7
+Path = 0-3-5-2-7-4-1
+Index = 7
+Size = 6
+Path = 0-2-4-7-6-1
+Index = 8
+Size = 6
+Path = 0-3-4-7-6-1
+Index = 9
+Size = 5
+Path = 0-2-7-6-1
+Index = 10
+Size = 7
+Path = 0-2-4-3-5-6-1
+Index = 11
+Size = 7
+Path = 0-3-4-2-5-6-1
+Index = 12
+Size = 8
+Path = 0-3-4-7-2-5-6-1
+Index = 13
+Size = 7
+Path = 0-3-5-6-7-4-1
+Index = 14
+Size = 7
+Path = 0-2-5-6-7-4-1
+Index = 15
+Size = 5
+Path = 0-2-7-4-1
+Index = 16
+Size = 8
+Path = 0-3-5-6-7-2-4-1
+Index = 17
+Size = 6
+Path = 0-3-5-2-4-1
+Index = 18
+Size = 6
+Path = 0-2-5-3-4-1
+Index = 19
+Size = 5
+Path = 0-3-5-6-1
+Index = 20
+Size = 5
+Path = 0-2-5-6-1
+Index = 21
+Size = 4
+Path = 0-2-4-1
+Index = 22
+Size = 4
+Path = 0-3-4-1
+sommet dans combo 0
+sommet dans combo 2
+sommet dans combo 7
+sommet dans combo 6
+sommet dans combo 5
+sommet dans combo 3
+sommet dans combo 4
+sommet dans combo 1
+
+sommet dans combo 0
+sommet dans combo 3
+sommet dans combo 5
+sommet dans combo 2
+sommet dans combo 4
+sommet dans combo 7
+sommet dans combo 6
+sommet dans combo 1
+
+sommet dans combo 0
+sommet dans combo 2
+sommet dans combo 5
+sommet dans combo 3
+sommet dans combo 4
+sommet dans combo 7
+sommet dans combo 6
+sommet dans combo 1
+
+sommet dans combo 0
+sommet dans combo 3
+sommet dans combo 4
+sommet dans combo 2
+sommet dans combo 7
+sommet dans combo 6
+sommet dans combo 1
+
+sommet dans combo 0
+sommet dans combo 3
+sommet dans combo 5
+sommet dans combo 2
+sommet dans combo 7
+sommet dans combo 6
+sommet dans combo 1
+
+sommet dans combo 0
+sommet dans combo 2
+sommet dans combo 7
+sommet dans combo 4
+sommet dans combo 3
+sommet dans combo 5
+sommet dans combo 6
+sommet dans combo 1
+
+sommet dans combo 0
+sommet dans combo 3
+sommet dans combo 5
+sommet dans combo 2
+sommet dans combo 7
+sommet dans combo 4
+sommet dans combo 1
+
+sommet dans combo 0
+sommet dans combo 2
+sommet dans combo 4
+sommet dans combo 7
+sommet dans combo 6
+sommet dans combo 1
+
+sommet dans combo 0
+sommet dans combo 3
+sommet dans combo 4
+sommet dans combo 7
+sommet dans combo 6
+sommet dans combo 1
+
+sommet dans combo 0
+sommet dans combo 2
+sommet dans combo 7
+sommet dans combo 6
+sommet dans combo 1
+
+sommet dans combo 0
+sommet dans combo 2
+sommet dans combo 4
+sommet dans combo 3
+sommet dans combo 5
+sommet dans combo 6
+sommet dans combo 1
+
+sommet dans combo 0
+sommet dans combo 3
+sommet dans combo 4
+sommet dans combo 2
+sommet dans combo 5
+sommet dans combo 6
+sommet dans combo 1
+
+sommet dans combo 0
+sommet dans combo 3
+sommet dans combo 4
+sommet dans combo 7
+sommet dans combo 2
+sommet dans combo 5
+sommet dans combo 6
+sommet dans combo 1
+
+sommet dans combo 0
+sommet dans combo 3
+sommet dans combo 5
+sommet dans combo 6
+sommet dans combo 7
+sommet dans combo 4
+sommet dans combo 1
+
+sommet dans combo 0
+sommet dans combo 2
+sommet dans combo 5
+sommet dans combo 6
+sommet dans combo 7
+sommet dans combo 4
+sommet dans combo 1
+
+sommet dans combo 0
+sommet dans combo 2
+sommet dans combo 7
+sommet dans combo 4
+sommet dans combo 1
+
+sommet dans combo 0
+sommet dans combo 3
+sommet dans combo 5
+sommet dans combo 6
+sommet dans combo 7
+sommet dans combo 2
+sommet dans combo 4
+sommet dans combo 1
+
+sommet dans combo 0
+sommet dans combo 3
+sommet dans combo 5
+sommet dans combo 2
+sommet dans combo 4
+sommet dans combo 1
+
+sommet dans combo 0
+sommet dans combo 2
+sommet dans combo 5
+sommet dans combo 3
+sommet dans combo 4
+sommet dans combo 1
+
+sommet dans combo 0
+sommet dans combo 3
+sommet dans combo 5
+sommet dans combo 6
+sommet dans combo 1
+
+sommet dans combo 0
+sommet dans combo 2
+sommet dans combo 5
+sommet dans combo 6
+sommet dans combo 1
+
+sommet dans combo 0
+sommet dans combo 2
+sommet dans combo 4
+sommet dans combo 1
+
+sommet dans combo 0
+sommet dans combo 3
+sommet dans combo 4
+sommet dans combo 1
+
 Combo pour l'index [0]
-[0] = 4
-[1] = 0
-[2] = 0
-[3] = 3
-[4] = 2
-[5] = 1
-[6] = -1
-Combo pour l'index [1]
-[0] = 3
-[1] = 1
-[2] = 0
-[3] = 3
-[4] = 10
-[5] = -1
-Combo pour l'index [2]
-[0] = 4
-[1] = 2
-[2] = 0
-[3] = 2
-[4] = 3
-[5] = 1
-[6] = -1
-Combo pour l'index [3]
-[0] = 3
-[1] = 3
-[2] = 0
-[3] = 2
-[4] = 2
-[5] = 4
-[6] = 0
-[7] = 1
-[8] = 0
-[9] = -1073741824
-[10] = 0
-[11] = -1073741824
-[12] = -65531
-[13] = -1
-Combo pour l'index [4]
-[0] = 2
+[0] = 21
 [1] = 4
 [2] = 0
-[3] = 1
-[4] = 0
-[5] = -1073741824
-[6] = 0
-[7] = -1073741824
-[8] = -65531
-[9] = -1
+[3] = 2
+[4] = 4
+[5] = 1
+Combo pour l'index [1]
+[0] = 22
+[1] = 4
+[2] = 0
+[3] = 3
+[4] = 4
+[5] = 1
+Combo pour l'index [2]
+[0] = 19
+[1] = 5
+[2] = 0
+[3] = 3
+[4] = 5
+[5] = 6
+[6] = 1
+Combo pour l'index [3]
+[0] = 20
+[1] = 5
+[2] = 0
+[3] = 2
+[4] = 5
+[5] = 6
+[6] = 1
+Combo pour l'index [4]
+[0] = 9
+[1] = 5
+[2] = 0
+[3] = 2
+[4] = 7
+[5] = 6
+[6] = 1
+Combo pour l'index [5]
+[0] = 15
+[1] = 5
+[2] = 0
+[3] = 2
+[4] = 7
+[5] = 4
+[6] = 1
+Combo pour l'index [6]
+[0] = 7
+[1] = 6
+[2] = 0
+[3] = 2
+[4] = 4
+[5] = 7
+[6] = 6
+[7] = 1
+Combo pour l'index [7]
+[0] = 8
+[1] = 6
+[2] = 0
+[3] = 3
+[4] = 4
+[5] = 7
+[6] = 6
+[7] = 1
+Combo pour l'index [8]
+[0] = 17
+[1] = 6
+[2] = 0
+[3] = 3
+[4] = 5
+[5] = 2
+[6] = 4
+[7] = 1
+Combo pour l'index [9]
+[0] = 18
+[1] = 6
+[2] = 0
+[3] = 2
+[4] = 5
+[5] = 3
+[6] = 4
+[7] = 1
+Combo pour l'index [10]
+[0] = 3
+[1] = 7
+[2] = 0
+[3] = 3
+[4] = 4
+[5] = 2
+[6] = 7
+[7] = 6
+[8] = 1
+Combo pour l'index [11]
+[0] = 4
+[1] = 7
+[2] = 0
+[3] = 3
+[4] = 5
+[5] = 2
+[6] = 7
+[7] = 6
+[8] = 1
+Combo pour l'index [12]
+[0] = 6
+[1] = 7
+[2] = 0
+[3] = 3
+[4] = 5
+[5] = 2
+[6] = 7
+[7] = 4
+[8] = 1
+Combo pour l'index [13]
+[0] = 10
+[1] = 7
+[2] = 0
+[3] = 2
+[4] = 4
+[5] = 3
+[6] = 5
+[7] = 6
+[8] = 1
+Combo pour l'index [14]
+[0] = 11
+[1] = 7
+[2] = 0
+[3] = 3
+[4] = 4
+[5] = 2
+[6] = 5
+[7] = 6
+[8] = 1
+Combo pour l'index [15]
+[0] = 13
+[1] = 7
+[2] = 0
+[3] = 3
+[4] = 5
+[5] = 6
+[6] = 7
+[7] = 4
+[8] = 1
+Combo pour l'index [16]
+[0] = 14
+[1] = 7
+[2] = 0
+[3] = 2
+[4] = 5
+[5] = 6
+[6] = 7
+[7] = 4
+[8] = 1
+Combo pour l'index [17]
+[0] = 0
+[1] = 8
+[2] = 0
+[3] = 2
+[4] = 7
+[5] = 6
+[6] = 5
+[7] = 3
+[8] = 4
+[9] = 1
+Combo pour l'index [18]
+[0] = 12
+[1] = 8
+[2] = 0
+[3] = 3
+[4] = 4
+[5] = 7
+[6] = 2
+[7] = 5
+[8] = 6
+[9] = 1
+Combo pour l'index [19]
+[0] = 1
+[1] = 8
+[2] = 0
+[3] = 3
+[4] = 5
+[5] = 2
+[6] = 4
+[7] = 7
+[8] = 6
+[9] = 1
+Combo pour l'index [20]
+[0] = 5
+[1] = 8
+[2] = 0
+[3] = 2
+[4] = 7
+[5] = 4
+[6] = 3
+[7] = 5
+[8] = 6
+[9] = 1
+Combo pour l'index [21]
+[0] = 2
+[1] = 8
+[2] = 0
+[3] = 2
+[4] = 5
+[5] = 3
+[6] = 4
+[7] = 7
+[8] = 6
+[9] = 1
+Combo pour l'index [22]
+[0] = 16
+[1] = 8
+[2] = 0
+[3] = 3
+[4] = 5
+[5] = 6
+[6] = 7
+[7] = 2
+[8] = 4
+[9] = 1
+------------------------------------------->>>>>
+size_best = 0
+size_best = 2
+size_best = 2
+size_best = 2
+size_best = 2
+size_best = 2
+21-19-
+Puroguramu ni kaeru !

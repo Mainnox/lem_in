@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 14:00:49 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/28 10:27:55 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/16 11:25:17 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int			verif_nb_ants(int nb_ants, char *gnl)
 
 	ret = 0;
 	tmp = ft_strtrim(gnl);
-	if (ft_nbrlen((unsigned long long)nb_ants, 0, 10) != ft_strlen(tmp))
+	if ((size_t)ft_nbrlen((unsigned long long)nb_ants, 0, 10) != ft_strlen(tmp))
 	{
 		ret++;
 	}
@@ -41,11 +41,11 @@ int			verif_split(int x, int y, char **split)
 
 	signe = (x < 0) ? 1 : 0;
 	tmp = (x < 0) ? -x : x;
-	if (ft_nbrlen((unsigned long long)tmp, signe, 10) != ft_strlen(split[1]))
+	if ((size_t)ft_nbrlen((unsigned long long)tmp, signe, 10) != ft_strlen(split[1]))
 		return (1);
 	signe = (y < 0) ? 1 : 0;
 	tmp = (y < 0) ? -y : y;
-	if (ft_nbrlen((unsigned long long)tmp, signe, 10) != ft_strlen(split[2]))
+	if ((size_t)ft_nbrlen((unsigned long long)tmp, signe, 10) != ft_strlen(split[2]))
 		return (1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: akremer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 17:38:05 by akremer           #+#    #+#              #
-#    Updated: 2019/08/31 11:38:46 by akremer          ###   ########.fr        #
+#    Updated: 2019/09/16 11:21:05 by akremer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -112,7 +112,7 @@ SRC =	ft_atoi.c				\
 
 OBJ = $(SRC:%.c=%.o)
 
-FLAGS = -Wall -Werror -Wextra -I
+FLAGS = -g -Wall -Werror -Wextra -I
 
 all: $(NAME)
 
