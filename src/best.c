@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 10:38:32 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/16 11:41:14 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/16 12:24:54 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ static void		besuto_shinu(t_info *handle)
 		}
 		i++;
 	}
-	handle->best->banlist[handle->best->size_banlist - size_to_del] = 1;
+	handle->best->banlist[handle->best->size_banlist - size_to_del + 1] = 1;
 	handle->best->size_banlist -= size_to_del;
 	handle->best->size_tmp_best--;
 }
@@ -102,21 +102,18 @@ static void		omoshiroi_puroguramu(t_info *handle, int i)
 		if (combo_match(handle->graph->combo[i], handle->best->banlist))
 		{
 			add_to_best(handle, handle->graph->combo[i]);
-			ft_printf("size_tmp_best after add = %d\n", handle->best->size_tmp_best);
 			omoshiroi_puroguramu(handle, ++i);
 			tmp_is_better(handle);
 			besuto_shinu(handle);
 		}
 		i++;
 	}	
-		ft_printf("size_best = %d\n", handle->best->size_best);
 }
 
 int				best_combo(t_info *handle)
 {
 	int		i;
 
-	ft_printf("------------------------------------------->>>>>\n");
 	i = 0;
 	if (setup_best(handle))
 		return (1);
@@ -127,6 +124,5 @@ int				best_combo(t_info *handle)
 		i++;
 	}
 	ft_printf("\n");
-	ft_printf("Puroguramu ni kaeru !\n");
 	return (0);
 }
