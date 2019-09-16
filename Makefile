@@ -6,7 +6,7 @@
 #    By: akremer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/20 15:44:50 by akremer           #+#    #+#              #
-#    Updated: 2019/09/16 11:21:40 by akremer          ###   ########.fr        #
+#    Updated: 2019/09/16 12:28:01 by akremer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ leaks: $(OBJ) lib
 	@gcc $(FLAGS) -g $(OBJ) $(LIB) -o $(NAME)
 
 save: fclean
-	@rm -rf *.swp
+	@rm -rf */*.swp
 	@git add .
 	@git commit -m "Auto-save"
 	@git push
