@@ -6,11 +6,26 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 12:42:17 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/12 11:35:02 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/16 13:09:57 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/lem_in.h"
+
+int			test_banlist(int *banlist)
+{
+	int i;
+
+	i = 0;
+	ft_printf("Banlist = ");
+	while (banlist[i] != 1)
+	{
+		ft_printf("%d-", banlist[i]);
+		i++;
+	}
+	ft_printf("\n");
+	return (1);
+}
 
 void		test_affiche_path(t_graph *g)
 {

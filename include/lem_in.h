@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 15:18:20 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/16 12:28:50 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/16 13:09:21 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef	struct			s_path
 typedef struct			s_neigh
 {
 	char				done;
+	char				act_done;
 	int					nb_path;
 	t_node				*begin;
 	t_path				*path;
@@ -65,10 +66,12 @@ typedef struct			s_best
 
 typedef struct			s_info
 {
+	char				algo;
 	int					nb_ants;
 	int					nb_room;
 	int					start;
 	int					end;
+	int					tmp_nb_ants;
 	t_best				*best;
 	t_room				*room;
 	t_graph				*graph;
@@ -92,6 +95,7 @@ void					test_affiche_path(t_graph *g);
 void					test_done(t_graph *g);
 void					test_size_path(t_graph *g);
 void					test_combo(t_graph *g);
+int						test_banlist(int *banlist);
 
 /*\
  *						verif_functions

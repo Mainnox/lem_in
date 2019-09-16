@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 10:38:32 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/16 12:28:48 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/16 13:12:04 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void		add_to_best(t_info *handle, int *to_add)
 		j++;
 	}
 	handle->best->banlist[i] = 1;
-	handle->best->size_banlist = i;
+	handle->best->size_banlist = i + 1;
 	handle->best->tmp_best[handle->best->size_tmp_best] = to_add[0];
 	handle->best->size_tmp_best++;
 }
@@ -99,7 +99,7 @@ static void		omoshiroi_puroguramu(t_info *handle, int i)
 {
 	while (i < handle->graph->tab_neigh[1].nb_path - 1)
 	{
-		if (combo_match(handle->graph->combo[i], handle->best->banlist))
+		if (combo_match(handle->graph->combo[i], handle->best->banlist) && test_banlist(handle->best->banlist))
 		{
 			add_to_best(handle, handle->graph->combo[i]);
 			omoshiroi_puroguramu(handle, ++i);

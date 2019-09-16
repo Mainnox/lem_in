@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 10:21:59 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/16 11:24:02 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/16 13:00:44 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,9 @@ static void			add_path(t_info *handle, int *path_src, int value)
 	n->next = handle->graph->tab_neigh[value].path;
 	handle->graph->tab_neigh[value].path = n;
 	if (value != 1)
-		handle->graph->tab_neigh[value].done = 1;
+		handle->graph->tab_neigh[value].act_done = 1;
+	else
+		handle->algo = 1;
 }
 
 static void			add_walkthrough(t_info *handle, int i)
@@ -84,15 +86,21 @@ static void			add_walkthrough(t_info *handle, int i)
 static int			isnt_finish(t_graph *g)
 {
 	int i;
+	int ret;
 
 	i = 0;
+	ret = 0;
 	while (i < g->nb_vertices)
 	{
-		if (g->tab_neigh[i].done == 1)
-			return (1);
+		if (g->tab_neigh[i].act_done == 1)
+		{
+			ret++;
+			g->tab_neigh[i].done = 1;
+			g->tab_neigh[i].act_done = 0;
+		}
 		i++;
 	}
-	return (0);
+	return (ret);
 }
 
 int					resolve_lem_in(t_info *handle, char first)
@@ -111,12 +119,14 @@ int					resolve_lem_in(t_info *handle, char first)
 		handle->graph->tab_neigh[0].path->path[1] = -1;
 		handle->graph->tab_neigh[0].path->next = NULL;
 	}
-	while (i < handle->graph->nb_vertices)
+	while (i < handle->graph->nb_vertices && handle->tmp_nb_ants)
 	{
 		if (handle->graph->tab_neigh[i].done == 1)
 			add_walkthrough(handle, i);
 		i++;
 	}
+	if (handle->algo)
+		handle->tmp_nb_ants--;
 	if (isnt_finish(handle->graph))
 		resolve_lem_in(handle, first + 1);
 	return (0);
