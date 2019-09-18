@@ -6,7 +6,7 @@
 #    By: akremer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/20 15:44:50 by akremer           #+#    #+#              #
-#    Updated: 2019/09/16 12:28:01 by akremer          ###   ########.fr        #
+#    Updated: 2019/09/18 10:40:21 by akremer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,11 +24,12 @@ SRC = src/main.c					\
 	  src/algo.c					\
 	  src/lst_room.c				\
 	  src/verif.c					\
+	  src/free.c					\
 	  src/test.c
 
 OBJ = $(SRC:%.c=%.o)
 
-CFLAGS = -g -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 
 all: $(NAME)
 
@@ -48,7 +49,7 @@ fclean: clean
 
 re: fclean all
 
-leaks: $(OBJ) lib
+debugg:  fclean $(OBJ) lib
 	@gcc $(FLAGS) -g $(OBJ) $(LIB) -o $(NAME)
 
 save: fclean
