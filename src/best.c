@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 10:38:32 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/18 09:48:36 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/18 11:33:26 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,38 @@ static void		add_to_best(t_info *handle, int *to_add)
 	handle->best->size_tmp_best++;
 }
 
+static int		find_better(t_info *handle, int index)
+{
+	int 	i;
+
+	i = 0;
+	while (i < handle->graph->tab_neigh[1].nb_path - 1)
+	{
+		if (handle->graph->combo[i][0] == index)
+			return (handle->graph->combo[i][1]);
+		i++;
+	}
+	return (666);
+}
+
+static char		are_u_better(t_info *handle)
+{
+	if (handle->best->size_best < handle->best->size_tmp_best)
+		return (1);
+	else if (handle->best->size_best == handle->best->size_tmp_best)
+	{
+		if (find_better(handle, handle->best->best[handle->best->size_best] > find_better(handle, handle->best->tmp_best[handle->best->size_tmp_best])))
+			return (1);
+	}
+	return (0);
+}
+
 static void		tmp_is_better(t_info *handle)
 {
 	int		i;
 	char	better;
 
-	//Check la taille aussi du plus long chemin pour faire la selection
-	better = (handle->best->size_best < handle->best->size_tmp_best) ? 1 : 0;
+	better = are_u_better(handle);
 	i  = 0;
 	if (better)
 	{

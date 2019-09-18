@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 15:18:20 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/18 10:47:08 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/18 11:06:50 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct			s_room
 
 typedef struct			s_best
 {
+	int					size_long;
 	int					size_best;
 	int					size_banlist;
 	int					size_tmp_best;
