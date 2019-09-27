@@ -6,7 +6,7 @@
 #    By: akremer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/20 15:44:50 by akremer           #+#    #+#              #
-#    Updated: 2019/09/18 10:47:09 by akremer          ###   ########.fr        #
+#    Updated: 2019/09/27 18:04:13 by akremer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRC = src/main.c					\
 	  src/combo2.c					\
 	  src/algo.c					\
 	  src/lst_room.c				\
+	  src/set_print.c				\
 	  src/verif.c					\
 	  src/free.c					\
 	  src/test.c

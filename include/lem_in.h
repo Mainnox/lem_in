@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 15:18:20 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/18 11:06:50 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/27 18:09:10 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,14 @@ typedef struct			s_best
 	int					*banlist;
 }						t_best;
 
+typedef struct			s_print
+{
+	int					size;
+	int					nb_ants;
+	int					**pasu;
+	int					**pos_ants;
+}						t_print;
+
 typedef struct			s_info
 {
 	char				algo;
@@ -73,6 +81,7 @@ typedef struct			s_info
 	int					start;
 	int					end;
 	int					tmp_nb_ants;
+	t_print				*print;
 	t_best				*best;
 	t_room				*room;
 	t_graph				*graph;
@@ -97,6 +106,7 @@ void					test_done(t_graph *g);
 void					test_size_path(t_graph *g);
 void					test_combo(t_graph *g);
 int						test_banlist(int *banlist);
+void					test_print(t_info *handle);
 
 /*\
  *						verif_functions
@@ -156,5 +166,11 @@ int						best_combo(t_info *handle);
 \*/
 
 void					free_handle(t_info *handle);
+
+/*\
+ *						print_function
+\*/
+
+int						set_print(t_info *handle);
 
 #endif

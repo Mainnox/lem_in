@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 10:38:32 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/18 11:33:26 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/27 17:31:32 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,5 +149,6 @@ int				best_combo(t_info *handle)
 		i++;
 	}
 	ft_printf("%d\n", handle->best->best[i]);
+	ft_printf("Size_best = %d\n", handle->best->size_best);
 	return (0);
 }
