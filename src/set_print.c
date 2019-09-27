@@ -6,11 +6,11 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/27 17:32:28 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/27 19:38:01 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/09/27 19:47:39 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "lem_in.h"
 
 static void		fill_print(t_info *handle, int i, int j)
 {

@@ -6,11 +6,11 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 13:48:04 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/27 19:38:25 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/09/27 20:10:23 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "lem_in.h"
 
 static char		**setup_main(t_info *handle)
 {
@@ -53,7 +53,7 @@ int			main(void)
 	seek_combo(handle.graph);
 	best_combo(&handle);
 	set_print(&handle);
-	test_print(&handle);
+	sim_ants(&handle);
 	free_handle(&handle);
 	return (0);
 }

@@ -6,11 +6,11 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 14:00:49 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/16 12:28:52 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/27 19:48:07 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "lem_in.h"
 
 int			verif_start_end_exist(t_info *handle)
 {

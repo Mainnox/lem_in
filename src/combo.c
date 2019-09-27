@@ -6,11 +6,11 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 14:26:23 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/18 10:37:17 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/27 19:46:36 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "lem_in.h"
 
 
 static void		set_path(t_graph *g)

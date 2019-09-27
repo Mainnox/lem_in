@@ -6,55 +6,57 @@
 #    By: akremer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/20 15:44:50 by akremer           #+#    #+#              #
-#    Updated: 2019/09/27 19:40:41 by lyhamrou         ###   ########.fr        #
+#    Updated: 2019/09/27 19:49:15 by lyhamrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = lem-in
 
-LIB = libft/libftprintf.a
+FLAGS = -Wall -Werror -Wextra
 
-SRC = src/main.c					\
-	  src/hashtag_parsing.c			\
-	  src/best.c					\
-	  src/graph.c					\
-	  src/using_gnl.c				\
-	  src/combo.c					\
-	  src/combo2.c					\
-	  src/algo.c					\
-	  src/lst_room.c				\
-	  src/set_print.c				\
-	  src/verif.c					\
-	  src/free.c					\
-	  src/test.c
+LD_LIBS = -lftprintf -L libft/
 
-OBJ = $(SRC:%.c=%.o)
+HEADER = include/lem_in.h
+INCLUDE = -I include -I libft/includes/
 
-CFLAGS = -Wall -Werror -Wextra
+SRC_PATH = src/
+SRC_NAME = algo.c combo.c free.c hashtag_parsing.c main.c set_print.c \
+		   using_gnl.c best.c combo2.c graph.c lst_room.c output.c test.c \
+		   verif.c
+SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
+
+OBJ_PATH = .obj/
+OBJ_NAME = $(SRC_NAME:.c=.o)
+OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
+
+LIBFT_A = libft/libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJ) lib
-	@gcc $(FLAGS) $(OBJ) $(LIB) -o $(NAME)
+$(NAME): $(LIBFT_A) $(OBJ)
+	$(CC) $(FLAGS) $(INCLUDE) $(LD_LIBS) $(OBJ) -o $(NAME)
 
-lib:
-	@make -C ./libft/
+$(LIBFT_A):
+	mkdir -p $(OBJ_PATH)
+	make -C ./libft/
+
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c $(HEADER)
+	$(CC) $(FLAGS) $(INCLUDE) -o $@ -c $<
 
 clean:
-	@rm -rf $(OBJ)
-	@make clean -C ./libft/
+	$(RM) -rf $(OBJ)
+	make clean -C ./libft/
 
 fclean: clean
-	@rm -rf ./$(NAME)
-	@make fclean -C ./libft/
+	$(RM) -rf $(NAME)
+	make fclean -C ./libft/
 
 re: fclean all
-
-debugg:  fclean $(OBJ) lib
-	@gcc $(FLAGS) -g $(OBJ) $(LIB) -o $(NAME)
 
 save: fclean
 	@rm -rf *.swp
 	@git add .
 	@git commit -m "Auto-save"
 	@git push
+
+.PHONY: all clean $(NAME) fclean re

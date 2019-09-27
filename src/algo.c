@@ -6,11 +6,11 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 10:21:59 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/16 13:00:44 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/27 19:46:18 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "lem_in.h"
 
 static t_path		*create_path(size_t size, int *str, int c)
 {

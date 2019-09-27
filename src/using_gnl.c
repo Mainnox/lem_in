@@ -6,11 +6,11 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/24 17:41:16 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/08 16:38:03 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/27 19:47:57 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "lem_in.h"
 
 void				store_room(t_info *handle, char **gnl)
 {

@@ -6,11 +6,11 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/21 13:02:17 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/24 16:33:50 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/27 19:47:13 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "lem_in.h"
 
 int			hashtag_parsing(char **str, t_info *handle)
 {

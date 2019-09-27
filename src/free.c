@@ -6,11 +6,11 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 09:49:03 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/18 10:47:06 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/27 19:46:55 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "lem_in.h"
 
 static void	free_combo(t_info *handle)
 {

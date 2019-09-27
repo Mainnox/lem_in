@@ -6,11 +6,11 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 10:32:26 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/12 12:24:46 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/27 19:46:45 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "lem_in.h"
 
 void			sort_combo(t_graph *g)
 {
