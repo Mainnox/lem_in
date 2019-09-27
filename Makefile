@@ -6,7 +6,7 @@
 #    By: akremer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/20 15:44:50 by akremer           #+#    #+#              #
-#    Updated: 2019/09/27 18:04:13 by akremer          ###   ########.fr        #
+#    Updated: 2019/09/27 18:17:28 by akremer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ debugg:  fclean $(OBJ) lib
 	@gcc $(FLAGS) -g $(OBJ) $(LIB) -o $(NAME)
 
 save: fclean
-	@rm -rf */*.swp
-	@git add .
+	@rm -rf *.swp
+	@git add *
 	@git commit -m "Auto-save"
 	@git push
