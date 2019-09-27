@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 12:42:17 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/27 18:18:15 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/27 19:39:47 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ void		test_print(t_info *handle)
 	{
 		ft_printf("handle->print->pasu[%d]\n", i);
 		j = 0;
-		while (j < handle->print->pasu[i][0])
+		while (j < handle->print.pasu[i][0])
 		{
-			ft_printf("%d-", handle->print->pasu[i][j]);
+			ft_printf("%d-", handle->print.pasu[i][j]);
 			j++;
 		}
-		ft_printf("%d\n", handle->print->pasu[i][j]);
+		ft_printf("%d\n", handle->print.pasu[i][j]);
 		i++;
 	}
 }

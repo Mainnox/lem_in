@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 15:18:20 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/27 18:18:12 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/27 19:36:42 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,9 @@ typedef struct			s_best
 	int					*banlist;
 }						t_best;
 
+//--------------------------------
+//--------------------------------
+//--------------------------------
 typedef struct			s_print
 {
 	int					size;
@@ -72,6 +75,9 @@ typedef struct			s_print
 	int					**pasu;
 	int					**pos_ants;
 }						t_print;
+//--------------------------------
+//--------------------------------
+//--------------------------------
 
 typedef struct			s_info
 {
@@ -81,7 +87,7 @@ typedef struct			s_info
 	int					start;
 	int					end;
 	int					tmp_nb_ants;
-	t_print				*print;
+	t_print				print;
 	t_best				*best;
 	t_room				*room;
 	t_graph				*graph;

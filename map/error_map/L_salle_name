@@ -1,16 +1,13 @@
-
-##start
+10
 zero 0 0
-#com
+##start
 one 1 1
-two 2 2
+two 0 0
 ##end
-#com
 three 3 3
-#com
-#com
+Lfour 4 4
 zero-one
 zero-two
 one-three
 two-three
-#com
+two-Lfour

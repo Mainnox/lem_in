@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 13:48:04 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/27 18:18:25 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/27 19:38:25 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ static char		**setup_main(t_info *handle)
 	handle->nb_room = 1;
 	handle->room = NULL;
 	handle->best = NULL;
-	handle->print = NULL;
 	handle->tmp_nb_ants = 0;
 	return (gnl);	
 }

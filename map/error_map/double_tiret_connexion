@@ -14,8 +14,7 @@ salle_3 1 5
 salle_1-salle_start
 salle_start-salle_end
 salle_1-salle_end
-salle_1-salle_2
-#hey
+salle_1--salle_2
 salle_2-salle_3
 salle_3-salle_end
 #yo
