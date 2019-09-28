@@ -59,4 +59,7 @@ save: fclean
 	@git commit -m "Auto-save"
 	@git push
 
-.PHONY: all clean $(NAME) fclean re
+gros_sexe: fclean
+	@sh gros_sex.sh
+
+.PHONY: all clean $(NAME) fclean re save
