@@ -6,30 +6,36 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 12:42:17 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/27 19:47:49 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/09/28 17:15:07 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void		test_print(t_info *handle)
+void		test_print(t_print print)
 {
 	int i;
 	int j;
 
 	i = 0;
-	while (i < handle->best->size_best)
+	ft_printf("_________ Test_print ____________\n");
+	ft_printf("nb de ants    --> %d\n", print.nb_ants);
+	ft_printf("nb de chemins --> %d\n", print.size);
+	ft_printf("__________________________________\n\n");
+	while (i < print.size)
 	{
-		ft_printf("handle->print->pasu[%d]\n", i);
-		j = 0;
-		while (j < handle->print.pasu[i][0])
+		j = 1;
+		ft_printf("chemin [%d]\n", i);
+		ft_printf("size chemin = %d\n", print.pasu[i][0]);
+		while (j < print.pasu[i][0])
 		{
-			ft_printf("%d-", handle->print.pasu[i][j]);
+			ft_printf("%d-", print.pasu[i][j]);
 			j++;
 		}
-		ft_printf("%d\n", handle->print.pasu[i][j]);
+		ft_printf("%d\n\n", print.pasu[i][j]);
 		i++;
 	}
+	ft_printf("__________________________________\n");
 }
 
 int			test_banlist(int *banlist)

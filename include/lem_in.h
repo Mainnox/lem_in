@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 15:18:20 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/27 20:10:21 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/09/28 17:14:39 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void					test_done(t_graph *g);
 void					test_size_path(t_graph *g);
 void					test_combo(t_graph *g);
 int						test_banlist(int *banlist);
-void					test_print(t_info *handle);
+void					test_print(t_print print);
 
 /*\
  *						verif_functions

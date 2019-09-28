@@ -6,7 +6,7 @@
 /*   By: lyhamrou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/27 19:26:25 by lyhamrou          #+#    #+#             */
-/*   Updated: 2019/09/27 20:11:45 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/09/28 17:14:56 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,25 +34,29 @@ void	push_swap(t_print *out)
 	(void)out;
 }
 
-int		calc_flow(int size, int **pasu, int nb_ants)
+int		calc_flow(int *size, int **pasu, int nb_ants)
 {
 	int		i;
 	int		lim;//a suppr
 
 	i = 0;
 	lim = 0;
-	while (i < size - 1)
+	ft_printf("calc_flow---------\n");
+	while (i < *size - 1)
 	{
-		lim = pasu[size - 1][0] - pasu[i][0] + 1;
 		ft_printf("lim ---> %d\n", lim);
-		if (nb_ants > lim)
+		lim += pasu[*size - 1][0] - pasu[i][0] + 1;
+		ft_printf("lim ---> %d\n", lim);
+		if (nb_ants < lim)
 		{
-			ft_printf("youpi\n");
-			return (i + 1);
+			*size -= 1;
+			i = -1;
+			lim = 0;
+			ft_printf("calc_flow nb_ants>lim\n");
 		}
 		++i;
 	}
-	return (-1);
+	return (lim);
 }
 
 void	sim_ants(t_info *handle)
@@ -62,14 +66,17 @@ void	sim_ants(t_info *handle)
 
 	out = handle->print;
 	ft_printf("\n\n\n\n\n\n\n----------------------------------------------\n");
-//	test_print(handle);
-	lim = -1;
+	lim = calc_flow(&out.size, out.pasu, out.nb_ants);
+	ft_printf("lim  = %d\n", lim);
+	ft_printf("size = %d\n", out.size);
+	test_print(out);
 	while (out.nb_ants > 0)
 	{
 		if (out.nb_ants < lim)
-			lim = calc_flow(out.size, out.pasu, out.nb_ants);
+			lim = calc_flow(&out.size, out.pasu, out.nb_ants);
 		push_swap(&out);
 		output(&out);
 		out.nb_ants -= out.size;
+		exit(0);
 	}
 }
