@@ -44,7 +44,7 @@ int		calc_flow(int size, int **pasu, int nb_ants)
 	while (i < size - 1)
 	{
 		lim = pasu[size - 1][0] - pasu[i][0] + 1;
-		ft_printf("limm ---> %d\n", lim);
+		ft_printf("lim ---> %d\n", lim);
 		if (nb_ants > lim)
 		{
 			ft_printf("youpi\n");
@@ -58,8 +58,11 @@ int		calc_flow(int size, int **pasu, int nb_ants)
 void	sim_ants(t_info *handle)
 {
 	int		lim;//nb de fourmis limit avant laquelle on recalcule le flow
-//size = flow
+	t_print	out;
+
+	out = handle->print;
 	ft_printf("\n\n\n\n\n\n\n----------------------------------------------\n");
+//	test_print(handle);
 	lim = -1;
 	while (out.nb_ants > 0)
 	{
