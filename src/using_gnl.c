@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/24 17:41:16 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/27 19:47:57 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/09/28 20:13:11 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void				store_room(t_info *handle, char **gnl)
 			{
 				free(gnl[0]);
 				free(gnl);
-				ft_printf("Number of ants suck\n");
 				exit(0);
 			}
 		}

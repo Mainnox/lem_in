@@ -6,7 +6,7 @@
 #    By: akremer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/20 15:44:50 by akremer           #+#    #+#              #
-#    Updated: 2019/09/28 15:50:09 by lyhamrou         ###   ########.fr        #
+#    Updated: 2019/09/28 18:15:51 by lyhamrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,7 @@ save: fclean
 	@git commit -m "Auto-save"
 	@git push
 
-penis: fclean
+penis:
 	@sh gros_sex.sh
 
 .PHONY: all clean $(NAME) fclean re save

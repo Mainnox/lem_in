@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 14:26:23 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/27 19:46:36 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/09/28 20:14:03 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,9 @@ static int		set_combo(t_graph *g)
 		while (tmp->path[j] != -1)
 		{
 			g->combo[i][j + 2] = tmp->path[j];
-			ft_printf("sommet dans combo %d\n", g->combo[i][j+2]);
 			j++;
 		}
-		ft_printf("\n");
+//		ft_printf("\n");
 		g->combo[i][j + 2] = -1;
 		i++;
 		tmp = tmp->next;
@@ -92,9 +91,9 @@ int				seek_combo(t_graph *g)
 	if (!tmp)
 		return (1);
 	set_path(g);
-	test_size_path(g);
+//	test_size_path(g);
 	set_combo(g);
 	sort_combo(g);
-	test_combo(g);
+//	test_combo(g);
 	return (0);
 }

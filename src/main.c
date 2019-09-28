@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 13:48:04 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/27 20:10:23 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/09/28 20:16:08 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ int			main(void)
 	if (!gnl)
 		return (0);
 	store_room(&handle, gnl);
-	test_print_room(handle);
-	print_graph(handle.graph);
+//	test_print_room(handle);
+//	print_graph(handle.graph);
 	if (handle.nb_ants > 1)
 		handle.tmp_nb_ants = handle.nb_ants + 1;
 	else
 		handle.tmp_nb_ants = handle.nb_ants;
 	resolve_lem_in(&handle, 1);
-	test_affiche_path(handle.graph);
+//	test_affiche_path(handle.graph);
 	seek_combo(handle.graph);
 	best_combo(&handle);
 	set_print(&handle);

@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 15:18:20 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/28 17:14:39 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/09/28 20:20:08 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ typedef struct			s_best
 //--------------------------------
 typedef struct			s_print
 {
-	int					size;
+	int					max_flow;
+	int					flow;
 	int					nb_ants;
 	int					**pasu;
 	int					**pos_ants;
@@ -105,6 +106,7 @@ int						lycos(t_info *handle, char *str);
  *						test_functions
 \*/
 
+void					test_pos_ants(t_print *out);
 void					test_print_room(t_info handle);
 void					test_graph(void);
 void					test_affiche_path(t_graph *g);

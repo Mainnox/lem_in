@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 09:32:07 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/27 19:47:04 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/09/28 20:11:59 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void			print_graph(t_graph *g)
 			n = n->next;
 		}
 		path = g->tab_neigh[i].path;
+/*
 		ft_printf("\npath(%d) : \n", i);
 		while (path)
 		{
@@ -43,8 +44,9 @@ void			print_graph(t_graph *g)
 			ft_printf("%d\n", path->path[j]);
 			path = path->next;
 		}
-		i++;
 		ft_printf("\n");
+*/
+		i++;
 	}
 }
 

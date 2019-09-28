@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 10:38:32 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/27 19:46:29 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/09/28 20:10:25 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,6 +143,7 @@ int				best_combo(t_info *handle)
 	if (setup_best(handle))
 		return (1);
 	omoshiroi_puroguramu(handle, 0);
+/*
 	while (i < handle->best->size_best - 1)
 	{
 		ft_printf("%d-", handle->best->best[i]);
@@ -150,5 +151,6 @@ int				best_combo(t_info *handle)
 	}
 	ft_printf("%d\n", handle->best->best[i]);
 	ft_printf("Size_best = %d\n", handle->best->size_best);
+*/
 	return (0);
 }

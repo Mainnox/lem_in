@@ -6,11 +6,27 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 12:42:17 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/28 17:15:07 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/09/28 21:01:57 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
+
+void		test_pos_ants(t_print *out)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	while (i < out->max_flow)
+	{
+		j = 0;
+		while (j < out->pasu[i][0])
+			ft_printf("%d-", out->pos_ants[i][j++]);
+		ft_printf("\n\n");
+		++i;
+	}
+}
 
 void		test_print(t_print print)
 {
@@ -20,9 +36,10 @@ void		test_print(t_print print)
 	i = 0;
 	ft_printf("_________ Test_print ____________\n");
 	ft_printf("nb de ants    --> %d\n", print.nb_ants);
-	ft_printf("nb de chemins --> %d\n", print.size);
+	ft_printf("nb de chemins --> %d\n", print.max_flow);
+	ft_printf("flow          --> %d\n", print.flow);
 	ft_printf("__________________________________\n\n");
-	while (i < print.size)
+	while (i < print.flow)
 	{
 		j = 1;
 		ft_printf("chemin [%d]\n", i);
