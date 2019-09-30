@@ -6,7 +6,7 @@
 #    By: akremer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/20 15:44:50 by akremer           #+#    #+#              #
-#    Updated: 2019/09/28 18:15:51 by lyhamrou         ###   ########.fr        #
+#    Updated: 2019/09/30 14:10:08 by lyhamrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ INCLUDE = -I include -I libft/includes/
 SRC_PATH = src/
 SRC_NAME = algo.c combo.c free.c hashtag_parsing.c main.c set_print.c \
 		   using_gnl.c best.c combo2.c graph.c lst_room.c output.c test.c \
-		   verif.c
+		   verif.c tools.c
 SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
 
 OBJ_PATH = .obj/
@@ -44,7 +44,7 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c $(HEADER)
 	$(CC) $(FLAGS) $(INCLUDE) -o $@ -c $<
 
 clean:
-	$(RM) -rf $(OBJ)
+	$(RM) -rf $(OBJ_PATH)
 	make clean -C ./libft/
 
 fclean: clean
@@ -60,6 +60,6 @@ save: fclean
 	@git push
 
 penis:
-	@sh gros_sex.sh
+	@sh penis.sh
 
 .PHONY: all clean $(NAME) fclean re save

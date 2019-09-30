@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/27 17:32:28 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/28 21:04:45 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/09/30 11:22:30 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int				set_print(t_info *handle)
 		return (1);
 	if (!(handle->print.pos_ants = (int**)malloc(sizeof(int*) * handle->best->size_best)))
 		return (1);
+	handle->print.ant = 1;
 	handle->print.nb_ants = handle->nb_ants;
 	handle->print.flow = handle->best->size_best;
 	handle->print.max_flow = handle->best->size_best;

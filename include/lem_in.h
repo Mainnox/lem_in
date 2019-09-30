@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 15:18:20 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/28 20:20:08 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/09/30 11:21:13 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ typedef struct			s_print
 {
 	int					max_flow;
 	int					flow;
+	int					ant;
 	int					nb_ants;
 	int					**pasu;
 	int					**pos_ants;
@@ -114,12 +115,16 @@ void					test_done(t_graph *g);
 void					test_size_path(t_graph *g);
 void					test_combo(t_graph *g);
 int						test_banlist(int *banlist);
-void					test_print(t_print print);
+void					test_print(t_print *print);
 
 /*\
  *						verif_functions
 \*/
 
+char					*name_of_index(t_info *handle, int index);
+int						index_of_name(t_info *handle, char *str);
+t_room					*find_room_index(t_room *room, int index);
+t_room					*find_room_name(t_room *room, char *name);
 int						verif_coor(char *str);
 int						verif_room(t_info *handle, t_room *room);
 int						verif_split(int x, int y, char **split);

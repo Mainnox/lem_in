@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 12:42:17 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/28 21:01:57 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/09/30 11:49:10 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void		test_pos_ants(t_print *out)
 	int		j;
 
 	i = 0;
+	ft_printf("___________________ test_pos_ants _________________\n");
+	ft_printf("ants --> %d\n", out->ant);
 	while (i < out->max_flow)
 	{
 		j = 0;
@@ -26,30 +28,32 @@ void		test_pos_ants(t_print *out)
 		ft_printf("\n\n");
 		++i;
 	}
+	ft_printf("_________________________________________________\n");
 }
 
-void		test_print(t_print print)
+void		test_print(t_print *print)
 {
 	int i;
 	int j;
 
 	i = 0;
 	ft_printf("_________ Test_print ____________\n");
-	ft_printf("nb de ants    --> %d\n", print.nb_ants);
-	ft_printf("nb de chemins --> %d\n", print.max_flow);
-	ft_printf("flow          --> %d\n", print.flow);
+	ft_printf("nb de ants    --> %d\n", print->nb_ants);
+	ft_printf("ants          --> %d\n", print->ant);
+	ft_printf("nb de chemins --> %d\n", print->max_flow);
+	ft_printf("flow          --> %d\n", print->flow);
 	ft_printf("__________________________________\n\n");
-	while (i < print.flow)
+	while (i < print->flow)
 	{
 		j = 1;
 		ft_printf("chemin [%d]\n", i);
-		ft_printf("size chemin = %d\n", print.pasu[i][0]);
-		while (j < print.pasu[i][0])
+		ft_printf("size chemin = %d\n", print->pasu[i][0]);
+		while (j < print->pasu[i][0])
 		{
-			ft_printf("%d-", print.pasu[i][j]);
+			ft_printf("%d-", print->pasu[i][j]);
 			j++;
 		}
-		ft_printf("%d\n\n", print.pasu[i][j]);
+		ft_printf("%d\n\n", print->pasu[i][j]);
 		i++;
 	}
 	ft_printf("__________________________________\n");
