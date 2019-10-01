@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 13:48:04 by akremer           #+#    #+#             */
-/*   Updated: 2019/10/01 14:46:22 by akremer          ###   ########.fr       */
+/*   Updated: 2019/10/01 16:31:34 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int			main(void)
 	resolve_lem_in(&handle, 1);
 	seek_combo(handle.graph);
 	best_combo(&handle);
+	test_best(&handle);
 	set_print(&handle);
 	sim_ants(&handle);
 	free_handle(&handle);
