@@ -6,7 +6,7 @@
 /*   By: lyhamrou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/27 19:26:25 by lyhamrou          #+#    #+#             */
-/*   Updated: 2019/09/30 15:56:29 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/10/01 15:15:16 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,7 +146,6 @@ void	sim_ants(t_info *handle)
 
 	out = handle->print;
 	lim = calc_flow(&out);
-	test_print(&out);
 	while (1)
 	{
 		if (out.ant <= lim)

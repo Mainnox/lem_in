@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 10:38:32 by akremer           #+#    #+#             */
-/*   Updated: 2019/10/01 14:40:47 by akremer          ###   ########.fr       */
+/*   Updated: 2019/10/01 15:15:53 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static char		are_u_better(t_info *handle)
 		return (1);
 	else if (handle->best->size_best == handle->best->size_tmp_best)
 	{
-		if (find_better(handle, handle->best->best[handle->best->size_best] < find_better(handle, handle->best->tmp_best[handle->best->size_tmp_best])))
+		if (find_better(handle, handle->best->best[handle->best->size_best] > find_better(handle, handle->best->tmp_best[handle->best->size_tmp_best])))
 			return (1);
 	}
 	return (0);
@@ -127,7 +127,6 @@ static void		omoshiroi_puroguramu(t_info *handle, int i)
 		if (combo_match(handle->graph->combo[i], handle->best->banlist))
 		{
 			add_to_best(handle, handle->graph->combo[i]);
-			test_banlist(handle->best->banlist, handle->best->size_banlist);
 			omoshiroi_puroguramu(handle, i + 1);
 			tmp_is_better(handle);
 			besuto_shinu(handle);
@@ -144,14 +143,5 @@ int				best_combo(t_info *handle)
 	if (setup_best(handle))
 		return (1);
 	omoshiroi_puroguramu(handle, 0);
-/*
-	while (i < handle->best->size_best - 1)
-	{
-		ft_printf("%d-", handle->best->best[i]);
-		i++;
-	}
-	ft_printf("%d\n", handle->best->best[i]);
-	ft_printf("Size_best = %d\n", handle->best->size_best);
-*/
 	return (0);
 }
