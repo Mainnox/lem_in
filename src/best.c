@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 10:38:32 by akremer           #+#    #+#             */
-/*   Updated: 2019/10/01 15:15:53 by akremer          ###   ########.fr       */
+/*   Updated: 2019/10/01 16:04:48 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static int		setup_best(t_info *handle)
 	best->banlist[0] = 1;
 	best->size_banlist = 1;
 	best->size_tmp_best = 0;
+	best->size_long_tmp = 0;
+	best->size_long = 0;
 	handle->best = best;
 	return (0);
 }
@@ -49,11 +51,12 @@ static void		add_to_best(t_info *handle, int *to_add)
 	}
 	handle->best->banlist[i] = 1;
 	handle->best->size_banlist = i + 1;
+	handle->best->size_long_tmp += to_add[1] - 2;
 	handle->best->tmp_best[handle->best->size_tmp_best] = to_add[0];
 	handle->best->size_tmp_best++;
 }
 
-static int		find_better(t_info *handle, int index)
+/*static int		find_better(t_info *handle, int index)
 {
 	int 	i;
 
@@ -66,6 +69,7 @@ static int		find_better(t_info *handle, int index)
 	}
 	return (666);
 }
+*/
 
 static char		are_u_better(t_info *handle)
 {
@@ -73,7 +77,7 @@ static char		are_u_better(t_info *handle)
 		return (1);
 	else if (handle->best->size_best == handle->best->size_tmp_best)
 	{
-		if (find_better(handle, handle->best->best[handle->best->size_best] > find_better(handle, handle->best->tmp_best[handle->best->size_tmp_best])))
+		if (handle->best->size_long > handle->best->size_long_tmp)
 			return (1);
 	}
 	return (0);
@@ -94,6 +98,7 @@ static void		tmp_is_better(t_info *handle)
 			i++;
 		}
 		handle->best->size_best = handle->best->size_tmp_best;
+		handle->best->size_long = handle->best->size_long_tmp;
 	}
 }
 
@@ -118,6 +123,7 @@ static void		besuto_shinu(t_info *handle)
 	handle->best->banlist[handle->best->size_banlist - size_to_del - 1] = 1;
 	handle->best->size_banlist -= size_to_del;
 	handle->best->size_tmp_best--;
+	handle->best->size_long_tmp -= size_to_del;
 }
 
 static void		omoshiroi_puroguramu(t_info *handle, int i)
