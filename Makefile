@@ -6,7 +6,7 @@
 #    By: akremer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/20 15:44:50 by akremer           #+#    #+#              #
-#    Updated: 2019/09/30 14:10:08 by lyhamrou         ###   ########.fr        #
+#    Updated: 2019/10/01 14:42:19 by akremer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,21 @@ fclean: clean
 
 re: fclean all
 
+one: all
+	@sh tests/one.sh
+
+ten: all
+	@sh tests/ten.sh
+
+thousand: all
+	@sh tests/thousand.sh
+
+big: all
+	@sh tests/big.sh
+
+big_sup: all
+	@sh tests/big_sup.sh
+
 save: fclean
 	@rm -rf *.swp
 	@git add .
@@ -60,6 +75,6 @@ save: fclean
 	@git push
 
 penis:
-	@sh penis.sh
+	@sh map/penis.sh
 
 .PHONY: all clean $(NAME) fclean re save

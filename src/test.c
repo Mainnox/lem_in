@@ -6,11 +6,25 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 12:42:17 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/30 11:49:10 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/10/01 14:26:06 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
+
+void		test_best(t_info *handle)
+{
+	int i;
+
+	i = 0;
+	ft_printf("Best = ");
+	while (i < handle->best->size_best - 1)
+	{
+		ft_printf("%d-", handle->best->best[i]);
+		i++;
+	}
+	ft_printf("%d\n", handle->best->best[i]);
+}
 
 void		test_pos_ants(t_print *out)
 {
@@ -42,8 +56,8 @@ void		test_print(t_print *print)
 	ft_printf("ants          --> %d\n", print->ant);
 	ft_printf("nb de chemins --> %d\n", print->max_flow);
 	ft_printf("flow          --> %d\n", print->flow);
-	ft_printf("__________________________________\n\n");
-	while (i < print->flow)
+	ft_printf("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n");
+	while (i < print->max_flow)
 	{
 		j = 1;
 		ft_printf("chemin [%d]\n", i);
@@ -59,13 +73,13 @@ void		test_print(t_print *print)
 	ft_printf("__________________________________\n");
 }
 
-int			test_banlist(int *banlist)
+int			test_banlist(int *banlist, int size)
 {
 	int i;
 
 	i = 0;
 	ft_printf("Banlist = ");
-	while (banlist[i] != 1)
+	while (i < size)
 	{
 		ft_printf("%d-", banlist[i]);
 		i++;

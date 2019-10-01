@@ -6,7 +6,7 @@
 /*   By: lyhamrou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/27 19:26:25 by lyhamrou          #+#    #+#             */
-/*   Updated: 2019/09/30 14:05:39 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/09/30 15:56:29 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int		output(t_print *out, t_info *handle)
 		i = 0;
 		while (i < out->max_flow)
 		{
-			if (j <= out->pasu[i][0] && out->pos_ants[i][j] > 0)
+			if (j < out->pasu[i][0] && out->pos_ants[i][j] > 0)
 			{
 				name = name_of_index(handle, out->pasu[i][j + 1]);
 				ft_printf("L%d-%s ", out->pos_ants[i][j], name);
@@ -146,9 +146,10 @@ void	sim_ants(t_info *handle)
 
 	out = handle->print;
 	lim = calc_flow(&out);
+	test_print(&out);
 	while (1)
 	{
-		if (out.ant < lim)
+		if (out.ant <= lim)
 			lim = calc_flow(&out);
 		push_swap(&out);
 		if (output(&out, handle) == 1)

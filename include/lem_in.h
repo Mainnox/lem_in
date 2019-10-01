@@ -6,13 +6,19 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 15:18:20 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/30 11:21:13 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/10/01 13:02:51 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LEM_IN_H
 # define LEM_IN_H
 # include "../libft/includes/libft.h"
+
+# define BLEU "\033[34m"
+# define VERT "\033[32m"
+# define JAUNE "\033[33m"
+# define ROUGE "\033[31m"
+# define BLANC "\033[0m"
 
 typedef struct			s_node
 {
@@ -84,6 +90,7 @@ typedef struct			s_print
 typedef struct			s_info
 {
 	char				algo;
+	int					i;
 	int					nb_ants;
 	int					nb_room;
 	int					start;
@@ -99,6 +106,10 @@ typedef struct			s_info
  *						lst_functions
 \*/
 
+int						parsing(t_info *handle);
+int						pars_room(t_info *handle, char **buf, int s, int end);
+int						store_the_room(t_info *env, char **buf, int s, int e);
+int						pars_edge(t_info *handle, char **buf);
 int						new_struct(t_info *handle, char *str);
 int						new_edge(t_info *handle, char *str);
 int						lycos(t_info *handle, char *str);
@@ -107,6 +118,7 @@ int						lycos(t_info *handle, char *str);
  *						test_functions
 \*/
 
+int						printroom(t_info *handle);
 void					test_pos_ants(t_print *out);
 void					test_print_room(t_info handle);
 void					test_graph(void);
@@ -114,8 +126,9 @@ void					test_affiche_path(t_graph *g);
 void					test_done(t_graph *g);
 void					test_size_path(t_graph *g);
 void					test_combo(t_graph *g);
-int						test_banlist(int *banlist);
+int						test_banlist(int *banlist, int size);
 void					test_print(t_print *print);
+void					test_best(t_info *handle);
 
 /*\
  *						verif_functions

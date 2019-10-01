@@ -6,53 +6,43 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 13:48:04 by akremer           #+#    #+#             */
-/*   Updated: 2019/10/01 11:57:29 by akremer          ###   ########.fr       */
+/*   Updated: 2019/09/25 20:04:31 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-static char		**setup_main(t_info *handle)
+static void	setup_handle(t_info *handle)
 {
-	char **gnl;
-
-	if (!(gnl = (char **)malloc(sizeof(char*) * 1)))
-		return (NULL);
+	handle->i = 2;
 	handle->start = 0;
 	handle->end = 0;
-	handle->algo = 0;
 	handle->graph = NULL;
-	handle->nb_room = 1;
+	handle->nb_room = 0;
 	handle->room = NULL;
-	handle->best = NULL;
-	handle->tmp_nb_ants = 0;
-	return (gnl);	
 }
 
-int			main(void)
+static int	handle_freezer(t_info *handle)
 {
-	char		**gnl;
-	t_info		handle;
-	int 		i;
-	char 		error;
+	t_room *tmp;
 
-	error = 0;
-	i = 1;
-	gnl = setup_main(&handle);
-	if (!gnl)
-		return (0);
-	store_room(&handle, gnl);
-	if (handle.nb_ants > 1)
-		handle.tmp_nb_ants = handle.nb_ants + 1;
-	else
-		handle.tmp_nb_ants = handle.nb_ants;
-	resolve_lem_in(&handle, 1);
-	seek_combo(handle.graph);
-	best_combo(&handle);
-	test_combo(handle.graph);
-	test_best(&handle);
-	set_print(&handle);
-	sim_ants(&handle);
-	free_handle(&handle);
-	return (0);
+	while (handle->room)
+	{
+		tmp = handle->room;
+		handle->room = handle->room->next;
+		free(tmp->name);
+		free(tmp);
+	}
+	return (EXIT_SUCCESS);
 }
+
+int		main(void)
+{
+	t_info		handle;
+
+	setup_handle(&handle);
+	if (parsing(&handle) == 0)
+		return (handle_freezer(&handle));
+	return (handle_freezer(&handle));
+}
+//	printf("\n");

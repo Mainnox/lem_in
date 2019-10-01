@@ -86,7 +86,7 @@ t_node			*add_node(int value)
 int				add_edge(t_graph *g, int src, int dest)
 {
 	t_node *n;
-	
+
 	if ((src == -1) || (dest == -1) || (src == dest) || edge_exit(g, src, dest))
 		return (1);
 	n = add_node(dest);

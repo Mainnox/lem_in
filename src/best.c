@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 10:38:32 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/28 20:10:25 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/10/01 14:40:47 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ static int		setup_best(t_info *handle)
 
 	if (!(best = (t_best*)malloc(sizeof(t_best))))
 		return (1);
-	if (!(best->banlist = (int*)malloc(sizeof(int) * handle->graph->nb_vertices * 10)))
+	if (!(best->banlist = (int*)malloc(sizeof(int) * handle->graph->nb_vertices)))
 		return (1);
-	if (!(best->best = (int*)malloc(sizeof(int) * handle->graph->tab_neigh[1].nb_path * 10)))
+	if (!(best->best = (int*)malloc(sizeof(int) * handle->graph->tab_neigh[1].nb_path)))
 		return (1);
-	if (!(best->tmp_best = (int*)malloc(sizeof(int) * handle->graph->tab_neigh[1].nb_path * 10)))
+	if (!(best->tmp_best = (int*)malloc(sizeof(int) * handle->graph->tab_neigh[1].nb_path)))
 		return (1);
 	best->size_best = 0;
 	best->banlist[0] = 1;
@@ -73,7 +73,7 @@ static char		are_u_better(t_info *handle)
 		return (1);
 	else if (handle->best->size_best == handle->best->size_tmp_best)
 	{
-		if (find_better(handle, handle->best->best[handle->best->size_best] > find_better(handle, handle->best->tmp_best[handle->best->size_tmp_best])))
+		if (find_better(handle, handle->best->best[handle->best->size_best] < find_better(handle, handle->best->tmp_best[handle->best->size_tmp_best])))
 			return (1);
 	}
 	return (0);
@@ -106,7 +106,7 @@ static void		besuto_shinu(t_info *handle)
 	size_to_del = 0;
 	i = 0;
 	benri_datta = handle->best->tmp_best[handle->best->size_tmp_best - 1];
-	while (i < handle->graph->tab_neigh[1].nb_path - 1)
+	while (i < handle->graph->tab_neigh[1].nb_path)
 	{
 		if (handle->graph->combo[i][0] == benri_datta)
 		{
@@ -115,7 +115,7 @@ static void		besuto_shinu(t_info *handle)
 		}
 		i++;
 	}
-	handle->best->banlist[handle->best->size_banlist - size_to_del + 1] = 1;
+	handle->best->banlist[handle->best->size_banlist - size_to_del - 1] = 1;
 	handle->best->size_banlist -= size_to_del;
 	handle->best->size_tmp_best--;
 }
@@ -127,7 +127,8 @@ static void		omoshiroi_puroguramu(t_info *handle, int i)
 		if (combo_match(handle->graph->combo[i], handle->best->banlist))
 		{
 			add_to_best(handle, handle->graph->combo[i]);
-			omoshiroi_puroguramu(handle, ++i);
+			test_banlist(handle->best->banlist, handle->best->size_banlist);
+			omoshiroi_puroguramu(handle, i + 1);
 			tmp_is_better(handle);
 			besuto_shinu(handle);
 		}
