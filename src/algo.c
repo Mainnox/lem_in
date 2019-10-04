@@ -121,6 +121,7 @@ int					resolve_lem_in(t_info *handle, char first)
 	}
 	while (i < handle->graph->nb_vertices && handle->tmp_nb_ants)
 	{
+		ft_printf("Index = %d\n", i);
 		if (handle->graph->tab_neigh[i].done == 1)
 			add_walkthrough(handle, i);
 		i++;
