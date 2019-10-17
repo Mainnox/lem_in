@@ -28,6 +28,7 @@ typedef struct			s_node
 
 typedef	struct			s_path
 {
+	char				done;
 	int					index;
 	int					size;
 	int					*path;

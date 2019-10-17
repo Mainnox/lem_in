@@ -26,6 +26,7 @@ static t_path		*create_path(size_t size, int *str, int c)
 	n->size = 0;
 	n->path[size - 1] = c;
 	n->path[size] = -1;
+	n->done = 1;
 	n->next = NULL;
 	return (n);
 }
@@ -72,12 +73,16 @@ static void			add_walkthrough(t_info *handle, int i)
 	path_src = handle->graph->tab_neigh[i].path;
 	while (path_src)
 	{
-		adjacent = handle->graph->tab_neigh[i].begin;
-		while (adjacent)
+		if (path_src->done == 1)
 		{
-			if (ft_tabchr(path_src->path, adjacent->value, -1) == -1)
-				add_path(handle, path_src->path, adjacent->value);
-			adjacent = adjacent->next;
+			adjacent = handle->graph->tab_neigh[i].begin;
+			while (adjacent)
+			{
+				if (ft_tabchr(path_src->path, adjacent->value, -1) == -1)
+					add_path(handle, path_src->path, adjacent->value);
+				adjacent = adjacent->next;
+			}
+			path_src->done = 0;
 		}
 		path_src = path_src->next;
 	}
@@ -117,6 +122,7 @@ int					resolve_lem_in(t_info *handle, char first)
 			return (0);
 		handle->graph->tab_neigh[0].path->path[0] = 0;
 		handle->graph->tab_neigh[0].path->path[1] = -1;
+		handle->graph->tab_neigh[0].path->done = 1;
 		handle->graph->tab_neigh[0].path->next = NULL;
 	}
 	while (i < handle->graph->nb_vertices && handle->tmp_nb_ants)
