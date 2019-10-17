@@ -46,12 +46,11 @@ int			main(void)
 		handle.tmp_nb_ants = handle.nb_ants + 1;
 	else
 		handle.tmp_nb_ants = handle.nb_ants;
-	resolve_lem_in(&handle, 1);
+	resolve_lem_in(&handle, 0);
 	ft_printf("resolve_lem_in finish !\n");
 	seek_combo(handle.graph);
 	test_combo(handle.graph);
 	best_combo(&handle);
-	test_best(&handle);
 	set_print(&handle);
 	sim_ants(&handle);
 	free_handle(&handle);
