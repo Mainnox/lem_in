@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 13:48:04 by akremer           #+#    #+#             */
-/*   Updated: 2019/10/01 16:31:34 by akremer          ###   ########.fr       */
+/*   Updated: 2019/10/21 00:58:28 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ int			main(void)
 	else
 		handle.tmp_nb_ants = handle.nb_ants;
 	resolve_lem_in(&handle, 0);
-	ft_printf("resolve_lem_in finish !\n");
+//	ft_printf("resolve_lem_in finish !\n");
 	seek_combo(handle.graph);
-	test_combo(handle.graph);
+//	test_combo(handle.graph);
 	best_combo(&handle);
 	set_print(&handle);
 	sim_ants(&handle);

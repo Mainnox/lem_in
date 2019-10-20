@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 09:32:07 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/28 20:11:59 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/10/21 00:55:02 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ t_graph			*new_graph(int vertices)
 	{
 		graph->tab_neigh[i].done = 0;
 		graph->tab_neigh[i].act_done = 0;
+		graph->tab_neigh[i].mark = 0;
 		graph->tab_neigh[i].path = NULL;
 		graph->tab_neigh[i].begin = NULL;
 		i++;

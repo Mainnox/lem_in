@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 10:21:59 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/27 19:46:18 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/10/21 01:00:08 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,10 @@ static void			add_path(t_info *handle, int *path_src, int value)
 	n->next = handle->graph->tab_neigh[value].path;
 	handle->graph->tab_neigh[value].path = n;
 	if (value != 1)
+	{
 		handle->graph->tab_neigh[value].act_done = 1;
+		handle->graph->tab_neigh[value].mark = 1;
+	}
 	else
 		handle->algo = 1;
 }
@@ -78,7 +81,8 @@ static void			add_walkthrough(t_info *handle, int i)
 			adjacent = handle->graph->tab_neigh[i].begin;
 			while (adjacent)
 			{
-				if (ft_tabchr(path_src->path, adjacent->value, -1) == -1)
+				if (handle->graph->tab_neigh[adjacent->value].mark == 0
+						&& ft_tabchr(path_src->path, adjacent->value, -1) == -1)
 					add_path(handle, path_src->path, adjacent->value);
 				adjacent = adjacent->next;
 			}
@@ -129,6 +133,7 @@ int					resolve_lem_in(t_info *handle, char first)
 	}
 	while (i < handle->graph->nb_vertices && handle->tmp_nb_ants)
 	{
+//		ft_printf("Index = %d\n", i);
 		if (handle->graph->tab_neigh[i].done == 1)
 			add_walkthrough(handle, i);
 		i++;

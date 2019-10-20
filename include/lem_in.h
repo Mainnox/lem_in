@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 15:18:20 by akremer           #+#    #+#             */
-/*   Updated: 2019/10/01 16:31:36 by akremer          ###   ########.fr       */
+/*   Updated: 2019/10/21 00:48:51 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef	struct			s_path
 typedef struct			s_neigh
 {
 	char				done;
+	char				mark;
 	char				act_done;
 	int					nb_path;
 	t_node				*begin;
