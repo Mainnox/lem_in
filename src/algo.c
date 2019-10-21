@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 10:21:59 by akremer           #+#    #+#             */
-/*   Updated: 2019/10/21 01:00:08 by akremer          ###   ########.fr       */
+/*   Updated: 2019/10/21 02:48:23 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ static void			add_path(t_info *handle, int *path_src, int value)
 	if (value != 1)
 	{
 		handle->graph->tab_neigh[value].act_done = 1;
-		handle->graph->tab_neigh[value].mark = 1;
+		if (handle->nb_room > 1000)
+			handle->graph->tab_neigh[value].mark = 1;
 	}
 	else
 		handle->algo = 1;
@@ -133,7 +134,6 @@ int					resolve_lem_in(t_info *handle, char first)
 	}
 	while (i < handle->graph->nb_vertices && handle->tmp_nb_ants)
 	{
-//		ft_printf("Index = %d\n", i);
 		if (handle->graph->tab_neigh[i].done == 1)
 			add_walkthrough(handle, i);
 		i++;

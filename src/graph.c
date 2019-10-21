@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 09:32:07 by akremer           #+#    #+#             */
-/*   Updated: 2019/10/21 00:55:02 by akremer          ###   ########.fr       */
+/*   Updated: 2019/10/21 02:46:48 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,18 @@ void			print_graph(t_graph *g)
 
 	j = 0;
 	i = 0;
-	while (i < g->nb_vertices)
+	while (i < 2)
 	{
 		n = g->tab_neigh[i].begin;
-		ft_printf("(%d) : ", i);
+		ft_printf("\n(%d) : ", i);
+		j = 0;
 		while (n)
 		{
 			ft_printf("%d, ", n->value);
 			n = n->next;
+			j++;
 		}
+		ft_printf("\nJ for %d = %d\n", i, j);
 		path = g->tab_neigh[i].path;
 /*
 		ft_printf("\npath(%d) : \n", i);
@@ -59,6 +62,7 @@ t_graph			*new_graph(int vertices)
 	if (!(graph = (t_graph*)malloc(sizeof(t_graph))))
 		return (NULL);
 	graph->nb_vertices = vertices;
+	graph->nb_edge = 0;
 	if (!(graph->tab_neigh = (t_neigh*)malloc(sizeof(t_neigh) * vertices)))
 		return (NULL);
 	while (i < graph->nb_vertices)
@@ -96,6 +100,7 @@ int				add_edge(t_graph *g, int src, int dest)
 	n = add_node(src);
 	n->next = g->tab_neigh[dest].begin;
 	g->tab_neigh[dest].begin = n;
+	g->nb_edge++;
 	return (0);
 }
 
