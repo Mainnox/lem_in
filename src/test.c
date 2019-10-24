@@ -6,11 +6,12 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 12:42:17 by akremer           #+#    #+#             */
-/*   Updated: 2019/10/21 02:28:38 by akremer          ###   ########.fr       */
+/*   Updated: 2019/10/24 16:40:48 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
+
 
 void		test_best(t_info *handle)
 {
@@ -25,7 +26,6 @@ void		test_best(t_info *handle)
 	}
 	ft_printf("%d\n", handle->best->best[i]);
 }
-
 void		test_pos_ants(t_print *out)
 {
 	int		i;
