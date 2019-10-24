@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 15:18:20 by akremer           #+#    #+#             */
-/*   Updated: 2019/10/21 02:46:03 by akremer          ###   ########.fr       */
+/*   Updated: 2019/10/24 15:47:10 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,7 +196,7 @@ int						best_combo(t_info *handle);
  *						free_function
 \*/
 
-void					free_handle(t_info *handle);
+void					free_handle(t_info *handle, char code);
 
 /*\
  *						print_function

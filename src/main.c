@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 13:48:04 by akremer           #+#    #+#             */
-/*   Updated: 2019/10/24 14:00:09 by akremer          ###   ########.fr       */
+/*   Updated: 2019/10/24 15:47:39 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,6 @@ int			main(void)
 	sim_ants(&handle);
 //	ft_printf("Nb_edge = %d\n", handle.graph->nb_edge);
 //	print_graph(handle.graph);
-	free_handle(&handle);
+	free_handle(&handle, 10);
 	return (0);
 }
