@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 09:49:03 by akremer           #+#    #+#             */
-/*   Updated: 2019/10/24 15:46:53 by akremer          ###   ########.fr       */
+/*   Updated: 2019/10/24 16:00:41 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,5 @@ void		free_handle(t_info *handle, char code)
 		free_graph(handle->graph);
 		free_room(handle);
 	}
+	exit(0);
 }

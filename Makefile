@@ -6,7 +6,7 @@
 #    By: akremer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/20 15:44:50 by akremer           #+#    #+#              #
-#    Updated: 2019/10/21 01:32:45 by akremer          ###   ########.fr        #
+#    Updated: 2019/10/24 16:00:48 by akremer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ INCLUDE = -I include -I libft/includes/
 SRC_PATH = src/
 SRC_NAME = algo.c combo.c free.c hashtag_parsing.c main.c set_print.c \
 		   using_gnl.c best.c combo2.c graph.c lst_room.c output.c test.c \
-		   verif.c tools.c
+		   verif.c tools.c error.c
 SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
 
 OBJ_PATH = .obj/

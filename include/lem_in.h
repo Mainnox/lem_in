@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 15:18:20 by akremer           #+#    #+#             */
-/*   Updated: 2019/10/24 15:47:10 by akremer          ###   ########.fr       */
+/*   Updated: 2019/10/24 16:00:46 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,6 +202,7 @@ void					free_handle(t_info *handle, char code);
  *						print_function
 \*/
 
+void					print_error(t_info *handle, char code);
 int						set_print(t_info *handle);
 void					sim_ants(t_info *handle);
 
