@@ -1,17 +1,17 @@
 15
 ##start
-salle_start 2 0
+salle_start 3 0
 ##end
-salle_end 2 4
-salle2 0 1
-salle3 3 1
-salle4 3 2
-salle5 -1 2
-salle6 0 2
-salle7 1 1
-salle8 1 2
-salle9 1 3
-salle10 2 1
+salle_end 4 8
+salle2 -2 4
+salle3 1 9
+salle4 7 9
+salle5 -9 12
+salle6 0 12
+salle7 5 11
+salle8 4 6
+salle9 -3 5
+salle10 6 -1
 salle_start-salle2
 salle_start-salle7
 salle_start-salle10

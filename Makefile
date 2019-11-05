@@ -6,7 +6,7 @@
 #    By: akremer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/20 15:44:50 by akremer           #+#    #+#              #
-#    Updated: 2019/10/24 16:00:48 by akremer          ###   ########.fr        #
+#    Updated: 2019/10/04 19:40:52 by lyhamrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,17 @@ FLAGS = -Wall -Werror -Wextra
 
 LD_LIBS = -lftprintf -L libft/
 
+MLX_LD_LIBS = -lmlx -L minilibx_macos/ -framework AppKit -framework OpenGl
+
 HEADER = include/lem_in.h
-INCLUDE = -I include -I libft/includes/
+INCLUDE = -I include -I libft/includes/ -I minilibx_macos/
 
 SRC_PATH = src/
-SRC_NAME = algo.c combo.c free.c hashtag_parsing.c main.c set_print.c \
-		   using_gnl.c best.c combo2.c graph.c lst_room.c output.c test.c \
-		   verif.c tools.c error.c
+SRC_NAME = test.c main.c parsing.c pars_room.c pars_edge.c graph.c tools.c \
+		   algo.c combo.c combo2.c best.c set_print.c output.c free.c visu.c \
+		   bresenham.c left_octant_bresenham.c right_octant_bresenham.c \
+		   pannel.c init_visu.c background.c ants_movement.c push_swap.c
+
 SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
 
 OBJ_PATH = .obj/
@@ -31,14 +35,19 @@ OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 
 LIBFT_A = libft/libft.a
 
+LIBMLX_A = minilibx_macos/libmlx.a
+
 all: $(NAME)
 
 $(NAME): $(LIBFT_A) $(OBJ)
-	$(CC) $(FLAGS) $(INCLUDE) $(LD_LIBS) $(OBJ) -o $(NAME)
+	$(CC) $(FLAGS) $(INCLUDE) $(MLX_LD_LIBS) $(LD_LIBS) $(OBJ) -o $(NAME)
+
+$(LIBMLX_A):
+	make -C minilibx_macos/
 
 $(LIBFT_A):
 	mkdir -p $(OBJ_PATH)
-	make -C ./libft/
+	make -C libft/
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c $(HEADER)
 	$(CC) $(FLAGS) $(INCLUDE) -o $@ -c $<
@@ -46,6 +55,7 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c $(HEADER)
 clean:
 	$(RM) -rf $(OBJ_PATH)
 	make clean -C ./libft/
+	#make clean ./minilibx_macos/
 
 fclean: clean
 	$(RM) -rf $(NAME)

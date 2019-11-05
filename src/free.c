@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 09:49:03 by akremer           #+#    #+#             */
-/*   Updated: 2019/10/24 16:00:41 by akremer          ###   ########.fr       */
+/*   Updated: 2019/10/01 18:13:16 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,33 +46,45 @@ static void	free_best(t_info *handle)
 	free(handle->best);
 }
 
-static void	free_print(t_info *handle)
+void		free_handle(t_info *handle)
 {
-	int			i;
-
-	i = 0;
-	while (i < handle->best->size_best)
-	{
-		free(handle->print.pasu[i]);
-		free(handle->print.pos_ants[i]);
-		i++;
-	}
-	free(handle->print.pasu);
-	free(handle->print.pos_ants);
+	free_combo(handle);
+//	free_graph(handle->graph);
+	free_room(handle);
+	free_best(handle);
 }
 
-void		free_handle(t_info *handle, char code)
+void			free_graph(t_graph *g)
 {
-	if (code > 2)
-		free_combo(handle);
-	if (code > 3)
-		free_print(handle);
-	if (code > 4)
-		free_best(handle);
-	if (code > 1)
+	int		i;
+	t_node	*n;
+	t_node	*tmp;
+	t_path	*tmp_p;
+	t_path	*p;
+
+	i = 0;
+	if (g->tab_neigh)
 	{
-		free_graph(handle->graph);
-		free_room(handle);
+		while (i < g->nb_vertices)
+		{
+			n = g->tab_neigh[i].begin;
+			p = g->tab_neigh[i].path;
+			while (n)
+			{
+				tmp = n;
+				n = n->next;
+				free(tmp);
+			}
+			while (p)
+			{
+				tmp_p = p;
+				free(p->path);
+				p = p->next;
+				free(tmp_p);
+			}
+			i++;
+		}
+		free(g->tab_neigh);
 	}
-	exit(0);
+	free(g);
 }

@@ -6,7 +6,7 @@
 /*   By: lyhamrou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/27 19:26:25 by lyhamrou          #+#    #+#             */
-/*   Updated: 2019/10/01 15:15:16 by akremer          ###   ########.fr       */
+/*   Updated: 2019/10/04 19:42:59 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		is_finish(t_print *out)
 		return (0);
 	else
 	{
-		while (i < out->flow)
+		while (i < out->max_flow)
 		{
 			j = 0;
 			while (j < out->pasu[i][j])
@@ -37,31 +37,26 @@ int		is_finish(t_print *out)
 	return (1);
 }
 
-int		find_biggest_pasu(t_print *out)
+int		visu_n_end_check(t_print *out, t_info *handle)
 {
-	int		i;
-	int		big;
-
-	i = 0;
-	big = 0;
-	while (i < out->flow)
+	if (handle->init_visu != 0)
+		visu(handle, out->ant);
+	if (is_finish(out) == 0 && ft_printf("\n"))
 	{
-		if (big < out->pasu[i][0])
-			big = out->pasu[i][0];
-		++i;
+		return (0);
 	}
-	return (big);
+	if (handle->init_visu != 0)
+		mlx_loop(handle->visu.mlx);
+	return (1);
 }
 
 int		output(t_print *out, t_info *handle)
 {
 	int		i;
 	int		j;
-	int		big_way;
 	char	*name;
 
-	j = find_biggest_pasu(out);
-	big_way = find_biggest_pasu(out);
+	j = out->pasu[out->max_flow - 1][0];
 	while (j >= 0)
 	{
 		i = 0;
@@ -76,46 +71,7 @@ int		output(t_print *out, t_info *handle)
 		}
 		--j;
 	}
-	if (is_finish(out) == 0)
-	{
-		ft_printf("\n");
-		return (0);
-	}
-	return (1);
-}
-
-void	rotate_ants(t_print *out)
-{
-	int		i;
-	int		j;
-
-	i = out->max_flow - 1;
-	while (i >= 0)
-	{
-		j = out->pasu[i][0] - 1;
-		while (j > 0)
-		{
-			out->pos_ants[i][j] = out->pos_ants[i][j - 1];
-			--j;
-		}
-		if (j == 0)
-			out->pos_ants[i][0] = 0;
-		--i;
-	}
-}
-
-void	push_swap(t_print *out)
-{
-	int		i;
-
-	i = 0;
-	rotate_ants(out);
-	while (i < out->flow && out->ant <= out->nb_ants)
-	{
-		out->pos_ants[i][0] = out->ant;
-		out->ant++;
-		++i;
-	}
+	return (visu_n_end_check(out, handle));
 }
 
 int		calc_flow(t_print *out)
@@ -128,10 +84,10 @@ int		calc_flow(t_print *out)
 	while (i < out->flow - 1)
 	{
 		lim += out->pasu[out->flow - 1][0] - out->pasu[i][0] + 1;
-		if (out->nb_ants - out->ant < lim)
+		if (out->nb_ants - out->ant <= lim)
 		{
 			out->flow--;
-			i--;
+			i = 0;
 			lim = 0;
 		}
 		++i;
@@ -148,7 +104,7 @@ void	sim_ants(t_info *handle)
 	lim = calc_flow(&out);
 	while (1)
 	{
-		if (out.ant <= lim)
+		if (out.nb_ants - out.ant < lim)
 			lim = calc_flow(&out);
 		push_swap(&out);
 		if (output(&out, handle) == 1)

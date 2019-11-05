@@ -6,76 +6,11 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 09:32:07 by akremer           #+#    #+#             */
-/*   Updated: 2019/10/24 16:12:32 by akremer          ###   ########.fr       */
+/*   Updated: 2019/10/02 16:10:31 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
-
-void			print_graph(t_graph *g)
-{
-	int		i;
-	t_node	*n;
-	t_path	*path;
-	int		j;
-
-	j = 0;
-	i = 0;
-	while (i < 2)
-	{
-		n = g->tab_neigh[i].begin;
-		ft_printf("\n(%d) : ", i);
-		j = 0;
-		while (n)
-		{
-			ft_printf("%d, ", n->value);
-			n = n->next;
-			j++;
-		}
-		ft_printf("\nJ for %d = %d\n", i, j);
-		path = g->tab_neigh[i].path;
-/*
-		ft_printf("\npath(%d) : \n", i);
-		while (path)
-		{
-			j = 0;
-			while (path->path[j + 1] != -1)
-			{
-				ft_printf("%d, ", path->path[j]);
-				j++;
-			}
-			ft_printf("%d\n", path->path[j]);
-			path = path->next;
-		}
-		ft_printf("\n");
-*/
-		i++;
-	}
-}
-
-t_graph			*new_graph(int vertices)
-{
-	int		i;
-	t_graph	*graph;
-
-	i = 0;
-	if (!(graph = (t_graph*)malloc(sizeof(t_graph))))
-		return (NULL);
-	graph->nb_vertices = vertices;
-	graph->nb_edge = 0;
-	if (!(graph->tab_neigh = (t_neigh*)malloc(sizeof(t_neigh) * vertices)))
-		return (NULL);
-	while (i < graph->nb_vertices)
-	{
-		graph->tab_neigh[i].done = 0;
-		graph->tab_neigh[i].act_done = 0;
-		graph->tab_neigh[i].mark = 0;
-		graph->tab_neigh[i].path = NULL;
-		graph->tab_neigh[i].begin = NULL;
-		i++;
-	}
-	return (graph);
-}
 
 t_node			*add_node(int value)
 {
@@ -88,53 +23,21 @@ t_node			*add_node(int value)
 	return (n);
 }
 
-int				add_edge(t_graph *g, int src, int dest)
+int				add_edge(t_info *handle, char *room1, char *room2)
 {
+	int		src;
+	int		dest;
 	t_node *n;
 
-	if ((src == -1) || (dest == -1) || (src == dest) || edge_exit(g, src, dest))
-		return (1);
-	n = add_node(dest);
-	n->next = g->tab_neigh[src].begin;
-	g->tab_neigh[src].begin = n;
-	n = add_node(src);
-	n->next = g->tab_neigh[dest].begin;
-	g->tab_neigh[dest].begin = n;
-	g->nb_edge++;
-	return (0);
-}
-
-void			free_graph(t_graph *g)
-{
-	int		i;
-	t_node	*n;
-	t_node	*tmp;
-	t_path	*tmp_p;
-	t_path	*p;
-
-	i = 0;
-	if (g->tab_neigh)
-	{
-		while (i < g->nb_vertices)
-		{
-			n = g->tab_neigh[i].begin;
-			p = g->tab_neigh[i].path;
-			while (n)
-			{
-				tmp = n;
-				n = n->next;
-				free(tmp);
-			}
-			while (p)
-			{
-				tmp_p = p;
-				free(p->path);
-				p = p->next;
-				free(tmp_p);
-			}
-			i++;
-		}
-		free(g->tab_neigh);
-	}
-	free(g);
+	src = index_of_name(handle, room1);
+	dest = index_of_name(handle, room2);
+	if ((n = add_node(dest)) == NULL)
+		return (0);
+	n->next = handle->graph->tab_neigh[src].begin;
+	handle->graph->tab_neigh[src].begin = n;
+	if ((n = add_node(src)) == NULL)
+		return (0);
+	n->next = handle->graph->tab_neigh[dest].begin;
+	handle->graph->tab_neigh[dest].begin = n;
+	return (1);
 }

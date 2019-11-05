@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 10:32:32 by akremer           #+#    #+#             */
-/*   Updated: 2019/08/31 14:31:00 by akremer          ###   ########.fr       */
+/*   Updated: 2019/10/04 19:40:42 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,11 @@ void				ft_putchar_puissant(const char *str);
 void				ft_foreach(int *tab, int lenght, void (*f)(int));
 char				*ft_strndup(const char *s, size_t n);
 void				ft_sort_integer_table(int *tab, int size);
+int					skip_word(char *str, int i);
+int					skip_space(char *str, int i);
+int					ft_intchr(char const *str, char const *find);
+int					ft_isblank(char c);
+long long			ft_atol(char const *str);
+long				ft_abs(long x);
 
 #endif

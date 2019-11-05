@@ -6,7 +6,7 @@
 #    By: akremer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 17:38:05 by akremer           #+#    #+#              #
-#    Updated: 2019/09/16 11:21:05 by akremer          ###   ########.fr        #
+#    Updated: 2019/10/04 19:39:35 by lyhamrou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -108,7 +108,13 @@ SRC =	ft_atoi.c				\
 		ft_set_1.c				\
 		ft_set_2.c				\
 		ft_set_size.c			\
-		ft_intrev.c
+		ft_intrev.c \
+		skip_word.c \
+		skip_space.c \
+		ft_intchr.c \
+		ft_isblank.c \
+		ft_atol.c \
+		ft_abs.c
 
 OBJ = $(SRC:%.c=%.o)
 

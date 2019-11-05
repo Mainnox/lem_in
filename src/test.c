@@ -6,33 +6,57 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 12:42:17 by akremer           #+#    #+#             */
-/*   Updated: 2019/10/24 16:40:48 by akremer          ###   ########.fr       */
+/*   Updated: 2019/11/05 18:04:14 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-
-void		test_best(t_info *handle)
+void		test_rpasu(t_info *h)
 {
-	int i;
+	int		i;
+	int		j;
 
 	i = 0;
-	ft_printf("Best = ");
-	while (i < handle->best->size_best - 1)
+	ft_printf("\n___________________ test_rpasu _________________\n");
+	ft_printf("rpasu :\n");
+	while (i < h->print.max_flow)
 	{
-		ft_printf("%d-", handle->best->best[i]);
-		i++;
+		j = 0;
+		while (j < h->print.pasu[i][0])
+		{
+			ft_printf("%d-", h->visu.rpasu[i][j]);
+			++j;
+		}
+		ft_printf("\n\n");
+		++i;
 	}
-	ft_printf("%d\n", handle->best->best[i]);
+	ft_printf("________________________________________________\n\n");
 }
+
+void		test_visu(t_info *handle)
+{
+	t_visu visu;
+
+	visu = handle->visu;
+	ft_printf("\n___________________ test_visu _________________\n");
+	ft_printf("x_min -> %d\n", visu.x_min);
+	ft_printf("x_max -> %d\n", visu.x_max);
+	ft_printf("y_min -> %d\n", visu.y_min);
+	ft_printf("y_max -> %d\n\n", visu.y_max);
+	ft_printf("nb_x -> %d\n", visu.nb_x);
+	ft_printf("nb_y -> %d\n", visu.nb_y);
+	ft_printf("pas -> %d\n", visu.pas);
+	ft_printf("_______________________________________________\n");
+}
+
 void		test_pos_ants(t_print *out)
 {
 	int		i;
 	int		j;
 
 	i = 0;
-	ft_printf("___________________ test_pos_ants _________________\n");
+	ft_printf("\n___________________ test_pos_ants _________________\n");
 	ft_printf("ants --> %d\n", out->ant);
 	while (i < out->max_flow)
 	{
@@ -73,13 +97,13 @@ void		test_print(t_print *print)
 	ft_printf("__________________________________\n");
 }
 
-int			test_banlist(int *banlist, int size)
+int			test_banlist(int *banlist)
 {
 	int i;
 
 	i = 0;
 	ft_printf("Banlist = ");
-	while (i < size)
+	while (banlist[i] != 1)
 	{
 		ft_printf("%d-", banlist[i]);
 		i++;
@@ -167,6 +191,34 @@ void		test_done(t_graph *g)
 	}
 }
 
+void		print_graph(t_info *handle)
+{
+	int		i;
+	t_graph	*graph;
+	t_node	*node;
+
+	i = 0;
+	graph = handle->graph;
+	ft_printf("\n------------------- PRINT_GRAPH -----------------\n");
+	ft_printf("nb_vertices --> %d\n", handle->graph->nb_vertices);
+	ft_printf("------\n");
+	while (i < graph->nb_vertices)
+	{
+	ft_printf("===============\n");
+		node = graph->tab_neigh[i].begin;
+		ft_printf("index - %d\n", i);
+		while (node)
+		{
+			ft_printf("value %d\n", node->value);
+			node = node->next;
+		}
+		++i;
+		ft_printf("\n");
+	}
+	ft_printf("\n");
+	ft_printf("--------------------------------------------------\n\n");
+}
+
 void		test_print_room(t_info handle)
 {
 	t_room	*tmp;
@@ -174,10 +226,10 @@ void		test_print_room(t_info handle)
 
 	i = 0;
 	tmp = handle.room;
+	ft_printf("-----------------TEST PRINT ROOM---------------\n");
 	ft_printf("number of ants = %d\n", handle.nb_ants);
 	while (tmp)
 	{
-
 		ft_printf("handle.room->name %3d = %10s\n", tmp->index, tmp->name);
 		ft_printf("handle.room->x    %3d = %10d\n", tmp->index, tmp->x);
 		ft_printf("handle.room->y    %3d = %10d\n\n", tmp->index, tmp->y);
@@ -189,23 +241,5 @@ void		test_print_room(t_info handle)
 //	ft_printf("ROULEMENT DE TAMBOURS\n");
 //	sleep(1);
 	ft_printf("%d\n", handle.nb_room);
-}
-
-void		test_graph(void)
-{
-	t_graph		*g;
-
-	g = new_graph(5);
-
-	add_edge(g, 1, 2);
-	ft_printf("casca\n");
-	add_edge(g, 1, 4);
-	add_edge(g, 0, 2);
-	add_edge(g, 0, 4);
-	add_edge(g, 4, 0);
-	add_edge(g, 4, 3);
-	add_edge(g, 0, 3);
-	add_edge(g, 2, 3);
-	print_graph(g);
-	free_graph(g);
+	ft_printf("------------------------------------------\n");
 }
