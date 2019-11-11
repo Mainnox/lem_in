@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 09:49:03 by akremer           #+#    #+#             */
-/*   Updated: 2019/11/11 03:47:05 by akremer          ###   ########.fr       */
+/*   Updated: 2019/11/11 03:48:38 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,5 +145,6 @@ void			free_graph(t_graph *g)
 
 void			quick_kill(void)
 {
+	write(2, "ERROR\n", 6);
 	exit(EXIT_FAILURE);
 }
