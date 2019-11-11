@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 10:21:59 by akremer           #+#    #+#             */
-/*   Updated: 2019/10/24 13:51:18 by akremer          ###   ########.fr       */
+/*   Updated: 2019/11/11 02:17:13 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,13 @@ static void			add_path(t_info *handle, int *path_src, int value)
 	t_path	*n;
 
 	n = create_path(ft_tablen(path_src, -1), path_src, value);
-//	if (already_here(handle, n->path, value))
-//	{
-//		free(n->path);
-//		free(n);
-//		return ;
-//	}
 	n->next = handle->graph->tab_neigh[value].path;
 	handle->graph->tab_neigh[value].path = n;
+	handle->graph->tab_neigh[value].nb_path++;
 	if (value != 1)
 	{
 		handle->graph->tab_neigh[value].act_done = 1;
-		if (handle->nb_room > 1000)
+		if (handle->fatty_fat == 1)
 			handle->graph->tab_neigh[value].mark = 1;
 	}
 	else

@@ -6,7 +6,7 @@
 #    By: akremer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/20 15:44:50 by akremer           #+#    #+#              #
-#    Updated: 2019/10/04 19:40:52 by lyhamrou         ###   ########.fr        #
+#    Updated: 2019/11/11 01:56:09 by akremer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRC_PATH = src/
 SRC_NAME = test.c main.c parsing.c pars_room.c pars_edge.c graph.c tools.c \
 		   algo.c combo.c combo2.c best.c set_print.c output.c free.c visu.c \
 		   bresenham.c left_octant_bresenham.c right_octant_bresenham.c \
-		   pannel.c init_visu.c background.c ants_movement.c push_swap.c
+		   pannel.c init_visu.c background.c ants_movement.c push_swap.c 
 
 SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
 

@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 15:18:20 by akremer           #+#    #+#             */
-/*   Updated: 2019/11/05 18:05:40 by akremer          ###   ########.fr       */
+/*   Updated: 2019/11/11 01:36:24 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,8 +181,9 @@ typedef struct			s_print
 
 typedef struct			s_info
 {
-	int					init_visu;
 	char				algo;
+	char				fatty_fat;
+	int					init_visu;
 	int					i;
 	int					nb_ants;
 	int					nb_room;
@@ -221,6 +222,7 @@ void					test_print(t_print *print);
 void					test_visu(t_info *handle);
 void					test_rpasu(t_info *handle);
 void					print_graph(t_info *g);
+void					test_best(t_info *handle);
 /*\
  *						verif_functions
 \*/
@@ -245,6 +247,10 @@ int						seek_combo(t_graph *handle);
 void					sort_combo(t_graph *g);
 int						combo_match(int *act, int *next);
 int						best_combo(t_info *handle);
+/*\
+ *						free_function
+\*/
+void					retry(t_info *handle);
 
 int						set_print(t_info *handle);
 void					sim_ants(t_info *handle);

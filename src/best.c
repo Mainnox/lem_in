@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 10:38:32 by akremer           #+#    #+#             */
-/*   Updated: 2019/10/24 14:03:18 by akremer          ###   ########.fr       */
+/*   Updated: 2019/11/11 02:16:44 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,21 +56,6 @@ static void		add_to_best(t_info *handle, int *to_add)
 	handle->best->tmp_best[handle->best->size_tmp_best] = to_add[0];
 	handle->best->size_tmp_best++;
 }
-
-/*static int		find_better(t_info *handle, int index)
-{
-	int 	i;
-
-	i = 0;
-	while (i < handle->graph->tab_neigh[1].nb_path - 1)
-	{
-		if (handle->graph->combo[i][0] == index)
-			return (handle->graph->combo[i][1]);
-		i++;
-	}
-	return (666);
-}
-*/
 
 static char		are_u_better(t_info *handle)
 {
@@ -139,12 +124,12 @@ static void		omoshiroi_puroguramu(t_info *handle, int i)
 			tmp_is_better(handle);
 			besuto_shinu(handle);
 			if (handle->nb_room > 1000)
-				handle->best->juju = 1;
+				handle->best->juju++;
 		}
-		if (handle->best->juju == 1)
+		if (handle->best->juju >= 1)
 			break;
 		i++;
-	}	
+	}
 }
 
 int				best_combo(t_info *handle)

@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 09:49:03 by akremer           #+#    #+#             */
-/*   Updated: 2019/10/01 18:13:16 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/11/11 02:15:44 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,47 @@ static void	free_best(t_info *handle)
 	free(handle->best->best);
 	free(handle->best->banlist);
 	free(handle->best);
+	handle->best = NULL;
+}
+
+static void	free_path(t_info *handle)
+{
+	int 	i;
+	t_path	*tmp;
+	t_path	*tmp_free;
+
+	i = 0;
+	while (i < handle->graph->nb_vertices)
+	{
+		tmp = handle->graph->tab_neigh[i].path;
+		while (tmp)
+		{
+			free(tmp->path);
+			tmp_free = tmp;
+			tmp = tmp->next;
+			free(tmp_free);
+		}
+		handle->graph->tab_neigh[i].path = NULL;
+		handle->graph->tab_neigh[i].mark = 0;
+		handle->graph->tab_neigh[i].done = 0;
+		handle->graph->tab_neigh[i].act_done = 0;
+		handle->graph->tab_neigh[i].nb_path = 0;
+		i++;
+	}
 }
 
 void		free_handle(t_info *handle)
 {
-	free_combo(handle);
-//	free_graph(handle->graph);
 	free_room(handle);
+}
+
+void		retry(t_info *handle)
+{
+	free_combo(handle);
 	free_best(handle);
+	free_path(handle);
+	handle->tmp_nb_ants = handle->nb_ants > 1 ? handle->nb_ants + 1 : handle->nb_ants;
+	handle->algo = 0;
 }
 
 void			free_graph(t_graph *g)

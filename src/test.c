@@ -6,11 +6,25 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 12:42:17 by akremer           #+#    #+#             */
-/*   Updated: 2019/11/05 18:04:14 by akremer          ###   ########.fr       */
+/*   Updated: 2019/11/10 23:21:05 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
+
+void		test_best(t_info *handle)
+{
+	int i;
+
+	i = 0;
+	ft_printf("Best = ");
+	while (i < handle->best->size_best - 1)
+	{
+		ft_printf("%d-", handle->best->best[i]);
+		i++;
+	}
+	ft_printf("%d\n", handle->best->best[i]);
+}
 
 void		test_rpasu(t_info *h)
 {

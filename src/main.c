@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 13:48:04 by akremer           #+#    #+#             */
-/*   Updated: 2019/11/05 18:08:21 by akremer          ###   ########.fr       */
+/*   Updated: 2019/11/11 02:16:58 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,23 @@ int		main(int ac, char **av)
 		return (handle_freezer(&handle, 0));
 	nb_ants = handle.nb_ants;
 	handle.tmp_nb_ants = nb_ants > 1 ? nb_ants + 1 : nb_ants;
-	resolve_lem_in(&handle, 0);
-	seek_combo(handle.graph);
-	best_combo(&handle);
+	if (handle.nb_room > 1000)
+		handle.fatty_fat = 1;
+	else
+		handle.fatty_fat = 0;
+	while (42)
+	{
+		resolve_lem_in(&handle, 0);
+		seek_combo(handle.graph);
+		best_combo(&handle);
+		if (handle.fatty_fat == 1 && handle.best->size_best < 5)
+		{
+			retry(&handle);
+			handle.fatty_fat = 0;
+			continue ;
+		}
+		break ;
+	}
 	set_print(&handle);
 	sim_ants(&handle);
 	return (handle_freezer(&handle, 1));
