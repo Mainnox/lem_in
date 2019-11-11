@@ -6,12 +6,11 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 14:26:23 by akremer           #+#    #+#             */
-/*   Updated: 2019/11/11 03:50:23 by akremer          ###   ########.fr       */
+/*   Updated: 2019/11/11 06:23:52 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
-
 
 static void		set_path(t_graph *g)
 {
@@ -39,21 +38,18 @@ static int		set_combo(t_graph *g)
 
 	i = 0;
 	tmp = g->tab_neigh[1].path;
-	if (!(g->combo = (int**)ft_memalloc(sizeof(int*) * g->tab_neigh[1].nb_path)))
+	if (!(g->combo = (int**)
+				ft_memalloc(sizeof(int*) * g->tab_neigh[1].nb_path)))
 		return (1);
 	while (tmp)
 	{
-		j = 0;
+		j = -1;
 		if (!(g->combo[i] = (int*)ft_memalloc(sizeof(int) * (tmp->size + 3))))
 			return (1);
 		g->combo[i][0] = tmp->index;
 		g->combo[i][1] = tmp->size;
-		while (tmp->path[j] != -1)
-		{
+		while (tmp->path[++j] != -1)
 			g->combo[i][j + 2] = tmp->path[j];
-			j++;
-		}
-//		ft_printf("\n");
 		g->combo[i][j + 2] = -1;
 		i++;
 		tmp = tmp->next;

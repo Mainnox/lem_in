@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 15:18:20 by akremer           #+#    #+#             */
-/*   Updated: 2019/11/11 04:23:01 by akremer          ###   ########.fr       */
+/*   Updated: 2019/11/11 06:41:48 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -247,6 +247,8 @@ int						seek_combo(t_graph *handle);
 void					sort_combo(t_graph *g);
 int						combo_match(int *act, int *next);
 int						best_combo(t_info *handle);
+int						setup_best(t_info *handle);
+void					add_to_best(t_info *handle, int *to_add);
 /*\
  *						free_function
 \*/
@@ -255,6 +257,11 @@ int						free_handle(t_info *handle);
 void					free_at_combo(t_info *handle);
 void					free_at_print(t_info *handle);
 void					free_at_best(t_info *handle);
+void					free_combo(t_info *handle);
+void					free_room(t_info *handle);
+void					free_best(t_info *handle);
+void					free_path(t_info *handle);
+void					free_print(t_info *handle);
 void					quick_kill(void);
 
 int						set_print(t_info *handle);

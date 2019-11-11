@@ -1,34 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hashtag_parsing.c                                  :+:      :+:    :+:   */
+/*   free2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/21 13:02:17 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/27 19:47:13 by lyhamrou         ###   ########.fr       */
+/*   Created: 2019/11/11 06:35:50 by akremer           #+#    #+#             */
+/*   Updated: 2019/11/11 06:38:19 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-int			hashtag_parsing(char **str, t_info *handle)
+void			free_graph(t_graph *g)
 {
-	if (ft_strcmp("##start", str[0]) == 0)
+	int		i;
+	t_node	*n;
+	t_node	*tmp;
+
+	i = 0;
+	if (g->tab_neigh)
 	{
-		if (handle->start != 0)
-			return (0);
-		handle->start = 1;
-		if (ft_splitlen(str) != 1)
-			return (0);
+		while (i < g->nb_vertices)
+		{
+			n = g->tab_neigh[i].begin;
+			while (n)
+			{
+				tmp = n;
+				n = n->next;
+				free(tmp);
+			}
+			i++;
+		}
+		free(g->tab_neigh);
 	}
-	if (ft_strcmp("##end", str[0]) == 0)
-	{
-		if (handle->end != 0)
-			return (0);
-		handle->end = 1;
-		if (ft_splitlen(str) != 1)
-			return (0);
-	}
-	return (1);
+	free(g);
+}
+
+void			quick_kill(void)
+{
+	write(2, "ERROR\n", 6);
+	exit(EXIT_FAILURE);
 }

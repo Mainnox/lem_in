@@ -6,13 +6,13 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 09:49:03 by akremer           #+#    #+#             */
-/*   Updated: 2019/11/11 04:22:30 by akremer          ###   ########.fr       */
+/*   Updated: 2019/11/11 06:40:41 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-static void	free_combo(t_info *handle)
+void	free_combo(t_info *handle)
 {
 	int		i;
 
@@ -25,7 +25,7 @@ static void	free_combo(t_info *handle)
 	free(handle->graph->combo);
 }
 
-static void	free_room(t_info *handle)
+void	free_room(t_info *handle)
 {
 	t_room		*tmp;
 
@@ -38,7 +38,7 @@ static void	free_room(t_info *handle)
 	}
 }
 
-static void	free_best(t_info *handle)
+void	free_best(t_info *handle)
 {
 	free(handle->best->tmp_best);
 	free(handle->best->best);
@@ -47,11 +47,11 @@ static void	free_best(t_info *handle)
 	handle->best = NULL;
 }
 
-static void	free_path(t_info *handle)
+void	free_path(t_info *handle)
 {
-	int 	i;
-	t_path	*tmp;
-	t_path	*tmp_free;
+	int			i;
+	t_path		*tmp;
+	t_path		*tmp_free;
 
 	i = 0;
 	while (i < handle->graph->nb_vertices)
@@ -73,7 +73,7 @@ static void	free_path(t_info *handle)
 	}
 }
 
-static void	free_print(t_info *handle)
+void	free_print(t_info *handle)
 {
 	int		i;
 
@@ -84,91 +84,4 @@ static void	free_print(t_info *handle)
 		free(handle->print.pos_ants[i]);
 		i++;
 	}
-}
-
-int			free_handle(t_info *handle)
-{
-	int i;
-
-	i = 0;
-	free_combo(handle);
-	free_room(handle);
-	free_graph(handle->graph);
-	free_print(handle);
-	free_best(handle);
-	return (1);
-}
-
-void		retry(t_info *handle)
-{
-	free_combo(handle);
-	free_best(handle);
-	free_path(handle);
-	handle->tmp_nb_ants = handle->nb_ants > 1 ? handle->nb_ants + 1 : handle->nb_ants;
-	handle->algo = 0;
-}
-
-void			free_at_combo(t_info *handle)
-{
-	free_room(handle);
-	free_graph(handle->graph);
-	quick_kill();
-}
-
-void			free_at_best(t_info *handle)
-{
-	free_room(handle);
-	free_combo(handle);
-	free_graph(handle->graph);
-	quick_kill();
-}
-
-void			free_at_print(t_info *handle)
-{
-	free_room(handle);
-	free_combo(handle);
-	free_best(handle);
-	free_graph(handle->graph);
-	quick_kill();
-}
-
-void			free_graph(t_graph *g)
-{
-	int		i;
-	t_node	*n;
-	t_node	*tmp;
-	t_path	*tmp_p;
-	t_path	*p;
-
-	i = 0;
-	if (g->tab_neigh)
-	{
-		while (i < g->nb_vertices)
-		{
-			n = g->tab_neigh[i].begin;
-			p = g->tab_neigh[i].path;
-			while (n)
-			{
-				tmp = n;
-				n = n->next;
-				free(tmp);
-			}
-			while (p)
-			{
-				tmp_p = p;
-				free(p->path);
-				p = p->next;
-				free(tmp_p);
-			}
-			i++;
-		}
-		free(g->tab_neigh);
-	}
-	free(g);
-}
-
-void			quick_kill(void)
-{
-	write(2, "ERROR\n", 6);
-	exit(EXIT_FAILURE);
 }

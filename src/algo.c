@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 10:21:59 by akremer           #+#    #+#             */
-/*   Updated: 2019/11/11 04:16:05 by akremer          ###   ########.fr       */
+/*   Updated: 2019/11/11 06:04:20 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,25 +102,24 @@ int					resolve_lem_in(t_info *handle, char first)
 {
 	int			i;
 
-	i = 0;
+	i = -1;
 	if (!first)
 	{
 		handle->graph->tab_neigh[0].done = 1;
-		if (!(handle->graph->tab_neigh[0].path = (t_path*)malloc(sizeof(t_path))))
+		if (!(handle->graph->tab_neigh[0].path = (t_path*)
+					malloc(sizeof(t_path))))
 			free_at_combo(handle);
-		if (!(handle->graph->tab_neigh[0].path->path = (int*)malloc(sizeof(int) * 2)))
+		if (!(handle->graph->tab_neigh[0].path->path = (int*)
+					malloc(sizeof(int) * 2)))
 			free_at_combo(handle);
 		handle->graph->tab_neigh[0].path->path[0] = 0;
 		handle->graph->tab_neigh[0].path->path[1] = -1;
 		handle->graph->tab_neigh[0].path->done = 1;
 		handle->graph->tab_neigh[0].path->next = NULL;
 	}
-	while (i < handle->graph->nb_vertices && handle->tmp_nb_ants)
-	{
+	while (++i < handle->graph->nb_vertices && handle->tmp_nb_ants)
 		if (handle->graph->tab_neigh[i].done == 1)
 			add_walkthrough(handle, i);
-		i++;
-	}
 	if (handle->algo)
 		handle->tmp_nb_ants--;
 	if (isnt_finish(handle->graph))

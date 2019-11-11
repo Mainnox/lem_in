@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 09:32:07 by akremer           #+#    #+#             */
-/*   Updated: 2019/11/10 23:07:50 by akremer          ###   ########.fr       */
+/*   Updated: 2019/11/11 06:41:43 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ t_node			*add_node(int value)
 
 int				add_edge(t_info *handle, char *room1, char *room2)
 {
-	int		src;
-	int		dest;
-	t_node *n;
+	int			src;
+	int			dest;
+	t_node		*n;
 
 	src = index_of_name(handle, room1);
 	dest = index_of_name(handle, room2);
