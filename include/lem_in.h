@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 15:18:20 by akremer           #+#    #+#             */
-/*   Updated: 2019/11/11 01:36:24 by akremer          ###   ########.fr       */
+/*   Updated: 2019/11/11 02:53:18 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -251,6 +251,7 @@ int						best_combo(t_info *handle);
  *						free_function
 \*/
 void					retry(t_info *handle);
+int						free_handle(t_info *handle);
 
 int						set_print(t_info *handle);
 void					sim_ants(t_info *handle);

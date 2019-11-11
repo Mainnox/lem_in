@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 09:49:03 by akremer           #+#    #+#             */
-/*   Updated: 2019/11/11 02:15:44 by akremer          ###   ########.fr       */
+/*   Updated: 2019/11/11 03:10:00 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,30 @@ static void	free_path(t_info *handle)
 	}
 }
 
-void		free_handle(t_info *handle)
+static void	free_print(t_info *handle)
 {
+	int		i;
+
+	i = 0;
+	while (i < handle->best->size_best)
+	{
+		free(handle->print.pasu[i]);
+		free(handle->print.pos_ants[i]);
+		i++;
+	}
+}
+
+int			free_handle(t_info *handle)
+{
+	int i;
+
+	i = 0;
+	free_combo(handle);
 	free_room(handle);
+	free_graph(handle->graph);
+	free_print(handle);
+	free_best(handle);
+	return (1);
 }
 
 void		retry(t_info *handle)

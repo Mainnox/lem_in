@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 13:48:04 by akremer           #+#    #+#             */
-/*   Updated: 2019/11/11 02:16:58 by akremer          ###   ########.fr       */
+/*   Updated: 2019/11/11 03:35:06 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,5 @@ int		main(int ac, char **av)
 	}
 	set_print(&handle);
 	sim_ants(&handle);
-	return (handle_freezer(&handle, 1));
+	return (free_handle(&handle));
 }

@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/27 17:32:28 by akremer           #+#    #+#             */
-/*   Updated: 2019/09/30 11:22:30 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/11/11 03:28:45 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int				set_print(t_info *handle)
 	int				j;
 
 	i = 0;
+	if (handle->best->size_best == 0)
+		handle->best->size_best = 1;
 	if (!(handle->print.pasu = (int**)malloc(sizeof(int*) * handle->best->size_best)))
 		return (1);
 	if (!(handle->print.pos_ants = (int**)malloc(sizeof(int*) * handle->best->size_best)))
