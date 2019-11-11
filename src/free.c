@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 09:49:03 by akremer           #+#    #+#             */
-/*   Updated: 2019/11/11 03:10:00 by akremer          ###   ########.fr       */
+/*   Updated: 2019/11/11 03:47:05 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,4 +141,9 @@ void			free_graph(t_graph *g)
 		free(g->tab_neigh);
 	}
 	free(g);
+}
+
+void			quick_kill(void)
+{
+	exit(EXIT_FAILURE);
 }
