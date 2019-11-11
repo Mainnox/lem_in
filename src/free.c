@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 09:49:03 by akremer           #+#    #+#             */
-/*   Updated: 2019/11/11 03:50:20 by akremer          ###   ########.fr       */
+/*   Updated: 2019/11/11 04:22:30 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,30 @@ void		retry(t_info *handle)
 	free_path(handle);
 	handle->tmp_nb_ants = handle->nb_ants > 1 ? handle->nb_ants + 1 : handle->nb_ants;
 	handle->algo = 0;
+}
+
+void			free_at_combo(t_info *handle)
+{
+	free_room(handle);
+	free_graph(handle->graph);
+	quick_kill();
+}
+
+void			free_at_best(t_info *handle)
+{
+	free_room(handle);
+	free_combo(handle);
+	free_graph(handle->graph);
+	quick_kill();
+}
+
+void			free_at_print(t_info *handle)
+{
+	free_room(handle);
+	free_combo(handle);
+	free_best(handle);
+	free_graph(handle->graph);
+	quick_kill();
 }
 
 void			free_graph(t_graph *g)

@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 13:48:04 by akremer           #+#    #+#             */
-/*   Updated: 2019/11/11 03:50:25 by akremer          ###   ########.fr       */
+/*   Updated: 2019/11/11 04:18:49 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int		main(int ac, char **av)
 	{
 		resolve_lem_in(&handle, 0);
 		if (seek_combo(handle.graph))
-			quick_kill();
+			free_at_combo(&handle);
 		best_combo(&handle);
 		if (handle.fatty_fat == 1 && handle.best->size_best < 5)
 		{

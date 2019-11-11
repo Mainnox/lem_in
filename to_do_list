@@ -1,6 +1,4 @@
 A faire avant de push :
 
-Cas d'erreur niveau algo a gerer (Si end n'est pas reachable, ...)
-Les leaks a gere (Creation de 2 function une quick_kill qui exit (Pour les malloc) et une qui free proprement pour la sortie classic)
 Norme
 Tester toutes les maps de test avant de faire de la merde !

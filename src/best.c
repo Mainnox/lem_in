@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 10:38:32 by akremer           #+#    #+#             */
-/*   Updated: 2019/11/11 03:37:27 by akremer          ###   ########.fr       */
+/*   Updated: 2019/11/11 04:16:54 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ static int		setup_best(t_info *handle)
 	t_best *best;
 
 	if (!(best = (t_best*)malloc(sizeof(t_best))))
-		return (1);
+		free_at_best(handle);
 	if (!(best->banlist = (int*)malloc(sizeof(int) * handle->graph->nb_vertices)))
-		return (1);
+		free_at_best(handle);
 	if (!(best->best = (int*)malloc(sizeof(int) * handle->graph->tab_neigh[1].nb_path)))
-		return (1);
+		free_at_best(handle);
 	if (!(best->tmp_best = (int*)malloc(sizeof(int) * handle->graph->tab_neigh[1].nb_path)))
-		return (1);
+		free_at_best(handle);
 	best->juju = 0;
 	best->size_best = 0;
 	best->banlist[0] = 1;

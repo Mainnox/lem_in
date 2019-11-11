@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 10:21:59 by akremer           #+#    #+#             */
-/*   Updated: 2019/11/11 02:17:13 by akremer          ###   ########.fr       */
+/*   Updated: 2019/11/11 04:16:05 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,25 +31,13 @@ static t_path		*create_path(size_t size, int *str, int c)
 	return (n);
 }
 
-//static int			already_here(t_info *handle, int *rififi, int value)
-//{
-//	t_path		*src;
-//
-//	src = handle->graph->tab_neigh[value].path;
-//	while (src)
-//	{
-//		if (ft_tabcmp(src->path, rififi, -1) == 0)
-//			return (1);
-//		src = src->next;
-//	}
-//	return (0);
-//}
-
 static void			add_path(t_info *handle, int *path_src, int value)
 {
 	t_path	*n;
 
 	n = create_path(ft_tablen(path_src, -1), path_src, value);
+	if (!n)
+		free_at_combo(handle);
 	n->next = handle->graph->tab_neigh[value].path;
 	handle->graph->tab_neigh[value].path = n;
 	handle->graph->tab_neigh[value].nb_path++;
@@ -119,9 +107,9 @@ int					resolve_lem_in(t_info *handle, char first)
 	{
 		handle->graph->tab_neigh[0].done = 1;
 		if (!(handle->graph->tab_neigh[0].path = (t_path*)malloc(sizeof(t_path))))
-			return (0);
+			free_at_combo(handle);
 		if (!(handle->graph->tab_neigh[0].path->path = (int*)malloc(sizeof(int) * 2)))
-			return (0);
+			free_at_combo(handle);
 		handle->graph->tab_neigh[0].path->path[0] = 0;
 		handle->graph->tab_neigh[0].path->path[1] = -1;
 		handle->graph->tab_neigh[0].path->done = 1;
