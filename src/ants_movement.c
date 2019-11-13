@@ -1,7 +1,16 @@
-#include "lem_in.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ants_movement.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lyhamrou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/13 17:17:37 by lyhamrou          #+#    #+#             */
+/*   Updated: 2019/11/13 20:04:10 by lyhamrou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	salut(void)
-{while(1);}
+#include "lem_in.h"
 
 void	copy_pos_ant_to_rpasu(t_info *h)
 {
@@ -32,9 +41,10 @@ t_room	*fix_index(t_info *h, int j, int i, int b)
 	tmp1 = h->room;
 	if (j == 0)
 	{
+	//	tmp1 = j_egal_zero(i, tmp, tmp1, h);
 		while (tmp && tmp->index != 0)
 			tmp = tmp->next;
-		while (tmp1 && tmp1->index != h->print.pasu[i][j + 1])
+		while (tmp1 && tmp1->index != h->print.pasu[i][1])
 			tmp1 = tmp1->next;
 	}
 	else if (j == h->print.pasu[i][0] - 1)
@@ -54,10 +64,6 @@ t_room	*fix_index(t_info *h, int j, int i, int b)
 	return (b == 0 ? tmp : tmp1);
 }
 
-/*
-**		fonction qui cree une fourmis en position (x, y)
-*/
-
 void	create_ant(t_info *handle, t_visu *v, int x, int y)
 {
 	int		i;
@@ -66,7 +72,8 @@ void	create_ant(t_info *handle, t_visu *v, int x, int y)
 
 	i = 0;
 	(void)handle;
-	coord = (y + v->pas / 2 - SIZE_ANT / 2) * IMG_X + (x + v->pas / 2 - SIZE_ANT / 2);
+	coord = (y + v->pas / 2 - SIZE_ANT / 2) * IMG_X
+		+ (x + v->pas / 2 - SIZE_ANT / 2);
 	while (i < SIZE_ANT)
 	{
 		j = 0;
@@ -98,21 +105,13 @@ void	create_ant_movement(t_info *h, int f, int i, int j)
 	pasx = (p.x2 - p.x1) / FRAME;
 	pasy = (p.y2 - p.y1) / FRAME;
 	create_ant(h, &h->visu, p.x1 + f * pasx, p.y1 + f * pasy);
-//	ft_printf("index0 %d\n", tmp->index);
-//	ft_printf("index1 %d\n", tmp1->index);
-//	ft_printf("p.x1 %d\n", p.x1);
-//	ft_printf("p.y1 %d\n", p.y1);
-//	ft_printf("pas x -> %d\n", pasx);
-//	ft_printf("pas y -> %d\n------------------------------------\n\n", pasy);
 }
 
-void	create_movement(t_info *h)
+void	create_movement(t_info *h, int f)
 {
-	int		f;
 	int		i;
 	int		j;
 
-	f = 0;
 	while (f <= FRAME)
 	{
 		i = 0;
@@ -121,9 +120,9 @@ void	create_movement(t_info *h)
 			j = 0;
 			while (j < h->print.pasu[i][0])
 			{
-				if (h->print.pos_ants[i][j] != h->visu.rpasu[i][j] && h->print.pos_ants[i][j] != 0)
+				if (h->print.pos_ants[i][j] != h->visu.rpasu[i][j]
+					&& h->print.pos_ants[i][j] != 0)
 					create_ant_movement(h, f, i, j);
-//				h->visu.rpasu[i][j] = h->print.pos_ants[i][j];
 				++j;
 			}
 			++i;

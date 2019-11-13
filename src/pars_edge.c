@@ -6,7 +6,7 @@
 /*   By: lyhamrou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 13:20:49 by lyhamrou          #+#    #+#             */
-/*   Updated: 2019/10/02 20:14:17 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/11/13 19:10:44 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int			init_graph(t_info *handle)
 	if (!(g = (t_graph *)malloc(sizeof(t_graph))))
 		return (0);
 	g->nb_vertices = handle->nb_room;
-	if (!(g->tab_neigh = (t_neigh *)ft_memalloc(sizeof(t_neigh) * handle->nb_room)))
+	if (!(g->tab_neigh = (t_neigh *)ft_memalloc(sizeof(t_neigh)
+		* handle->nb_room)))
 		return (0);
 	while (i < handle->nb_room)
 	{
@@ -39,7 +40,7 @@ int			edge_exist(t_info *handle, char *room1, char *room2)
 {
 	int		src;
 	int		dest;
-	t_node *tmp;
+	t_node	*tmp;
 
 	src = index_of_name(handle, room1);
 	dest = index_of_name(handle, room2);
@@ -65,7 +66,7 @@ static int	check_add_edge(char *buf, t_info *handle)
 	if (ft_strcmp(buf, "##start") == 0 || ft_strcmp(buf, "##end") == 0)
 		return (0);
 	else if (buf[0] == '#')
-		return (2) ;
+		return (2);
 	if (!ft_strchr(buf, '-') || ft_strchr(buf, '-') != ft_strrchr(buf, '-'))
 		return (0);
 	buf = buf + skip_space(buf, i);
@@ -92,14 +93,19 @@ int			pars_edge(t_info *handle, char **buf)
 	if (init_graph(handle) == 0)
 		return (0);
 	if (check_add_edge(*buf, handle) == 0)
-		return (0);
+		return (free_gnl(buf, 0));
+	ft_strdel(buf);
 	while (get_next_line(0, buf) > 0)
 	{
 		ret = check_add_edge(*buf, handle);
 		if (ret == 2)
+		{
+			ft_strdel(buf);
 			continue ;
+		}
 		else if (ret == 0)
-			return (0);
+			return (free_gnl(buf, 0));
+		ft_strdel(buf);
 	}
 	return (1);
 }

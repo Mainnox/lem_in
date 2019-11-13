@@ -6,11 +6,17 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 06:35:50 by akremer           #+#    #+#             */
-/*   Updated: 2019/11/11 06:38:19 by akremer          ###   ########.fr       */
+/*   Updated: 2019/11/13 19:07:54 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
+
+int				free_gnl(char **buf, int i)
+{
+	ft_strdel(buf);
+	return (i);
+}
 
 void			free_graph(t_graph *g)
 {

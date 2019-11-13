@@ -3,29 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   lem_in.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: lyhamrou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/20 15:18:20 by akremer           #+#    #+#             */
-/*   Updated: 2019/11/11 06:41:48 by akremer          ###   ########.fr       */
+/*   Created: 2019/11/13 18:07:40 by lyhamrou          #+#    #+#             */
+/*   Updated: 2019/11/13 19:08:32 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LEM_IN_H
 # define LEM_IN_H
 
-# include <limits.h>
-# include <stdio.h>
-# include <math.h>
-# include <time.h>
 # include "libft.h"
 # include "mlx.h"
+# include <limits.h>
 
 # define BLEU "\033[34m"
 # define VERT "\033[32m"
 # define JAUNE "\033[33m"
 # define ROUGE "\033[31m"
 # define BLANC "\033[0m"
-
 # define TRANS 0x000000ff
 # define WHITE 0xffffff
 # define GREEN 0x3FCA29
@@ -36,7 +32,6 @@
 # define BROWN 0x846D11
 # define BDX 0x543002
 # define KAKI 0xC2E720
-
 # define XPM_PATH "asset/terreau.xpm"
 # define XPM2_PATH "asset/logo_lemin.xpm"
 # define XPM3_PATH "asset/fourmis.xpm"
@@ -116,7 +111,7 @@ typedef struct			s_visu
 
 typedef struct			s_node
 {
-	int					value;//index du sommet voisin
+	int					value;
 	struct s_node		*next;
 }						t_node;
 
@@ -135,8 +130,8 @@ typedef struct			s_neigh
 	char				done;
 	char				act_done;
 	int					nb_path;
-	t_node				*begin;//liste des voisins
-	t_path				*path;//utilise que pour l'algo
+	t_node				*begin;
+	t_path				*path;
 }						t_neigh;
 
 typedef struct			s_graph
@@ -144,7 +139,7 @@ typedef struct			s_graph
 	int					nb_vertices;
 	int					**combo;
 	int					max_flow;
-	t_neigh				*tab_neigh;//tableau de structure = matrice d'adjacence avec index
+	t_neigh				*tab_neigh;
 }						t_graph;
 
 typedef struct			s_room
@@ -191,15 +186,12 @@ typedef struct			s_info
 	int					end;
 	int					tmp_nb_ants;
 	t_room				*room;
-	t_best				*best;//* a enlevee
-	t_graph				*graph;//* a enlevee
+	t_best				*best;
+	t_graph				*graph;
 	t_visu				visu;
 	t_print				print;
 }						t_info;
 
-/*\
- *						lst_functions
-\*/
 int						count_arg(char *str);
 int						check_less(t_info *handle, char *str, int i);
 char					*name_of_index(t_info *handle, int index);
@@ -208,9 +200,6 @@ int						parsing(t_info *handle);
 int						pars_room(t_info *handle, char **buf, int s, int end);
 int						store_the_room(t_info *env, char **buf, int s, int e);
 int						pars_edge(t_info *handle, char **buf);
-/*\
- *						test_functions
-\*/
 void					test_pos_ants(t_print *out);
 void					test_print_room(t_info handle);
 void					test_affiche_path(t_graph *g);
@@ -223,25 +212,15 @@ void					test_visu(t_info *handle);
 void					test_rpasu(t_info *handle);
 void					print_graph(t_info *g);
 void					test_best(t_info *handle);
-/*\
- *						verif_functions
-\*/
 int						verif_coor(char *str);
 int						verif_room(t_info *handle, t_room *room);
 int						verif_split(int x, int y, char **split);
 int						edge_exit(t_graph *g, int src, int dest);
 int						verif_nb_ants(int nb_ants, char *gnl);
 int						verif_start_end_exist(t_info *handle);
-/*\
- *						graph_functions
-\*/
 t_graph					*new_graph(int vertices);
 t_node					*add_node(int value);
 int						add_edge(t_info *handle, char *room1, char *room2);
-void					free_graph(t_graph *g);
-/*\
-**						algo_function
-\*/
 int						resolve_lem_in(t_info *handle, char first);
 int						seek_combo(t_graph *handle);
 void					sort_combo(t_graph *g);
@@ -249,10 +228,9 @@ int						combo_match(int *act, int *next);
 int						best_combo(t_info *handle);
 int						setup_best(t_info *handle);
 void					add_to_best(t_info *handle, int *to_add);
-/*\
- *						free_function
-\*/
 void					retry(t_info *handle);
+void					free_graph(t_graph *g);
+int						free_gnl(char **buf, int i);
 int						free_handle(t_info *handle);
 void					free_at_combo(t_info *handle);
 void					free_at_print(t_info *handle);
@@ -263,22 +241,20 @@ void					free_best(t_info *handle);
 void					free_path(t_info *handle);
 void					free_print(t_info *handle);
 void					quick_kill(void);
-
 int						set_print(t_info *handle);
 void					sim_ants(t_info *handle);
-
 void					ft_wait(void);
 int						visu(t_info *handle, int ant);
 void					bresenham(t_info *handle, t_point p);
 void					draw_big_line(t_info *handle, t_visu v, int i);
-void					one_octant(t_info *handle, t_point p);;
-void					two_octant(t_info *handle, t_point p);;
-void					three_octant(t_info *handle, t_point p);;
-void					four_octant(t_info *handle, t_point p);;
-void					five_octant(t_info *handle, t_point p);;
-void					six_octant(t_info *handle, t_point p);;
-void					seven_octant(t_info *handle, t_point p);;
-void					eight_octant(t_info *handle, t_point p);;
+void					one_octant(t_info *handle, t_point p);
+void					two_octant(t_info *handle, t_point p);
+void					three_octant(t_info *handle, t_point p);
+void					four_octant(t_info *handle, t_point p);
+void					five_octant(t_info *handle, t_point p);
+void					six_octant(t_info *handle, t_point p);
+void					seven_octant(t_info *handle, t_point p);
+void					eight_octant(t_info *handle, t_point p);
 int						key_event(int key, t_info *handle);
 int						is_finish(t_print *out);
 void					create_pannel(t_info *handle);
@@ -292,9 +268,10 @@ void					create_background(t_info *handle, int i, int j);
 void					put_room_name(t_info *handle, t_visu v);
 void					image_to_screen(t_info *handle, t_visu v, int ant);
 void					init_point(t_visu *visu);
-void					create_movement(t_info *handle);
+void					create_movement(t_info *handle, int f);
 void					push_swap(t_print *out);
 void					rotate_ants(t_print *out);
 int						key_event(int key, t_info *h);
+t_room					*j_egal_zero(int i, t_room *t, t_room *t1, t_info *h);
 
 #endif

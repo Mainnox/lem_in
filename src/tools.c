@@ -6,15 +6,19 @@
 /*   By: lyhamrou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/25 17:39:18 by lyhamrou          #+#    #+#             */
-/*   Updated: 2019/10/02 20:14:21 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/11/13 18:58:39 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void	ft_wait(void)
+t_room	*j_egal_zero(int i, t_room *tmp, t_room *tmp1, t_info *h)
 {
-	usleep(WAIT);
+	while (tmp && tmp->index != 0)
+		tmp = tmp->next;
+	while (tmp1 && tmp1->index != h->print.pasu[i][1])
+		tmp1 = tmp1->next;
+	return (tmp1);
 }
 
 char	*name_of_index(t_info *handle, int index)
@@ -79,4 +83,3 @@ t_room	*find_room_name(t_room *room, char *name)
 	}
 	return (NULL);
 }
-//	ft_printf("\n");

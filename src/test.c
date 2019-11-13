@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/01 12:42:17 by akremer           #+#    #+#             */
-/*   Updated: 2019/11/11 06:00:45 by akremer          ###   ########.fr       */
+/*   Updated: 2019/11/13 17:31:07 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,7 @@ int			test_banlist(int *banlist)
 
 void		test_affiche_path(t_graph *g)
 {
-	t_path *tmp;
+	t_path	*tmp;
 	int		i;
 	int		j;
 
@@ -218,7 +218,7 @@ void		print_graph(t_info *handle)
 	ft_printf("------\n");
 	while (i < graph->nb_vertices)
 	{
-	ft_printf("===============\n");
+		ft_printf("===============\n");
 		node = graph->tab_neigh[i].begin;
 		ft_printf("index - %d\n", i);
 		while (node)

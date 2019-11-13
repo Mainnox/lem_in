@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pannel.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lyhamrou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/13 17:15:26 by lyhamrou          #+#    #+#             */
+/*   Updated: 2019/11/13 17:16:16 by lyhamrou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "lem_in.h"
 
-void    create_bordure(t_visu v, int i)
+void	create_bordure(t_visu v, int i)
 {
 	while (++i < SIZE_SCREEN)
 	{
@@ -28,16 +40,16 @@ void    create_bordure(t_visu v, int i)
 	}
 }
 
-void    create_pannel(t_info *handle)
+void	create_pannel(t_info *handle)
 {
-	int             i;
-	t_visu  v;
+	int		i;
+	t_visu	v;
 
 	i = 0;
 	v = handle->visu;
 	create_bordure(handle->visu, -1);
 	mlx_string_put(v.mlx, v.win, SIZE_SCREEN + PANNEL_SIZE / 5
-			, SIZE_SCREEN - 40, YELLOW, SIGNATURE);
+		, SIZE_SCREEN - 40, YELLOW, SIGNATURE);
 	mlx_string_put(v.mlx, v.win, SIZE_SCREEN + 70, 30, WHITE, TXT_ESC);
 	mlx_string_put(v.mlx, v.win, SIZE_SCREEN + 70, 55, WHITE, TXT_SPACE);
 	mlx_string_put(v.mlx, v.win, SIZE_SCREEN + 70, 160, WHITE, TXT_N_ANT);

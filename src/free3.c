@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 06:37:05 by akremer           #+#    #+#             */
-/*   Updated: 2019/11/11 06:38:12 by akremer          ###   ########.fr       */
+/*   Updated: 2019/11/13 18:59:19 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int			free_handle(t_info *handle)
 	free_graph(handle->graph);
 	free_print(handle);
 	free_best(handle);
+	while (1)
+		;
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: lyhamrou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 13:20:40 by lyhamrou          #+#    #+#             */
-/*   Updated: 2019/10/02 20:22:27 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/11/13 20:02:22 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,20 +74,26 @@ int		pars_room(t_info *handle, char **buf, int start, int end)
 		i = ft_intchr(*buf, "-");
 		if (i != -1 && check_less(handle, *buf, 0) == 0)
 			return (start == 1 && end == 1 ? 1 : 0);
-		else if (*buf[0] == 'L' || (i != -1 && check_less(handle, *buf, 0) == -1))
-			return (0);
+		else if (*buf[0] == 'L'
+			|| (i != -1 && check_less(handle, *buf, 0) == -1))
+			return (free_gnl(buf, 0));
 		if (ft_strcmp(*buf, "##start") == 0 || ft_strcmp(*buf, "##end") == 0)
 		{
 			ft_strcmp(*buf, "##end") == 0 ? end++ : start++;
 			ft_strcmp(*buf, "##end") == 0 ? handle->end++ : handle->start++;
+			ft_strdel(buf);
 			continue ;
 		}
 		else if (*buf[0] == '#')
+		{
+			ft_strdel(buf);
 			continue ;
+		}
 		else if (count_arg(*buf) == 0 || start > 1 || end > 1)
-			return (0);
+			return (free_gnl(buf, 0));
 		if (store_the_room(handle, buf, start, end) == 0)
-			return (0);
+			return (free_gnl(buf, 0));
+		ft_strdel(buf);
 	}
 	return (start != 1 || end != 1 ? 0 : 1);
 }

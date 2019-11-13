@@ -6,17 +6,11 @@
 /*   By: lyhamrou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 18:33:21 by lyhamrou          #+#    #+#             */
-/*   Updated: 2019/10/04 19:23:54 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/11/13 18:31:39 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
-
-int		waiting(t_info *h)
-{
-	(void)h;
-	return (1);
-}
 
 int		key_event(int key, t_info *handle)
 {
@@ -60,14 +54,12 @@ void	image_to_screen(t_info *handle, t_visu v, int ant)
 	char	*itoa;
 
 	itoa = ft_itoa(ant + 1);
-//	mlx_do_sync(v.mlx);
 	mlx_put_image_to_window(v.mlx, v.win, v.img2, 0, 0);
 	mlx_put_image_to_window(v.mlx, v.win, v.img, 0, 0);
 	mlx_put_image_to_window(v.mlx, v.win, v.img5, SIZE_SCREEN + 135, 180);
 	mlx_string_put(v.mlx, v.win, SIZE_SCREEN + 140, 185, WHITE, itoa);
 	put_room_name(handle, v);
 	mlx_put_image_to_window(v.mlx, v.win, v.img4, 0, 0);
-	ft_wait();
 	if (itoa)
 		ft_strdel(&itoa);
 }
@@ -89,7 +81,7 @@ int		visu(t_info *handle, int ant)
 		create_background(handle, handle->visu.y_min, 0);
 		handle->init_visu = 2;
 	}
-	create_movement(handle);
+	create_movement(handle, 0);
 	if (mlx_key_hook(handle->visu.win, key_event, handle) == 0)
 		return (0);
 	return (1);
