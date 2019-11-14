@@ -6,17 +6,18 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 10:26:58 by akremer           #+#    #+#             */
-/*   Updated: 2019/03/19 08:41:27 by akremer          ###   ########.fr       */
+/*   Updated: 2019/11/14 06:04:22 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-void		ft_strdel(char **as)
+int			ft_strdel(char **as)
 {
 	if (as)
 	{
 		free(*as);
 		*as = NULL;
 	}
+	return (4);
 }

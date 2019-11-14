@@ -6,17 +6,15 @@
 /*   By: lyhamrou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/25 17:39:18 by lyhamrou          #+#    #+#             */
-/*   Updated: 2019/11/13 18:58:39 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/11/14 06:13:31 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-t_room	*j_egal_zero(int i, t_room *tmp, t_room *tmp1, t_info *h)
+t_room	*seek_this_room(int i, int j, t_room *tmp1, t_info *h)
 {
-	while (tmp && tmp->index != 0)
-		tmp = tmp->next;
-	while (tmp1 && tmp1->index != h->print.pasu[i][1])
+	while (tmp1 && tmp1->index != h->print.pasu[i][j])
 		tmp1 = tmp1->next;
 	return (tmp1);
 }

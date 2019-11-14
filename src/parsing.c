@@ -6,7 +6,7 @@
 /*   By: lyhamrou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 23:05:21 by lyhamrou          #+#    #+#             */
-/*   Updated: 2019/11/13 17:14:31 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/11/14 05:44:31 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int		count_arg(char *buf)
 	return (arg != 3 ? 0 : 1);
 }
 
-int		check_less(t_info *handle, char *buf, int i)
+int		c(t_info *handle, char *buf, int i)
 {
 	t_room	*tmp;
 

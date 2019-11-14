@@ -6,7 +6,7 @@
 /*   By: lyhamrou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 18:07:40 by lyhamrou          #+#    #+#             */
-/*   Updated: 2019/11/13 19:08:32 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/11/14 05:43:59 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,7 +193,7 @@ typedef struct			s_info
 }						t_info;
 
 int						count_arg(char *str);
-int						check_less(t_info *handle, char *str, int i);
+int						c(t_info *handle, char *str, int i);
 char					*name_of_index(t_info *handle, int index);
 int						index_of_name(t_info *handle, char *str);
 int						parsing(t_info *handle);
@@ -272,6 +272,6 @@ void					create_movement(t_info *handle, int f);
 void					push_swap(t_print *out);
 void					rotate_ants(t_print *out);
 int						key_event(int key, t_info *h);
-t_room					*j_egal_zero(int i, t_room *t, t_room *t1, t_info *h);
+t_room					*seek_this_room(int i, int j, t_room *t1, t_info *h);
 
 #endif

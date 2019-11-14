@@ -6,7 +6,7 @@
 /*   By: lyhamrou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 13:20:40 by lyhamrou          #+#    #+#             */
-/*   Updated: 2019/11/13 20:02:22 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/11/14 06:06:38 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,9 @@ int		pars_room(t_info *handle, char **buf, int start, int end)
 	while (get_next_line(0, buf) > 0)
 	{
 		i = ft_intchr(*buf, "-");
-		if (i != -1 && check_less(handle, *buf, 0) == 0)
+		if (i != -1 && c(handle, *buf, 0) == 0)
 			return (start == 1 && end == 1 ? 1 : 0);
-		else if (*buf[0] == 'L'
-			|| (i != -1 && check_less(handle, *buf, 0) == -1))
+		else if (*buf[0] == 'L' || (i != -1 && c(handle, *buf, 0) == -1))
 			return (free_gnl(buf, 0));
 		if (ft_strcmp(*buf, "##start") == 0 || ft_strcmp(*buf, "##end") == 0)
 		{
@@ -84,11 +83,8 @@ int		pars_room(t_info *handle, char **buf, int start, int end)
 			ft_strdel(buf);
 			continue ;
 		}
-		else if (*buf[0] == '#')
-		{
-			ft_strdel(buf);
+		else if (*buf[0] == '#' && ft_strdel(buf))
 			continue ;
-		}
 		else if (count_arg(*buf) == 0 || start > 1 || end > 1)
 			return (free_gnl(buf, 0));
 		if (store_the_room(handle, buf, start, end) == 0)

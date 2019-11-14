@@ -6,7 +6,7 @@
 /*   By: lyhamrou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 17:17:37 by lyhamrou          #+#    #+#             */
-/*   Updated: 2019/11/13 20:04:10 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/11/14 05:40:35 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,25 +41,20 @@ t_room	*fix_index(t_info *h, int j, int i, int b)
 	tmp1 = h->room;
 	if (j == 0)
 	{
-	//	tmp1 = j_egal_zero(i, tmp, tmp1, h);
 		while (tmp && tmp->index != 0)
 			tmp = tmp->next;
-		while (tmp1 && tmp1->index != h->print.pasu[i][1])
-			tmp1 = tmp1->next;
+		tmp1 = seek_this_room(i, 1, tmp1, h);
 	}
 	else if (j == h->print.pasu[i][0] - 1)
 	{
-		while (tmp && tmp->index != h->print.pasu[i][j])
-			tmp = tmp->next;
+		tmp = seek_this_room(i, j, tmp, h);
 		while (tmp1 && tmp1->index != 1)
 			tmp1 = tmp1->next;
 	}
 	else
 	{
-		while (tmp && tmp->index != h->print.pasu[i][j])
-			tmp = tmp->next;
-		while (tmp1 && tmp1->index != h->print.pasu[i][j + 1])
-			tmp1 = tmp1->next;
+		tmp = seek_this_room(i, j, tmp, h);
+		tmp1 = seek_this_room(i, j + 1, tmp1, h);
 	}
 	return (b == 0 ? tmp : tmp1);
 }
