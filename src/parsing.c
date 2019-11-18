@@ -6,7 +6,7 @@
 /*   By: lyhamrou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 23:05:21 by lyhamrou          #+#    #+#             */
-/*   Updated: 2019/11/18 23:29:23 by akremer          ###   ########.fr       */
+/*   Updated: 2019/11/18 23:57:41 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,13 +112,25 @@ int		parsing(t_info *handle)
 	char	*buf;
 
 	if (ants_number(handle, &buf) == 0)
+	{
+		ft_strdel(&buf);
 		return (0);
+	}
 	if (pars_room(handle, &buf, 0, 0) == 0)
+	{
+		ft_strdel(&buf);
 		return (0);
+	}
 	if (check_room(handle) == 0)
+	{
+		ft_strdel(&buf);
 		return (0);
+	}
 	if (pars_edge(handle, &buf) == 0)
+	{
+		ft_strdel(&buf);
 		return (0);
+	}
 	buf != NULL ? ft_strdel(&buf) : 1;
 	return (1);
 }
