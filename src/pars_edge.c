@@ -6,7 +6,7 @@
 /*   By: lyhamrou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 13:20:49 by lyhamrou          #+#    #+#             */
-/*   Updated: 2019/11/18 23:35:49 by akremer          ###   ########.fr       */
+/*   Updated: 2019/11/18 23:52:31 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static int	check_add_edge(char *buf, t_info *handle)
 	i = ft_strchr(buf, '-') - buf + 1;
 	i = skip_space(buf, i);
 	room2 = buf + i;
-	if (ft_strcmp(room1, room2) == 0)
+	if (ft_strcmp(room1, room2) == 0 && ft_strdel(&room1))
 		return (0);
 	if (edge_exist(handle, room1, room2) == 1 && ft_strdel(&room1))
 		return (0);
@@ -94,6 +94,7 @@ int			pars_edge(t_info *handle, char **buf)
 		return (0);
 	if (check_add_edge(*buf, handle) == 0)
 		return (free_gnl(buf, 0));
+	ft_printf("WECH ALORS : %s\n", *buf);
 	ft_strdel(buf);
 	while (get_next_line(0, buf) > 0)
 	{
