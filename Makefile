@@ -6,13 +6,13 @@
 #    By: akremer <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/20 15:44:50 by akremer           #+#    #+#              #
-#    Updated: 2019/11/14 05:58:47 by akremer          ###   ########.fr        #
+#    Updated: 2019/11/14 06:39:07 by akremer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = lem-in
 
-FLAGS = -Wall -Werror -Wextra
+#FLAGS = -Wall -Werror -Wextra
 
 LD_LIBS = -lftprintf -L libft/
 

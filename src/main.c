@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 13:48:04 by akremer           #+#    #+#             */
-/*   Updated: 2019/11/13 18:40:54 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/11/18 23:25:37 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ static int		handle_freezer(t_info *handle, int boul)
 		free(tmp->name);
 		free(tmp);
 	}
+	while (1)
+		;
 	return (EXIT_SUCCESS);
 }
 
