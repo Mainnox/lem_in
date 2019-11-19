@@ -6,7 +6,7 @@
 /*   By: lyhamrou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 18:07:40 by lyhamrou          #+#    #+#             */
-/*   Updated: 2019/11/19 01:20:06 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/11/19 03:41:01 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -273,5 +273,6 @@ void					push_swap(t_print *out);
 void					rotate_ants(t_print *out);
 int						key_event(int key, t_info *h);
 t_room					*seek_this_room(int i, int j, t_room *t1, t_info *h);
+int						store_ants_number(t_info *handle, char **buf, int i);
 
 #endif

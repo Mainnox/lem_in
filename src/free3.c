@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 06:37:05 by akremer           #+#    #+#             */
-/*   Updated: 2019/11/19 01:21:13 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/11/19 03:45:20 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int			free_handle(t_info *handle)
 	free_graph(handle->graph);
 	free_print(handle);
 	free_best(handle);
-	system("leaks lem-in");
 	return (1);
 }
 
@@ -39,7 +38,6 @@ void		free_at_combo(t_info *handle)
 	free_room(handle);
 	free_path(handle);
 	free_graph(handle->graph);
-	system("leaks lem-in");
 	quick_kill();
 }
 

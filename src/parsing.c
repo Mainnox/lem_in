@@ -6,7 +6,7 @@
 /*   By: lyhamrou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 23:05:21 by lyhamrou          #+#    #+#             */
-/*   Updated: 2019/11/19 03:25:22 by akremer          ###   ########.fr       */
+/*   Updated: 2019/11/19 03:44:52 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ int		check_room(t_info *handle)
 int		ants_number(t_info *handle, char **buf)
 {
 	int		i;
-//	char	*tmp;
 
 	i = 0;
 	if (get_next_line(0, buf) != 1 || ft_strlen(*buf) == 0)
@@ -95,25 +94,10 @@ int		ants_number(t_info *handle, char **buf)
 		*buf[0] == '#' ? free(*buf) : 1;
 		get_next_line(0, buf);
 	}
-//	*buf = tmp;
-//	tmp ? free(tmp) : 1;
 	*buf = *buf + skip_space(*buf, 0);
 	if (*buf[i] == '+')
 		++i;
-	if (*buf[i] >= '0' && *buf[i] <= '9')
-	{
-		if (ft_atoi(*buf) != ft_atol(*buf)
-			|| (handle->nb_ants = ft_atoi(*buf)) <= 0
-			|| (long)handle->nb_ants != ft_atol(*buf))
-		{
-		ft_strdel(buf);
-			return (0);
-		}
-		ft_strdel(buf);
-		return (1);
-	}
-		ft_strdel(buf);
-	return (0);
+	return (store_ants_number(handle, buf, i));
 }
 
 int		parsing(t_info *handle)
@@ -122,11 +106,7 @@ int		parsing(t_info *handle)
 
 	buf = NULL;
 	if (ants_number(handle, &buf) == 0)
-	{
-	//	if (buf)
-	//		ft_strdel(&buf);
 		return (0);
-	}
 	if (pars_room(handle, &buf, 0, 0) == 0)
 	{
 		if (buf)
