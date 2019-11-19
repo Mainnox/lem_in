@@ -6,13 +6,21 @@
 /*   By: lyhamrou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 13:20:40 by lyhamrou          #+#    #+#             */
-/*   Updated: 2019/11/18 23:26:40 by akremer          ###   ########.fr       */
+/*   Updated: 2019/11/19 02:26:01 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void	affect_index(t_info *handle, int start, int end, t_room *room)
+static int	free_name(t_room *room)
+{
+	ft_strdel(&room->name);
+	if (room)
+		free(room);
+	return (0);
+}
+
+void		affect_index(t_info *handle, int start, int end, t_room *room)
 {
 	if (handle->start == 1 && start == 1)
 	{
@@ -28,7 +36,7 @@ void	affect_index(t_info *handle, int start, int end, t_room *room)
 		room->index = handle->i++;
 }
 
-void	room_to_handle(t_room *room, t_info *handle, t_room *tmp)
+void		room_to_handle(t_room *room, t_info *handle, t_room *tmp)
 {
 	if (handle->room == NULL)
 		handle->room = room;
@@ -41,7 +49,7 @@ void	room_to_handle(t_room *room, t_info *handle, t_room *tmp)
 	}
 }
 
-int		store_the_room(t_info *handle, char **buf, int start, int end)
+int			store_the_room(t_info *handle, char **buf, int start, int end)
 {
 	int		i;
 	t_room	*room;
@@ -58,14 +66,19 @@ int		store_the_room(t_info *handle, char **buf, int start, int end)
 	i = skip_word(*buf, i);
 	i = skip_space(*buf, i);
 	room->x = ft_atoi(*buf + i);
+	if (skip_word(*buf, i) != ft_nbrlen_clas(room->x) + i)
+		return (free_name(room));
 	i = skip_word(*buf, i);
+	i = skip_space(*buf, i);
 	room->y = ft_atoi(*buf + i);
+	if (skip_word(*buf, i) != ft_nbrlen_clas(room->y) + i)
+		return (free_name(room));
 	room_to_handle(room, handle, tmp);
 	handle->nb_room++;
 	return (1);
 }
 
-int		pars_room(t_info *handle, char **buf, int start, int end)
+int			pars_room(t_info *handle, char **buf, int start, int end)
 {
 	int		i;
 

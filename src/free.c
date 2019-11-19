@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 09:49:03 by akremer           #+#    #+#             */
-/*   Updated: 2019/11/14 06:13:42 by akremer          ###   ########.fr       */
+/*   Updated: 2019/11/19 01:15:19 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@ void	free_combo(t_info *handle)
 	i = 0;
 	while (i < handle->graph->tab_neigh[1].nb_path)
 	{
-		free(handle->graph->combo[i]);
+		if (handle->graph->combo[i])
+			free(handle->graph->combo[i]);
 		i++;
 	}
-	free(handle->graph->combo);
+	if (handle->graph->combo)
+		free(handle->graph->combo);
 }
 
 void	free_room(t_info *handle)

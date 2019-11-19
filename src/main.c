@@ -6,7 +6,7 @@
 /*   By: akremer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 13:48:04 by akremer           #+#    #+#             */
-/*   Updated: 2019/11/18 23:55:00 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/11/19 01:40:03 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static int		handle_freezer(t_info *handle, int boul)
 	t_room *tmp;
 
 	if (boul == 0)
-		ft_printf("ERROR\n");
+		ft_putstr_fd("ERROR\n", 2);
 	while (handle->room)
 	{
 		tmp = handle->room;

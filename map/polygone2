@@ -1,0 +1,43 @@
+#salut
+27
+##start
+start 0 5
+##end
+end 50 5
+s2 10 -20
+s3 10 0
+s4 10 20
+s5 20 5
+s6 20 30
+s7 25 20
+s8 25 -15
+s9 30 0
+sa 40 15
+sb 35 -20
+sc 35 30
+sd 45 20
+start-s2
+start-s3
+start-s4
+s2-sb
+s2-s3
+s2-s5
+s3-s5
+s4-s5
+s4-s7
+s4-s6
+s5-s8
+s5-s9
+s7-s9
+s7-sa
+s7-s6
+s6-sc
+sb-end
+s8-end
+s8-s9
+s9-end
+s9-sa
+sa-end
+sa-sc
+sc-sd
+sd-end

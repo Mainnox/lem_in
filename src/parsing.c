@@ -6,7 +6,7 @@
 /*   By: lyhamrou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 23:05:21 by lyhamrou          #+#    #+#             */
-/*   Updated: 2019/11/18 23:57:41 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/11/19 02:06:22 by lyhamrou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,11 +88,11 @@ int		ants_number(t_info *handle, char **buf)
 		return (0);
 	while (tmp[0] == '#')
 	{
+		tmp[0] == '#' ? free(tmp) : 1;
 		get_next_line(0, &tmp);
-		*buf = ft_strdup(tmp);
 	}
 	*buf = tmp;
-	free(tmp);
+	tmp ? free(tmp) : 1;
 	*buf = *buf + skip_space(*buf, 0);
 	if (*buf[i] == '+')
 		++i;
@@ -111,9 +111,9 @@ int		parsing(t_info *handle)
 {
 	char	*buf;
 
+	buf = NULL;
 	if (ants_number(handle, &buf) == 0)
 	{
-		ft_strdel(&buf);
 		return (0);
 	}
 	if (pars_room(handle, &buf, 0, 0) == 0)
@@ -126,9 +126,10 @@ int		parsing(t_info *handle)
 		ft_strdel(&buf);
 		return (0);
 	}
-	if (pars_edge(handle, &buf) == 0)
+	if (!buf || pars_edge(handle, &buf) == 0)
 	{
-		ft_strdel(&buf);
+		if (buf)
+			ft_strdel(&buf);
 		return (0);
 	}
 	buf != NULL ? ft_strdel(&buf) : 1;
