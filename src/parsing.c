@@ -6,7 +6,7 @@
 /*   By: lyhamrou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 23:05:21 by lyhamrou          #+#    #+#             */
-/*   Updated: 2019/11/19 02:06:22 by lyhamrou         ###   ########.fr       */
+/*   Updated: 2019/11/19 03:25:22 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,18 +81,22 @@ int		check_room(t_info *handle)
 int		ants_number(t_info *handle, char **buf)
 {
 	int		i;
-	char	*tmp;
+//	char	*tmp;
 
 	i = 0;
-	if (get_next_line(0, &tmp) != 1 || ft_strlen(tmp) == 0)
-		return (0);
-	while (tmp[0] == '#')
+	if (get_next_line(0, buf) != 1 || ft_strlen(*buf) == 0)
 	{
-		tmp[0] == '#' ? free(tmp) : 1;
-		get_next_line(0, &tmp);
+		if (*buf)
+			free(*buf);
+		return (0);
 	}
-	*buf = tmp;
-	tmp ? free(tmp) : 1;
+	while (*buf[0] == '#')
+	{
+		*buf[0] == '#' ? free(*buf) : 1;
+		get_next_line(0, buf);
+	}
+//	*buf = tmp;
+//	tmp ? free(tmp) : 1;
 	*buf = *buf + skip_space(*buf, 0);
 	if (*buf[i] == '+')
 		++i;
@@ -101,9 +105,14 @@ int		ants_number(t_info *handle, char **buf)
 		if (ft_atoi(*buf) != ft_atol(*buf)
 			|| (handle->nb_ants = ft_atoi(*buf)) <= 0
 			|| (long)handle->nb_ants != ft_atol(*buf))
+		{
+		ft_strdel(buf);
 			return (0);
+		}
+		ft_strdel(buf);
 		return (1);
 	}
+		ft_strdel(buf);
 	return (0);
 }
 
@@ -114,11 +123,14 @@ int		parsing(t_info *handle)
 	buf = NULL;
 	if (ants_number(handle, &buf) == 0)
 	{
+	//	if (buf)
+	//		ft_strdel(&buf);
 		return (0);
 	}
 	if (pars_room(handle, &buf, 0, 0) == 0)
 	{
-		ft_strdel(&buf);
+		if (buf)
+			ft_strdel(&buf);
 		return (0);
 	}
 	if (check_room(handle) == 0)
@@ -128,8 +140,7 @@ int		parsing(t_info *handle)
 	}
 	if (!buf || pars_edge(handle, &buf) == 0)
 	{
-		if (buf)
-			ft_strdel(&buf);
+		ft_strdel(&buf);
 		return (0);
 	}
 	buf != NULL ? ft_strdel(&buf) : 1;

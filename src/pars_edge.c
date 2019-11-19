@@ -6,7 +6,7 @@
 /*   By: lyhamrou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 13:20:49 by lyhamrou          #+#    #+#             */
-/*   Updated: 2019/11/18 23:52:31 by akremer          ###   ########.fr       */
+/*   Updated: 2019/11/19 03:27:56 by akremer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ int			pars_edge(t_info *handle, char **buf)
 		return (0);
 	if (check_add_edge(*buf, handle) == 0)
 		return (free_gnl(buf, 0));
-	ft_printf("WECH ALORS : %s\n", *buf);
 	ft_strdel(buf);
 	while (get_next_line(0, buf) > 0)
 	{
